@@ -351,37 +351,37 @@ public class DaFrontUtil19035after {
 								continue;
 							}
 
-							// // 历史匹配过滤3个--此匹配过滤太多，慎用
-							// boolean pipei3FilerFlag = false;
-							// if (filters != null) {
-							// for (Iterator<FrontBall> iterator = filters.iterator(); iterator.hasNext();)
-							// {
-							// FrontBall exactObj = (FrontBall) iterator.next();
-							// int ex1 = exactObj.getFrontBall1();
-							// int ex2 = exactObj.getFrontBall2();
-							// int ex3 = exactObj.getFrontBall3();
-							// int ex4 = exactObj.getFrontBall4();
-							// int ex5 = exactObj.getFrontBall5();
-							// if ((ex1 == t1 && ex2 == t2 && ex3 == t3) || (ex2 == t2 && ex3 == t3 && ex4
-							// == t4)
-							// || (ex3 == t3 && ex4 == t4 && ex5 == t5)) {
-							// pipei3FilerFlag = true;
-							// if ((1 == t1 && 4 == t2 && 7 == t3) || (4 == t2 && 7 == t3 && 11 == t4)
-							// || (7 == t3 && 11 == t4 && 30 == t5)) {
-							// // System.out.println(
-							// // "精确匹配3个过滤-已出：" + ex1 + "," + ex2 + "," + ex3 + "," + ex4 + "," + ex5);
-							// // System.out.println(
-							// // "精确匹配3个过滤-当前：" + t1 + "," + t2 + "," + t3 + "," + t4 + "," + t5);
-							//
-							// }
-							// break;
-							// }
-							// }
-							// }
-							// if (pipei3FilerFlag) {
-							// pipei3FilerCount++;
-							// continue;
-							// }
+							 // 历史匹配过滤3个--此匹配过滤太多，慎用
+							 boolean pipei3FilerFlag = false;
+							 if (filterHists != null) {
+							 for (Iterator<FrontBall> iterator = filterHists.iterator(); iterator.hasNext();)
+							 {
+							 FrontBall exactObj = (FrontBall) iterator.next();
+							 int ex1 = exactObj.getFrontBall1();
+							 int ex2 = exactObj.getFrontBall2();
+							 int ex3 = exactObj.getFrontBall3();
+							 int ex4 = exactObj.getFrontBall4();
+							 int ex5 = exactObj.getFrontBall5();
+							 if ((ex1 == t1 && ex2 == t2 && ex3 == t3) || (ex2 == t2 && ex3 == t3 && ex4
+							 == t4)
+							 || (ex3 == t3 && ex4 == t4 && ex5 == t5)) {
+							 pipei3FilerFlag = true;
+							 if ((1 == t1 && 4 == t2 && 7 == t3) || (4 == t2 && 7 == t3 && 11 == t4)
+							 || (7 == t3 && 11 == t4 && 30 == t5)) {
+							 // System.out.println(
+							 // "精确匹配3个过滤-已出：" + ex1 + "," + ex2 + "," + ex3 + "," + ex4 + "," + ex5);
+							 // System.out.println(
+							 // "精确匹配3个过滤-当前：" + t1 + "," + t2 + "," + t3 + "," + t4 + "," + t5);
+							
+							 }
+							 break;
+							 }
+							 }
+							 }
+							 if (pipei3FilerFlag) {
+							 pipei3FilerCount++;
+							 continue;
+							 }
 
 							if (oddLimit == 4) {// 去除4个奇数
 								if ((t1 % 2 == 1 && t2 % 2 == 1 && t3 % 2 == 1 && t4 % 2 == 1)
