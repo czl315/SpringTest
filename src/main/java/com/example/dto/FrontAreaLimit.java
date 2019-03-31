@@ -7,6 +7,8 @@ package com.example.dto;
  *
  */
 public class FrontAreaLimit {
+	
+	private int lianLimit;
 
 	/**
 	 * 前区
@@ -48,6 +50,13 @@ public class FrontAreaLimit {
 	 * 前区
 	 */
 	private int f5Max;
+	
+	public int getLianLimit() {
+		return lianLimit;
+	}
+	public void setLianLimit(int lianLimit) {
+		this.lianLimit = lianLimit;
+	}
 	public int getF1Min() {
 		return f1Min;
 	}

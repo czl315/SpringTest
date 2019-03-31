@@ -78,6 +78,7 @@ public class DaFrontHis {
 	 */
 	public static List<FrontBall> frontBall2007to2019(int limitCount) {
 		List<FrontBall> frontBalls = new ArrayList<FrontBall>();
+		List<FrontBall> frontBalls2019 = DaFrontHis.frontBall2019(200);
 		List<FrontBall> frontBalls2018 = DaFrontHis.frontBall2018(200);
 		List<FrontBall> frontBalls2017 = DaFrontHis.frontBall2017(200);
 		List<FrontBall> frontBalls2016 = DaFrontHis.frontBall2016(200);
@@ -90,6 +91,7 @@ public class DaFrontHis {
 		List<FrontBall> frontBalls2009 = frontBall2009(200);
 		List<FrontBall> frontBalls2008 = frontBall2008(200);
 		List<FrontBall> frontBalls2007 = frontBall2007(200);
+		frontBalls.addAll(frontBalls2019);
 		frontBalls.addAll(frontBalls2018);
 		frontBalls.addAll(frontBalls2017);
 		frontBalls.addAll(frontBalls2016);
@@ -105,7 +107,7 @@ public class DaFrontHis {
 
 		return frontBalls;
 	}
-
+	
 	/**
 	 * 获取最近n个区结果
 	 * 
@@ -423,6 +425,54 @@ public class DaFrontHis {
 				rs.add(new FrontBall(3, 6, 7, 8, 21));
 			if (i == 154)
 				rs.add(new FrontBall(14, 22, 23, 26, 30));
+		}
+
+		return rs;
+	}
+
+
+	/**
+	 * 获取最近n个区结果
+	 * 
+	 * @param limitCount
+	 * @return
+	 */
+	public static List<FrontBall> frontBall2019(int limitCount) {
+		List<FrontBall> rs = new ArrayList<FrontBall>();
+		for (int i = 1; i <= limitCount; i++) {
+			if (i == 1) rs.add(new FrontBall(6,18,23,26,28));
+			if (i == 2) rs.add(new FrontBall(2,7,14,22,31));
+			if (i == 3) rs.add(new FrontBall(4,8,18,20,32));
+			if (i == 4) rs.add(new FrontBall(15,16,17,31,32));
+			if (i == 5) rs.add(new FrontBall(21,26,27,29,34));
+			if (i == 6) rs.add(new FrontBall(14,17,19,25,30));
+			if (i == 7) rs.add(new FrontBall(3,12,16,29,32));
+			if (i == 8) rs.add(new FrontBall(3,8,17,20,24));
+			if (i == 9) rs.add(new FrontBall(3,9,15,18,26));
+			if (i == 10) rs.add(new FrontBall(3,7,24,25,27));
+			if (i == 11) rs.add(new FrontBall(4,12,13,16,17));
+			if (i == 12) rs.add(new FrontBall(5,9,17,18,19));
+			if (i == 13) rs.add(new FrontBall(8,10,15,17,18));
+			if (i == 14) rs.add(new FrontBall(12,14,20,28,31));
+			if (i == 15) rs.add(new FrontBall(2,5,10,13,30));
+			if (i == 16) rs.add(new FrontBall(3,5,13,16,28));
+			if (i == 17) rs.add(new FrontBall(1,5,7,22,25));
+			if (i == 18) rs.add(new FrontBall(3,18,19,26,34));
+			if (i == 19) rs.add(new FrontBall(4,11,19,25,32));
+			if (i == 20) rs.add(new FrontBall(1,8,16,27,34));
+			if (i == 21) rs.add(new FrontBall(7,13,17,24,33));
+			if (i == 22) rs.add(new FrontBall(1,4,14,15,21));
+			if (i == 23) rs.add(new FrontBall(1,3,14,26,30));
+			if (i == 24) rs.add(new FrontBall(11,17,19,29,33));
+			if (i == 25) rs.add(new FrontBall(6,13,16,19,29));
+			if (i == 26) rs.add(new FrontBall(10,12,15,17,19));
+			if (i == 27) rs.add(new FrontBall(16,18,24,25,27));
+			if (i == 28) rs.add(new FrontBall(6,22,28,29,33));
+			if (i == 29) rs.add(new FrontBall(1,4,18,24,28));
+			if (i == 30) rs.add(new FrontBall(7,9,13,14,33));
+			if (i == 31) rs.add(new FrontBall(3,8,21,26,33));
+			if (i == 32) rs.add(new FrontBall(1,4,7,11,30));
+//			if (i == 33) rs.add(new FrontBall(1,2,4,16,24));
 		}
 
 		return rs;
