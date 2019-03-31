@@ -14,21 +14,14 @@ import com.example.dto.FrontBall;
  * 
  * @author admin
  */
-public class DaFrontUtil19034 {
+public class DaFrontUtil19035before {
 
 	/**
 	 * @param args
 	 */
 	public static void main(String[] args) {
-		int[] curBalls = { 8, 12, 15, 27, 30 };// 当期2019034：历史频率4错30；历史模糊3错；前一大限7；
-		// 当期2019033；验证通过：历史模糊4；奇数4；
-		// int[] curBalls = { 1, 2, 4, 16, 24 };// 当期2019033；4偶；上期1,4；最近20高频；和值85;2连号;
-		// int[] curBalls = { 4, 8, 18, 20, 32 };// 当期2019003；5偶；过滤错误32(历史频率第3)；
-		// int[] curBalls = { 7, 9, 13, 14, 33 };// 当期2019030
-		// 过滤错误33(历史频率第2)；去除2连；4个奇数；历史匹配4个;和值76
-		// int[] curBalls = { 3, 8, 21, 26, 33 };// 当期2019031 过滤错误33(历史频率第2)；最大跨度30
-		// int[] curBalls = { 1, 4, 7, 11, 30 }; // 当期2019032
-		// 过滤错误30(历史频率第5)；和值=53;历史匹配过滤3个
+		int[] curBalls = { 8, 12, 15, 27, 30 };// 当期2019035:
+		// int[] curBalls = { 8, 12, 15, 27, 30 };// 当期2019034：历史频率4错30；历史模糊3错；前一大限7；
 
 		int lianLimit = 2;// 去除2连
 		int sumMinLimit = 80;// 2018年前区和值：40以下-0；5X-8；6X-11；7X=12；8X=31；9X=29；10X=22；11X=20；12X=5；13X=4；14X=2；
@@ -39,11 +32,8 @@ public class DaFrontUtil19034 {
 		int fenqu5Max = 22;// 三分区，t5不能小于
 		int oddLimit = 4;// 奇数限定
 		int evenLimit = 4;// 偶数限定
-		// int[] filtersLast = { 1, 4, 18, 24, 28 };// 过滤上期2019029
-		// int[] filtersLast = { 7, 9, 13,14,33 };// 过滤上期2019030
-		// int[] filtersLast = { 3, 8, 21, 26, 33 };// 过滤上期2019031
-		int[] filtersLast = {};// 过滤上期201903
-		int[] filtersAdjoin = { 3 };// 过滤3adjoin
+		int[] filtersLast = { 8, 12, 15, 27, 30 };// 过滤上期201903
+		int[] filtersAdjoin = { 14 };// 过滤3adjoin
 		int[] filtersLast100 = { 3, 7, 14 };// 过滤Last100 int[] filtersLast100 = { 3, 7, 14 };
 		int[] filtersLast20 = { 14, 33 };// 过滤Last20 filtersLast20 = {1, 4, 13, 14, 16,
 											// 17, 18, 19, 28, 33};{ 1, 4, 14, 33 };
@@ -61,8 +51,9 @@ public class DaFrontUtil19034 {
 		FrontAreaLimit frontAreaLimit = new FrontAreaLimit();
 		frontAreaLimit = null;
 		frontAreaLimit = new FrontAreaLimit();
+		frontAreaLimit.setLianLimit(lianLimit);// 连号数量限定
 		frontAreaLimit.setF1Min(1);
-		frontAreaLimit.setF1Max(9);// 11
+		frontAreaLimit.setF1Max(7);// 11
 		frontAreaLimit.setF2Min(4);
 		frontAreaLimit.setF2Max(22);
 		frontAreaLimit.setF3Min(10);
@@ -72,8 +63,8 @@ public class DaFrontUtil19034 {
 		frontAreaLimit.setF5Min(25);
 		frontAreaLimit.setF5Max(35);
 
-		List<FrontBall> frontBalls = DaFrontHis.frontBall2007to2019(5000);// history
-		System.out.println("历史过滤frontBalls个数：" + frontBalls.size());
+		List<FrontBall> filterHists = DaFrontHis.frontBall2007to2019(5000);// history全过滤4个以上；历史100过滤3个；历史10过滤2个
+		System.out.println("历史过滤frontBalls个数：" + filterHists.size());
 
 		for (int i = 0; i < filtersMost.length; i++) {
 			if (i == 0) {
@@ -118,7 +109,7 @@ public class DaFrontUtil19034 {
 		// sumMinLimit, sumMaxLimit, frontBalls,
 		// filterBalls, kuaduMin, kuaduMax);// 精确匹配多个
 
-		List<FrontBall> combs = combNolian(curBall, lianLimit, sumMinLimit, sumMaxLimit, frontBalls, filterBalls,
+		List<FrontBall> combs = combNolian(curBall, lianLimit, sumMinLimit, sumMaxLimit, filterHists, filterBalls,
 				kuaduMin, kuaduMax, fenqu1Min, fenqu5Max, oddLimit, evenLimit, frontAreaLimit);// 精确匹配多个
 
 		System.out.println(
@@ -135,9 +126,9 @@ public class DaFrontUtil19034 {
 			// System.out.println(f1 + "," + f2 + "," + f3 + "," + f4 + "," + f5 + " + ");//
 			// 前区出球
 			if (f1 == yuce1 && f2 == yuce2) {
-				// System.out.println(f1 + "," + f2 + "," + f3 + "," + f4 + "," + f5 + " + ");//
+//				 System.out.println(f1 + "," + f2 + "," + f3 + "," + f4 + "," + f5 + " + ");//
 			} else {
-				// System.out.println(f1 + "," + f2 + "," + f3 + "," + f4 + "," + f5 + " + ");//
+				 System.out.println(f1 + "," + f2 + "," + f3 + "," + f4 + "," + f5 + " + ");//
 			}
 			yuce1 = f1;
 			yuce2 = f2;
@@ -146,13 +137,13 @@ public class DaFrontUtil19034 {
 				// 中5球
 				if (curBalls[0] == f1 && curBalls[1] == f2 && curBalls[2] == f3 && curBalls[3] == f4
 						&& curBalls[4] == f5) {
-					// System.out.println("5球全中！！！！！！！！");
+					System.out.println("5球全中！！！！！！！！");
 					yes5++;
 				}
 				// 中4球
 				if ((curBalls[0] == f1 && curBalls[1] == f2 && curBalls[2] == f3 && curBalls[3] == f4)
 						|| (curBalls[1] == f2 && curBalls[2] == f3 && curBalls[3] == f4 && curBalls[4] == f5)) {
-					// System.out.println("4球中!!!!");
+					 System.out.println("4球中!!!!");
 					yes4++;
 				}
 				// 中3球
@@ -170,6 +161,14 @@ public class DaFrontUtil19034 {
 				+ "===" + yes5 * 10000);
 		System.out.println("，合计：" + (yes3 * 5 + yes4 * 100 + yes5 * 10000));
 
+		// 当期2019033；验证通过：历史模糊4；奇数4；
+		// int[] curBalls = { 1, 2, 4, 16, 24 };// 当期2019033；4偶；上期1,4；最近20高频；和值85;2连号;
+		// int[] curBalls = { 4, 8, 18, 20, 32 };// 当期2019003；5偶；过滤错误32(历史频率第3)；
+		// int[] curBalls = { 7, 9, 13, 14, 33 };// 当期2019030
+		// 过滤错误33(历史频率第2)；去除2连；4个奇数；历史匹配4个;和值76
+		// int[] curBalls = { 3, 8, 21, 26, 33 };// 当期2019031 过滤错误33(历史频率第2)；最大跨度30
+		// int[] curBalls = { 1, 4, 7, 11, 30 }; // 当期2019032
+		// 过滤错误30(历史频率第5)；和值=53;历史匹配过滤3个
 	}
 
 	/**
@@ -180,7 +179,7 @@ public class DaFrontUtil19034 {
 	 * @return
 	 */
 	private static List<FrontBall> combNolian(FrontBall curBall, int lianLimit, int sumMinLimit, int sumMaxLimit,
-			List<FrontBall> filters, int[] filter, int kuaduMin, int kuaduMax, int fenqu1Min, int fenqu5Max,
+			List<FrontBall> filterHists, int[] filter, int kuaduMin, int kuaduMax, int fenqu1Min, int fenqu5Max,
 			int oddLimit, int evenLimit, FrontAreaLimit frontAreaLimit) {
 		int front1limit = 35, front2limit = 35, front3limit = 35, front4limit = 35, front5limit = 35;
 		// int allCount = 0;// 个数
@@ -324,8 +323,8 @@ public class DaFrontUtil19034 {
 							// }
 
 							boolean pipei4FilerFlag = false;// 精确匹配过滤4个
-							if (filters != null) {
-								for (Iterator<FrontBall> iterator = filters.iterator(); iterator.hasNext();) {
+							if (filterHists != null) {
+								for (Iterator<FrontBall> iterator = filterHists.iterator(); iterator.hasNext();) {
 									FrontBall exactObj = (FrontBall) iterator.next();
 									int ex1 = exactObj.getFrontBall1();
 									int ex2 = exactObj.getFrontBall2();
