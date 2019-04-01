@@ -33,12 +33,20 @@ public class DaFrontUtil1903600 {
 		int kuaduMax = 30;// 最大跨度
 		int oddLimit = 4;// 奇数限定
 		int evenLimit = 4;// 偶数限定
+		
+		SortedSet<Integer> setFilters = new TreeSet<Integer>();// 过滤
 		int[] filtersLast = { 1, 3, 5, 7, 18 };// 过滤上期201903
 		int[] filtersAdjoin = { 6 };// 过滤3adjoin
-		int[] filtersLast100 = { 7,14 };// 过滤Last100 int[] filtersLast100 = { 7,14,3,16,18 };
-		int[] filtersLast20 = { 14, 33 };// 过滤Last20 filtersLast20 = {8 };
-		int[] filtersMost = { 29, 32, 33 };// 出现总次数：29=349；33=336；35=322；32=321；30=312；35遗漏39期处于历史峰值
-		SortedSet<Integer> setFilters = new TreeSet<Integer>();// 过滤
+//		int[] filtersLast100 = { 7,14 };// 过滤Last100 int[] filtersLast100 = { 7,14,3,16,18 };
+//		for (int i = 0; i < filtersLast100.length; i++) {
+//			setFilters.add(filtersLast100[i]);
+//		}
+//		int[] filtersLast20 = { 14, 33 };// 过滤Last20 filtersLast20 = {8 };
+//		for (int i = 0; i < filtersLast20.length; i++) {
+//			setFilters.add(filtersLast20[i]);
+//		}
+		int[] filtersLastCool100 = { 35,23,20,31 };// 遗漏次数：35=42；23=34；20=21；31=21
+		int[] filtersMost = { 29, 33,35 };// 出现总次数：29=349；33=336；35=322；32=321；30=312；35遗漏39期处于历史峰值
 
 		FrontBall curBall = new FrontBall();
 		curBall.setFrontBall1(curBalls[0]);
@@ -87,12 +95,11 @@ public class DaFrontUtil1903600 {
 		for (int i = 0; i < filtersAdjoin.length; i++) {
 			setFilters.add(filtersAdjoin[i]);
 		}
-		for (int i = 0; i < filtersLast100.length; i++) {
-			setFilters.add(filtersLast100[i]);
+		
+		for (int i = 0; i < filtersLastCool100.length; i++) {
+			setFilters.add(filtersLastCool100[i]);
 		}
-		for (int i = 0; i < filtersLast20.length; i++) {
-			setFilters.add(filtersLast20[i]);
-		}
+		
 		Object[] filtersObj = (Object[]) setFilters.toArray();
 		int[] filterBalls = new int[filtersObj.length];
 		System.out.print("过滤号码：");
@@ -128,7 +135,7 @@ public class DaFrontUtil1903600 {
 			if (f1 == yuce1 && f2 == yuce2) {
 				// System.out.println(f1 + "," + f2 + "," + f3 + "," + f4 + "," + f5 + " + ");//
 			} else {
-				// System.out.println(f1 + "," + f2 + "," + f3 + "," + f4 + "," + f5 + " + ");//
+				 System.out.println(f1 + "," + f2 + "," + f3 + "," + f4 + "," + f5 + " + ");//
 			}
 			yuce1 = f1;
 			yuce2 = f2;
