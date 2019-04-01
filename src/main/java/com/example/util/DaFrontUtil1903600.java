@@ -23,7 +23,7 @@ public class DaFrontUtil1903600 {
 		// 当期2019035:yes:lianLimit2345;sumMaxLimit = 100;kuaduMin = 16;kuaduMax = 30;
 		// 当期2019035:no:sumMinLimit = 80(30);oddLimit = 4(5);filtersLast100 = { 3, 7, 14
 		// }(14);
-		int[] curBalls = { 1, 3, 5, 7, 18 };
+		int[] curBalls = { 1, 3, 5, 7, 18 }; 
 		// int[] curBalls = { 8, 12, 15, 27, 30 };// 当期2019034：历史频率4错30；历史模糊3错；前一大限7；
 
 		int lianLimit = 2;// 去除2连
