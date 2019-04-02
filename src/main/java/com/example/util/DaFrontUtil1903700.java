@@ -21,20 +21,15 @@ public class DaFrontUtil1903700 {
 	 */
 	public static void main(String[] args) {
 		// 当期2019036：过滤上期{3}
-		int[] curBalls = { 3, 9, 21, 28, 30 };
-		FrontBall curBall = new FrontBall();
-		curBall.setFrontBall1(curBalls[0]);
-		curBall.setFrontBall2(curBalls[1]);
-		curBall.setFrontBall3(curBalls[2]);
-		curBall.setFrontBall4(curBalls[3]);
-		curBall.setFrontBall5(curBalls[4]);
+		// int[] curBalls = { 3, 9, 21, 28, 30 };
+		FrontBall curBall = new FrontBall(3, 9, 21, 28, 30);
 
 		// 每个范围限定
 		FrontAreaLimit frontAreaLimit = new FrontAreaLimit();
 		frontAreaLimit = null;
 		frontAreaLimit = new FrontAreaLimit();
 		frontAreaLimit.setLianLimit(3);// 连号数量限定：
-		
+
 		frontAreaLimit.setF1Min(1);
 		frontAreaLimit.setF1Max(7);// 11
 		frontAreaLimit.setF2Min(4);
@@ -138,28 +133,27 @@ public class DaFrontUtil1903700 {
 			if (f1 == yuce1 && f2 == yuce2) {
 				// System.out.println(f1 + "," + f2 + "," + f3 + "," + f4 + "," + f5 + " + ");//
 			} else {
-				 System.out.println(f1 + "," + f2 + "," + f3 + "," + f4 + "," + f5 + " + ");//
+				System.out.println(f1 + "," + f2 + "," + f3 + "," + f4 + "," + f5 + " + ");//
 			}
 			yuce1 = f1;
 			yuce2 = f2;
 
-			if (curBalls != null && curBalls.length > 0) {
+			if (curBall != null) {
+				int c1 = curBall.getFrontBall1(), c2 = curBall.getFrontBall2(), c3 = curBall.getFrontBall3(),
+						c4 = curBall.getFrontBall4(), c5 = curBall.getFrontBall5();
 				// 中5球
-				if (curBalls[0] == f1 && curBalls[1] == f2 && curBalls[2] == f3 && curBalls[3] == f4
-						&& curBalls[4] == f5) {
+				if (c1 == f1 && c2 == f2 && c3 == f3 && c4 == f4 && c5 == f5) {
 					System.out.println("5球全中！！！！！！！！");
 					yes5++;
 				}
 				// 中4球
-				if ((curBalls[0] == f1 && curBalls[1] == f2 && curBalls[2] == f3 && curBalls[3] == f4)
-						|| (curBalls[1] == f2 && curBalls[2] == f3 && curBalls[3] == f4 && curBalls[4] == f5)) {
+				if ((c1 == f1 && c2 == f2 && c3 == f3 && c4 == f4) || (c2 == f2 && c3 == f3 && c4 == f4 && c5 == f5)) {
 					System.out.println("4球中!!!!");
 					yes4++;
 				}
 				// 中3球
-				if ((curBalls[0] == f1 && curBalls[1] == f2 && curBalls[2] == f3)
-						|| (curBalls[1] == f2 && curBalls[2] == f3 && curBalls[3] == f4)
-						|| (curBalls[2] == f3 && curBalls[3] == f4 && curBalls[4] == f5)) {
+				if ((c1 == f1 && c2 == f2 && c3 == f3) || (c2 == f2 && c3 == f3 && c4 == f4)
+						|| (c3 == f3 && c4 == f4 && c5 == f5)) {
 					// System.out.println("3球中!!!");
 					yes3++;
 				}
