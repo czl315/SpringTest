@@ -76,19 +76,19 @@ public class DaFrontHis {
 	 */
 	public static List<FrontBall> frontBall2007to2019(int limitCount) {
 		List<FrontBall> frontBalls = new ArrayList<FrontBall>();
-		List<FrontBall> frontBalls2019 = DaFrontHis.frontBall2019(200);
-		List<FrontBall> frontBalls2018 = DaFrontHis.frontBall2018(200);
-		List<FrontBall> frontBalls2017 = DaFrontHis.frontBall2017(200);
-		List<FrontBall> frontBalls2016 = DaFrontHis.frontBall2016(200);
-		List<FrontBall> frontBalls2015 = DaFrontHis.frontBall2015(200);
-		List<FrontBall> frontBalls2014 = DaFrontHis.frontBall2014(200);
-		List<FrontBall> frontBalls2013 = DaFrontHis.frontBall2013(200);
-		List<FrontBall> frontBalls2012 = frontBall2012(200);
-		List<FrontBall> frontBalls2011 = frontBall2011(200);
-		List<FrontBall> frontBalls2010 = frontBall2010(200);
-		List<FrontBall> frontBalls2009 = frontBall2009(200);
-		List<FrontBall> frontBalls2008 = frontBall2008(200);
-		List<FrontBall> frontBalls2007 = frontBall2007(200);
+		List<FrontBall> frontBalls2019 = DaFrontHis.frontBall2019(160);
+		List<FrontBall> frontBalls2018 = DaFrontHis.frontBall2018(160);
+		List<FrontBall> frontBalls2017 = DaFrontHis.frontBall2017(160);
+		List<FrontBall> frontBalls2016 = DaFrontHis.frontBall2016(160);
+		List<FrontBall> frontBalls2015 = DaFrontHis.frontBall2015(160);
+		List<FrontBall> frontBalls2014 = DaFrontHis.frontBall2014(160);
+		List<FrontBall> frontBalls2013 = DaFrontHis.frontBall2013(160);
+		List<FrontBall> frontBalls2012 = frontBall2012(160);
+		List<FrontBall> frontBalls2011 = frontBall2011(160);
+		List<FrontBall> frontBalls2010 = frontBall2010(160);
+		List<FrontBall> frontBalls2009 = frontBall2009(160);
+		List<FrontBall> frontBalls2008 = frontBall2008(160);
+		List<FrontBall> frontBalls2007 = frontBall2007(160);
 		frontBalls.addAll(frontBalls2019);
 		frontBalls.addAll(frontBalls2018);
 		frontBalls.addAll(frontBalls2017);
@@ -186,6 +186,8 @@ public class DaFrontHis {
 				rs.add(new FrontBall(1, 2, 4, 16, 24));
 			if (i == 35)
 				rs.add(new FrontBall(1, 3, 5, 7, 18));
+			if (i == 36)
+				rs.add(new FrontBall(3, 9, 21, 28, 30));
 		}
 
 		return rs;

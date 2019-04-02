@@ -7,7 +7,9 @@ package com.example.dto;
  *
  */
 public class FrontAreaLimit {
-	
+	/**
+	 * 去除连号
+	 */
 	private int lianLimit;
 
 	/**
