@@ -11,7 +11,14 @@ public class FrontAreaLimit {
 	 * 去除连号
 	 */
 	private int lianLimit;
-
+	/**
+	 * 和值最小
+	 */
+	private int sumMinLimit ;// 2018年前区和值：40以下-0；5X-8；6X-11；7X=12；8X=31；9X=29；10X=22；11X=20；12X=5；13X=4；14X=2；
+	/**
+	 * 和值最大
+	 */
+	private int sumMaxLimit ;
 	/**
 	 * 前区
 	 */
@@ -118,5 +125,17 @@ public class FrontAreaLimit {
 	}
 	public void setF5Max(int f5Max) {
 		this.f5Max = f5Max;
+	}
+	public int getSumMinLimit() {
+		return sumMinLimit;
+	}
+	public void setSumMinLimit(int sumMinLimit) {
+		this.sumMinLimit = sumMinLimit;
+	}
+	public int getSumMaxLimit() {
+		return sumMaxLimit;
+	}
+	public void setSumMaxLimit(int sumMaxLimit) {
+		this.sumMaxLimit = sumMaxLimit;
 	}
 }
