@@ -6,8 +6,6 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 
-import com.example.bak.DaBack2018;
-import com.example.bak.DaBack2019;
 import com.example.dto.BackBall;
 
 /**
@@ -72,13 +70,13 @@ public class DaBackUtil {
 		}
 		int[] cishuCounts = new int[10];// 出现次数
 		for (String key : pinlvMap.keySet()) {
-			for (int i = 1; i <= 1; i++) {
+			for (int i = 1; i <= 10; i++) {
 				if (pinlvMap.get(key) == i) {// 仅出现n次
 //					System.out.println(key + ":" + pinlvMap.get(key));
 					System.out.println(key + ":" + pinlvMap.get(key));
 					if (i == 1) {
 						int count2019Limit = 0;//限定最近期过滤
-						int limit2019Max = 30;//限定最近期过滤
+						int limit2019Max = 40;//限定最近期过滤
 						for (Iterator iterator = lastBackBalls2019.iterator(); iterator.hasNext();) {
 							BackBall backBall = (BackBall) iterator.next();
 							String last = backBall.getBackBall1()+","+backBall.getBackBall2();
@@ -103,7 +101,7 @@ public class DaBackUtil {
 			}
 		}
 		for (int i = 0; i < cishuCounts.length; i++) {
-//			System.out.println("cishu["+i+"]:" + cishuCounts[i]);
+			System.out.println("cishu["+i+"]:" + cishuCounts[i]);
 		}
 	}
 

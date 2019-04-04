@@ -113,8 +113,22 @@ public class DaBack2019 {
 				rs2019.add(new BackBall(2, 3));
 			}
 			if (i == 30) {
-//				rs2019.add(new BackBall(3, 12));
+				rs2019.add(new BackBall(2, 4));
 			}
+			if (i == 31) {
+				rs2019.add(new BackBall(4,5 ));
+			}
+			if (i == 32) {
+				rs2019.add(new BackBall(7,8 ));
+			}
+			if (i == 33) {
+				rs2019.add(new BackBall(7, 9));
+			}
+			if (i == 34) rs2019.add(new BackBall(1, 2));
+			if (i == 35) rs2019.add(new BackBall(8, 9));
+			if (i == 36) rs2019.add(new BackBall(1, 12));
+			if (i == 37) rs2019.add(new BackBall(4, 8));
+			
 		}
 
 		return rs2019;
