@@ -22,14 +22,14 @@ public class DaFrontUtil1903900 {
 	public static void main(String[] args) {
 		// 当期2019038：过滤上期{16}
 		FrontBall curBall = new FrontBall(5, 11, 16, 18, 27);
-		int[] filtersLast = { 6, 26, 33, 35 };// 过滤上期201903
+		int[] filtersLast = { 5, 11, 16, 18, 27 };// 过滤上期201903
 
 		// 每个范围限定
 		FrontAreaLimit frontAreaLimit = new FrontAreaLimit();
 		frontAreaLimit = null;
 		frontAreaLimit = new FrontAreaLimit();
 		frontAreaLimit.setLianLimit(2);// 连号数量限定：
-		frontAreaLimit.setSumMinLimit(70);// 2018年前区和值：40以下-0；5X-8；6X-11；7X=12；8X=31；9X=29；10X=22；11X=20；12X=5；13X=4；14X=2；
+		frontAreaLimit.setSumMinLimit(80);// 2018年前区和值：40以下-0；5X-8；6X-11；7X=12；8X=31；9X=29；10X=22；11X=20；12X=5；13X=4；14X=2；
 		frontAreaLimit.setSumMaxLimit(90);// 40-150=154（全）；80-110=82；80-90=31；90-100=29；80-100=60；
 		// int sumMinLimit = 100;
 		// int sumMaxLimit = 105;
@@ -51,7 +51,7 @@ public class DaFrontUtil1903900 {
 
 		SortedSet<Integer> setFilters = new TreeSet<Integer>();// 过滤
 		
-		int[] filtersAdjoin = {};// 过滤3adjoin
+		int[] filtersAdjoin = {4,28};// 过滤3adjoin
 		// int[] filtersLast100 = { 7,14 };// 过滤Last100 int[] filtersLast100 = {
 		// 7,14,3,16,18 };
 		// for (int i = 0; i < filtersLast100.length; i++) {
