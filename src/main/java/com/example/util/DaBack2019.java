@@ -128,6 +128,10 @@ public class DaBack2019 {
 			if (i == 35) rs2019.add(new BackBall(8, 9));
 			if (i == 36) rs2019.add(new BackBall(1, 12));
 			if (i == 37) rs2019.add(new BackBall(4, 8));
+			if (i == 38) rs2019.add(new BackBall(7, 12));
+			if (i == 39) rs2019.add(new BackBall(6, 12));
+			if (i == 40) rs2019.add(new BackBall(1, 3));
+			if (i == 41) rs2019.add(new BackBall(2, 6));
 			
 		}
 

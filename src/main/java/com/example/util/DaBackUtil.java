@@ -7,6 +7,7 @@ import java.util.List;
 import java.util.Map;
 
 import com.example.dto.BackBall;
+import com.example.dto.FrontBall;
 
 /**
  * 后区全部组合
@@ -17,6 +18,8 @@ import com.example.dto.BackBall;
 public class DaBackUtil {
 
 	public static void main(String[] args) {
+		// 当期2019041
+		BackBall curBall = new BackBall(2, 6);
 		int back1limit = 12, back2limit = 12;// 后区第2个2-12,第二个不能小于第一个
 		/**
 		 * 后区所有可能组合
