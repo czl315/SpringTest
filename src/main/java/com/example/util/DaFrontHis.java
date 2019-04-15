@@ -190,8 +190,10 @@ public class DaFrontHis {
 				rs.add(new FrontBall(3, 9, 21, 28, 30));
 			if (i == 37)
 				rs.add(new FrontBall(6, 16, 26, 33, 35));
-//			if (i == 37)
-//				rs.add(new FrontBall(5, 11, 16, 18, 27));
+			if (i == 38) rs.add(new FrontBall(5, 11, 16, 18, 27));
+			if (i == 39) rs.add(new FrontBall(1, 12, 18, 26, 35));
+			if (i == 40) rs.add(new FrontBall(1, 3, 31, 32, 34));
+//			if (i == 41) rs.add(new FrontBall(12, 19, 20, 22, 28));
 			
 		}
 

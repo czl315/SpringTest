@@ -14,7 +14,7 @@ import com.example.dto.FrontBall;
  * 
  * @author admin
  */
-public class DaFrontUtil19042a0 {
+public class DaFrontUtil19042a1 {
 
 	/**
 	 * @param args
@@ -22,6 +22,8 @@ public class DaFrontUtil19042a0 {
 	public static void main(String[] args) {
 		// 当期2019041
 		FrontBall curBall = new FrontBall(12, 19, 20, 22, 28);
+		int c1 = curBall.getFrontBall1(), c2 = curBall.getFrontBall2(), c3 = curBall.getFrontBall3(),
+				c4 = curBall.getFrontBall4(), c5 = curBall.getFrontBall5();
 		int[] filtersLast = {12, 19, 20, 22, 28 };// 过滤上期
 
 		// 每个范围限定
@@ -126,8 +128,6 @@ public class DaFrontUtil19042a0 {
 		int yes3 = 0;// 3球中
 		int yuce1 = 0, yuce2 = 0;// 预测
 
-		int c1 = curBall.getFrontBall1(), c2 = curBall.getFrontBall2(), c3 = curBall.getFrontBall3(),
-				c4 = curBall.getFrontBall4(), c5 = curBall.getFrontBall5();
 		System.out.println("当期和值===" + (c1 + c2 + c3 + c4 + c5));
 
 		for (Iterator<FrontBall> iterator = combs.iterator(); iterator.hasNext();) {

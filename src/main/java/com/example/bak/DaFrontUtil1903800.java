@@ -1,4 +1,4 @@
-package com.example.util;
+package com.example.bak;
 
 import java.util.ArrayList;
 import java.util.Iterator;
@@ -8,50 +8,50 @@ import java.util.TreeSet;
 
 import com.example.dto.FrontAreaLimit;
 import com.example.dto.FrontBall;
+import com.example.util.DaFrontHis;
 
 /**
  * 后区全部组合个数：324632
  * 
  * @author admin
  */
-public class DaFrontUtil1904001 {
+public class DaFrontUtil1903800 {
 
 	/**
 	 * @param args
 	 */
 	public static void main(String[] args) {
-		// 当期2019038：过滤上期{16}
-		FrontBall curBall = new FrontBall(1, 3, 31, 32, 34);
-		int[] filtersLast = {  12, 18, 26 };// 过滤上期201903
+		// 当期2019036：过滤上期{3}
+		FrontBall curBall = new FrontBall(6, 16, 26, 33, 35);
 
 		// 每个范围限定
 		FrontAreaLimit frontAreaLimit = new FrontAreaLimit();
 		frontAreaLimit = null;
 		frontAreaLimit = new FrontAreaLimit();
-		frontAreaLimit.setLianLimit(3);// 连号数量限定：
-		frontAreaLimit.setSumMinLimit(85);// 2018年前区和值：40以下-0；5X-8；6X-11；7X=12；8X=31；9X=29；10X=22；11X=20；12X=5；13X=4；14X=2；
-		frontAreaLimit.setSumMaxLimit(110);// 40-150=154（全）；80-110=82；80-90=31；90-100=29；80-100=60；
-		// int sumMinLimit = 100;
-		// int sumMaxLimit = 105;
+		frontAreaLimit.setLianLimit(2);// 连号数量限定：
+		frontAreaLimit.setSumMinLimit(80);// 2018年前区和值：40以下-0；5X-8；6X-11；7X=12；8X=31；9X=29；10X=22；11X=20；12X=5；13X=4；14X=2；
+		frontAreaLimit.setSumMaxLimit(90);// 40-150=154（全）；80-110=82；80-90=31；90-100=29；80-100=60；
+//		int sumMinLimit = 100;
+//		int sumMaxLimit = 105;
 
 		frontAreaLimit.setF1Min(1);
 		frontAreaLimit.setF1Max(7);// 11
-		frontAreaLimit.setF2Min(2);
+		frontAreaLimit.setF2Min(4);
 		frontAreaLimit.setF2Max(22);
 		frontAreaLimit.setF3Min(10);
-		frontAreaLimit.setF3Max(33);
+		frontAreaLimit.setF3Max(29);
 		frontAreaLimit.setF4Min(18);
 		frontAreaLimit.setF4Max(33);
 		frontAreaLimit.setF5Min(25);
 		frontAreaLimit.setF5Max(35);
 		int kuaduMin = 16;// 最小跨度
-		int kuaduMax = 35;// 最大跨度
+		int kuaduMax = 30;// 最大跨度
 		int oddLimit = 4;// 奇数限定
 		int evenLimit = 4;// 偶数限定
 
 		SortedSet<Integer> setFilters = new TreeSet<Integer>();// 过滤
-		
-		int[] filtersAdjoin = {4,28};// 过滤3adjoin
+		int[] filtersLast = { 6, 16, 26, 33, 35 };// 过滤上期201903
+		int[] filtersAdjoin = {};// 过滤3adjoin
 		// int[] filtersLast100 = { 7,14 };// 过滤Last100 int[] filtersLast100 = {
 		// 7,14,3,16,18 };
 		// for (int i = 0; i < filtersLast100.length; i++) {
@@ -61,8 +61,8 @@ public class DaFrontUtil1904001 {
 		// for (int i = 0; i < filtersLast20.length; i++) {
 		// setFilters.add(filtersLast20[i]);
 		// }
-		int[] filtersLastCool100 = { 23, 20 };// 遗漏次数：35=42；23=34；20=21；31=21
-		int[] filtersMost = { 29};// 出现总次数：29=349；33=336；35=322；32=321；30=312；35遗漏39期处于历史峰值
+		int[] filtersLastCool100 = { 23, 20, 31 };// 遗漏次数：35=42；23=34；20=21；31=21
+		int[] filtersMost = { 29,33,35 };// 出现总次数：29=349；33=336；35=322；32=321；30=312；35遗漏39期处于历史峰值
 
 		List<FrontBall> filterHists = DaFrontHis.frontBall2007to2019(5000);// history全过滤4个以上；历史100过滤3个；历史10过滤2个
 		// System.out.println("历史过滤frontBalls个数：" + filterHists.size());
@@ -118,18 +118,13 @@ public class DaFrontUtil1904001 {
 		// sumMaxLimit, filterHists, filterBalls,
 		// kuaduMin, kuaduMax, oddLimit, evenLimit, frontAreaLimit);// 精确匹配多个
 
-		System.out.println("前区组合限定:" + "no" + frontAreaLimit.getLianLimit() + "连;和值最小" + frontAreaLimit.getSumMinLimit()
-				+ ";最大" + frontAreaLimit.getSumMaxLimit() + ";匹配：" + combs.size());
+		System.out.println("前区组合限定:" + "no" + frontAreaLimit.getLianLimit() + "连;和值最小" + frontAreaLimit.getSumMinLimit()+ ";最大"
+				+ frontAreaLimit.getSumMaxLimit() + ";匹配：" + combs.size());
 
 		int yes5 = 0;// 5球全中
 		int yes4 = 0;// 4球中
 		int yes3 = 0;// 3球中
 		int yuce1 = 0, yuce2 = 0;// 预测
-
-		int c1 = curBall.getFrontBall1(), c2 = curBall.getFrontBall2(), c3 = curBall.getFrontBall3(),
-				c4 = curBall.getFrontBall4(), c5 = curBall.getFrontBall5();
-		System.out.println("当期和值===" + (c1 + c2 + c3 + c4 + c5));
-
 		for (Iterator<FrontBall> iterator = combs.iterator(); iterator.hasNext();) {
 			FrontBall ball = (FrontBall) iterator.next();
 			int f1 = ball.getFrontBall1(), f2 = ball.getFrontBall2(), f3 = ball.getFrontBall3(),
@@ -140,13 +135,14 @@ public class DaFrontUtil1904001 {
 				// System.out.println(f1 + "," + f2 + "," + f3 + "," + f4 + "," + f5 + " + ");//
 			} else {
 				// TODO CZL
-				// System.out.println(f1 + "," + f2 + "," + f3 + "," + f4 + "," + f5 + " +
-				// ");//S
+				 System.out.println(f1 + "," + f2 + "," + f3 + "," + f4 + "," + f5 + " + ");//S
 			}
 			yuce1 = f1;
 			yuce2 = f2;
 
 			if (curBall != null) {
+				int c1 = curBall.getFrontBall1(), c2 = curBall.getFrontBall2(), c3 = curBall.getFrontBall3(),
+						c4 = curBall.getFrontBall4(), c5 = curBall.getFrontBall5();
 				// 中5球
 				if (c1 == f1 && c2 == f2 && c3 == f3 && c4 == f4 && c5 == f5) {
 					System.out.println("5球全中！！！！！！！！");
@@ -728,29 +724,29 @@ public class DaFrontUtil1904001 {
 							// }
 
 							boolean pipei4FilerFlag = false;// 精确匹配过滤4个
-//							if (filterHists != null) {
-//								for (Iterator<FrontBall> iterator = filterHists.iterator(); iterator.hasNext();) {
-//									FrontBall exactObj = (FrontBall) iterator.next();
-//									int ex1 = exactObj.getFrontBall1();
-//									int ex2 = exactObj.getFrontBall2();
-//									int ex3 = exactObj.getFrontBall3();
-//									int ex4 = exactObj.getFrontBall4();
-//									int ex5 = exactObj.getFrontBall5();
-//									if ((ex1 == t1 && ex2 == t2 && ex3 == t3 && ex4 == t4)
-//											|| (ex2 == t2 && ex3 == t3 && ex4 == t4 && ex5 == t5)) {
-//										pipei4FilerFlag = true;
-////										if ((1 == t1 && 3 == t2 && 5 == t3) || (3 == t2 && 5 == t3 && 7 == t4)
-////												|| (5 == t3 && 7 == t4 && 18 == t5)) {
-////											System.out.println("精确匹配4个过滤-已出：" + ex1 + "," + ex2 + "," + ex3 + "," + ex4
-////													+ "," + ex5);
-////											System.out.println(
-////													"精确匹配4个过滤-当前：" + t1 + "," + t2 + "," + t3 + "," + t4 + "," + t5);
-////										}
-//
-//										break;
-//									}
-//								}
-//							}
+							if (filterHists != null) {
+								for (Iterator<FrontBall> iterator = filterHists.iterator(); iterator.hasNext();) {
+									FrontBall exactObj = (FrontBall) iterator.next();
+									int ex1 = exactObj.getFrontBall1();
+									int ex2 = exactObj.getFrontBall2();
+									int ex3 = exactObj.getFrontBall3();
+									int ex4 = exactObj.getFrontBall4();
+									int ex5 = exactObj.getFrontBall5();
+									if ((ex1 == t1 && ex2 == t2 && ex3 == t3 && ex4 == t4)
+											|| (ex2 == t2 && ex3 == t3 && ex4 == t4 && ex5 == t5)) {
+										pipei4FilerFlag = true;
+										if ((1 == t1 && 3 == t2 && 5 == t3) || (3 == t2 && 5 == t3 && 7 == t4)
+												|| (5 == t3 && 7 == t4 && 18 == t5)) {
+											System.out.println("精确匹配4个过滤-已出：" + ex1 + "," + ex2 + "," + ex3 + "," + ex4
+													+ "," + ex5);
+											System.out.println(
+													"精确匹配4个过滤-当前：" + t1 + "," + t2 + "," + t3 + "," + t4 + "," + t5);
+										}
+
+										break;
+									}
+								}
+							}
 							if (pipei4FilerFlag) {
 								pipei4FilerCount++;
 								continue;

@@ -1,4 +1,4 @@
-package com.example.util;
+package com.example.bak;
 
 import java.util.ArrayList;
 import java.util.Iterator;
@@ -8,30 +8,32 @@ import java.util.TreeSet;
 
 import com.example.dto.FrontAreaLimit;
 import com.example.dto.FrontBall;
+import com.example.util.DaFrontHis;
 
 /**
  * 后区全部组合个数：324632
  * 
  * @author admin
  */
-public class DaFrontUtil1903800 {
+public class DaFrontUtil1903901 {
 
 	/**
 	 * @param args
 	 */
 	public static void main(String[] args) {
-		// 当期2019036：过滤上期{3}
-		FrontBall curBall = new FrontBall(6, 16, 26, 33, 35);
+		// 当期2019038：过滤上期{16}
+		FrontBall curBall = new FrontBall(1, 12, 18, 26, 35);
+		int[] filtersLast = { 5, 11, 16,  27 };// 过滤上期201903
 
 		// 每个范围限定
 		FrontAreaLimit frontAreaLimit = new FrontAreaLimit();
 		frontAreaLimit = null;
 		frontAreaLimit = new FrontAreaLimit();
 		frontAreaLimit.setLianLimit(2);// 连号数量限定：
-		frontAreaLimit.setSumMinLimit(80);// 2018年前区和值：40以下-0；5X-8；6X-11；7X=12；8X=31；9X=29；10X=22；11X=20；12X=5；13X=4；14X=2；
-		frontAreaLimit.setSumMaxLimit(90);// 40-150=154（全）；80-110=82；80-90=31；90-100=29；80-100=60；
-//		int sumMinLimit = 100;
-//		int sumMaxLimit = 105;
+		frontAreaLimit.setSumMinLimit(85);// 2018年前区和值：40以下-0；5X-8；6X-11；7X=12；8X=31；9X=29；10X=22；11X=20；12X=5；13X=4；14X=2；
+		frontAreaLimit.setSumMaxLimit(95);// 40-150=154（全）；80-110=82；80-90=31；90-100=29；80-100=60；
+		// int sumMinLimit = 100;
+		// int sumMaxLimit = 105;
 
 		frontAreaLimit.setF1Min(1);
 		frontAreaLimit.setF1Max(7);// 11
@@ -44,13 +46,13 @@ public class DaFrontUtil1903800 {
 		frontAreaLimit.setF5Min(25);
 		frontAreaLimit.setF5Max(35);
 		int kuaduMin = 16;// 最小跨度
-		int kuaduMax = 30;// 最大跨度
+		int kuaduMax = 35;// 最大跨度
 		int oddLimit = 4;// 奇数限定
 		int evenLimit = 4;// 偶数限定
 
 		SortedSet<Integer> setFilters = new TreeSet<Integer>();// 过滤
-		int[] filtersLast = { 6, 16, 26, 33, 35 };// 过滤上期201903
-		int[] filtersAdjoin = {};// 过滤3adjoin
+		
+		int[] filtersAdjoin = {4,28};// 过滤3adjoin
 		// int[] filtersLast100 = { 7,14 };// 过滤Last100 int[] filtersLast100 = {
 		// 7,14,3,16,18 };
 		// for (int i = 0; i < filtersLast100.length; i++) {
@@ -61,7 +63,7 @@ public class DaFrontUtil1903800 {
 		// setFilters.add(filtersLast20[i]);
 		// }
 		int[] filtersLastCool100 = { 23, 20, 31 };// 遗漏次数：35=42；23=34；20=21；31=21
-		int[] filtersMost = { 29,33,35 };// 出现总次数：29=349；33=336；35=322；32=321；30=312；35遗漏39期处于历史峰值
+		int[] filtersMost = { 29, 33};// 出现总次数：29=349；33=336；35=322；32=321；30=312；35遗漏39期处于历史峰值
 
 		List<FrontBall> filterHists = DaFrontHis.frontBall2007to2019(5000);// history全过滤4个以上；历史100过滤3个；历史10过滤2个
 		// System.out.println("历史过滤frontBalls个数：" + filterHists.size());
@@ -117,13 +119,18 @@ public class DaFrontUtil1903800 {
 		// sumMaxLimit, filterHists, filterBalls,
 		// kuaduMin, kuaduMax, oddLimit, evenLimit, frontAreaLimit);// 精确匹配多个
 
-		System.out.println("前区组合限定:" + "no" + frontAreaLimit.getLianLimit() + "连;和值最小" + frontAreaLimit.getSumMinLimit()+ ";最大"
-				+ frontAreaLimit.getSumMaxLimit() + ";匹配：" + combs.size());
+		System.out.println("前区组合限定:" + "no" + frontAreaLimit.getLianLimit() + "连;和值最小" + frontAreaLimit.getSumMinLimit()
+				+ ";最大" + frontAreaLimit.getSumMaxLimit() + ";匹配：" + combs.size());
 
 		int yes5 = 0;// 5球全中
 		int yes4 = 0;// 4球中
 		int yes3 = 0;// 3球中
 		int yuce1 = 0, yuce2 = 0;// 预测
+
+		int c1 = curBall.getFrontBall1(), c2 = curBall.getFrontBall2(), c3 = curBall.getFrontBall3(),
+				c4 = curBall.getFrontBall4(), c5 = curBall.getFrontBall5();
+		System.out.println("当期和值===" + (c1 + c2 + c3 + c4 + c5));
+
 		for (Iterator<FrontBall> iterator = combs.iterator(); iterator.hasNext();) {
 			FrontBall ball = (FrontBall) iterator.next();
 			int f1 = ball.getFrontBall1(), f2 = ball.getFrontBall2(), f3 = ball.getFrontBall3(),
@@ -134,14 +141,13 @@ public class DaFrontUtil1903800 {
 				// System.out.println(f1 + "," + f2 + "," + f3 + "," + f4 + "," + f5 + " + ");//
 			} else {
 				// TODO CZL
-				 System.out.println(f1 + "," + f2 + "," + f3 + "," + f4 + "," + f5 + " + ");//S
+				// System.out.println(f1 + "," + f2 + "," + f3 + "," + f4 + "," + f5 + " +
+				// ");//S
 			}
 			yuce1 = f1;
 			yuce2 = f2;
 
 			if (curBall != null) {
-				int c1 = curBall.getFrontBall1(), c2 = curBall.getFrontBall2(), c3 = curBall.getFrontBall3(),
-						c4 = curBall.getFrontBall4(), c5 = curBall.getFrontBall5();
 				// 中5球
 				if (c1 == f1 && c2 == f2 && c3 == f3 && c4 == f4 && c5 == f5) {
 					System.out.println("5球全中！！！！！！！！");
