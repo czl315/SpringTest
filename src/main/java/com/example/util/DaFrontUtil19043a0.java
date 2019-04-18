@@ -14,7 +14,7 @@ import com.example.dto.FrontBall;
  * 
  * @author admin
  */
-public class DaFrontUtil19042a1 {
+public class DaFrontUtil19043a0 {
 
 	/**
 	 * @param args
@@ -24,16 +24,16 @@ public class DaFrontUtil19042a1 {
 		FrontBall curBall = new FrontBall(4, 10, 13, 28, 33);
 		int c1 = curBall.getFrontBall1(), c2 = curBall.getFrontBall2(), c3 = curBall.getFrontBall3(),
 				c4 = curBall.getFrontBall4(), c5 = curBall.getFrontBall5();
-//		int[] filtersLast = {12, 19, 20, 22, 28 };// 过滤上期 TODO 
-		int[] filtersLast = {12, 19, 20, 22};// 过滤上期
+		System.out.println("当期和值===" + (c1 + c2 + c3 + c4 + c5));
+		int[] filtersLast = {4, 10, 13, 28, 33};// 过滤上期
 
 		// 每个范围限定
 		FrontAreaLimit frontAreaLimit = new FrontAreaLimit();
 		frontAreaLimit = null;
 		frontAreaLimit = new FrontAreaLimit();
 		frontAreaLimit.setLianLimit(2);// 连号数量限定：
-		frontAreaLimit.setSumMinLimit(85);// 2018年前区和值：40以下-0；5X-8；6X-11；7X=12；8X=31；9X=29；10X=22；11X=20；12X=5；13X=4；14X=2；
-		frontAreaLimit.setSumMaxLimit(95);// 40-150=154（全）；80-110=82；80-90=31；90-100=29；80-100=60；
+		frontAreaLimit.setSumMinLimit(75);// 2018年前区和值：40以下-0；5X-8；6X-11；7X=12；8X=31；9X=29；10X=22；11X=20；12X=5；13X=4；14X=2；
+		frontAreaLimit.setSumMaxLimit(85);// 40-150=154（全）；80-110=82；80-90=31；90-100=29；80-100=60；
 		// int sumMinLimit = 100;
 		// int sumMaxLimit = 105;
 
@@ -54,7 +54,7 @@ public class DaFrontUtil19042a1 {
 
 		SortedSet<Integer> setFilters = new TreeSet<Integer>();// 过滤
 		
-		int[] filtersAdjoin = {};// 过滤3adjoin
+		int[] filtersAdjoin3 = {14};// 过滤3adjoin
 		// int[] filtersLast100 = { 7,14 };// 过滤Last100 int[] filtersLast100 = {
 		// 7,14,3,16,18 };
 		// for (int i = 0; i < filtersLast100.length; i++) {
@@ -64,9 +64,9 @@ public class DaFrontUtil19042a1 {
 		// for (int i = 0; i < filtersLast20.length; i++) {
 		// setFilters.add(filtersLast20[i]);
 		// }
-		int[] filtersLastCool100 = { 23, 20 };// 遗漏次数：35=42；23=34；20=21；31=21
-//		int[] filtersMost = { 29,33};// 出现总次数：29=349；33=336；35=322；32=321；30=312；35遗漏39期处于历史峰值 TODO
-		int[] filtersMost = { 29};// 出现总次数：29=349；33=336；35=322；32=321；30=312；35遗漏39期处于历史峰值
+		int[] filtersLastCool100 = { 23, 17 };// 遗漏次数：23=41；17=16；25=15
+		int[] filtersMost = { 29,33};// 出现总次数：29=349；33=338；35=324；32=321；30=312；35遗漏39期处于历史峰值 TODO
+//		int[] filtersMost = { 29};// 出现总次数：29=349；33=336；35=322；32=321；30=312；35遗漏39期处于历史峰值
 
 		List<FrontBall> filterHists = DaFrontHis.frontBall2007to2019(5000);// history全过滤4个以上；历史100过滤3个；历史10过滤2个
 		// System.out.println("历史过滤frontBalls个数：" + filterHists.size());
@@ -89,8 +89,8 @@ public class DaFrontUtil19042a1 {
 				System.out.println("");
 			}
 		}
-		for (int i = 0; i < filtersAdjoin.length; i++) {
-			setFilters.add(filtersAdjoin[i]);
+		for (int i = 0; i < filtersAdjoin3.length; i++) {
+			setFilters.add(filtersAdjoin3[i]);
 		}
 
 		for (int i = 0; i < filtersLastCool100.length; i++) {
@@ -105,49 +105,38 @@ public class DaFrontUtil19042a1 {
 			System.out.print("，" + filterBalls[i]);
 		}
 		System.out.println("】");
-		for (int i = 0; i < filtersObj.length; i++) {
-			if(c1==filterBalls[i]) {
-				System.out.println("当期号码c1错误：" + filterBalls[i]);
-			}
-			if(c2==filterBalls[i]) {
-				System.out.println("当期号码c2错误：" + filterBalls[i]);
-			}
-			if(c3==filterBalls[i]) {
-				System.out.println("当期号码c3错误：" + filterBalls[i]);
-			}
-			if(c4==filterBalls[i]) {
-				System.out.println("当期号码c4错误：" + filterBalls[i]);
-			}
-			if(c5==filterBalls[i]) {
-				System.out.println("当期号码c5错误：" + filterBalls[i]);
-			}
-		}
-
-		// List<FrontBall> combsNo2LianMax90Min100ex1 = combNolian(lianLimit,
-		// sumMinLimit, sumMaxLimit, frontBalls,
-		// filterBalls);// 精确匹配多个
-		// List<FrontBall> combsNo2LianMax90Min100ex1 = combNolian(lianLimit,
-		// sumMinLimit, sumMaxLimit, frontBalls,
-		// filterBalls, kuaduMin, kuaduMax);// 精确匹配多个
+//		 过滤号码与当期比较，是否错误 TODO 
+//		for (int i = 0; i < filtersObj.length; i++) {
+//			if(c1==filterBalls[i]) {
+//				System.out.println("当期号码c1错误：" + filterBalls[i]);
+//			}
+//			if(c2==filterBalls[i]) {
+//				System.out.println("当期号码c2错误：" + filterBalls[i]);
+//			}
+//			if(c3==filterBalls[i]) {
+//				System.out.println("当期号码c3错误：" + filterBalls[i]);
+//			}
+//			if(c4==filterBalls[i]) {
+//				System.out.println("当期号码c4错误：" + filterBalls[i]);
+//			}
+//			if(c5==filterBalls[i]) {
+//				System.out.println("当期号码c5错误：" + filterBalls[i]);
+//			}
+//		}
 
 		/**
-		 * 
+		 * 剩余组合
 		 */
 		List<FrontBall> combs = combNolian(curBall, filterHists, filterBalls, kuaduMin, kuaduMax, oddLimit, evenLimit,
 				frontAreaLimit);// 精确匹配多个
-		// List<FrontBall> combs = combNolian(curBall, lianLimit, sumMinLimit,
-		// sumMaxLimit, filterHists, filterBalls,
-		// kuaduMin, kuaduMax, oddLimit, evenLimit, frontAreaLimit);// 精确匹配多个
 
 		System.out.println("前区组合限定:" + "no" + frontAreaLimit.getLianLimit() + "连;和值最小" + frontAreaLimit.getSumMinLimit()
-				+ ";最大" + frontAreaLimit.getSumMaxLimit() + ";匹配：" + combs.size());
+				+ ";最大" + frontAreaLimit.getSumMaxLimit() + ";剩余组合：" + combs.size());
 
 		int yes5 = 0;// 5球全中
 		int yes4 = 0;// 4球中
 		int yes3 = 0;// 3球中
 		int yuce1 = 0, yuce2 = 0;// 预测
-
-		System.out.println("当期和值===" + (c1 + c2 + c3 + c4 + c5));
 
 		for (Iterator<FrontBall> iterator = combs.iterator(); iterator.hasNext();) {
 			FrontBall ball = (FrontBall) iterator.next();
@@ -156,10 +145,10 @@ public class DaFrontUtil19042a1 {
 			// System.out.println(f1 + "," + f2 + "," + f3 + "," + f4 + "," + f5 + " + ");//
 			// 前区出球
 			if (f1 == yuce1 && f2 == yuce2) {
-				// System.out.println(f1 + "," + f2 + "," + f3 + "," + f4 + "," + f5 + " + ");//
+//				 System.out.println(f1 + "," + f2 + "," + f3 + "," + f4 + "," + f5 + " + ");//
 			} else {
 				// TODO CZL
-//				 System.out.println(f1 + "," + f2 + "," + f3 + "," + f4 + "," + f5 + " +");
+				 System.out.println(f1 + "," + f2 + "," + f3 + "," + f4 + "," + f5 + " +");
 			}
 			yuce1 = f1;
 			yuce2 = f2;
@@ -989,7 +978,7 @@ public class DaFrontUtil19042a1 {
 		System.out.println("  每个范围限定t5小于：" + f5limtMinCount);
 		System.out.println("  每个范围限定t5大于：" + f5limtMaxCount);
 
-		System.out.println("  剩余个数：" + balls.size());
+//		System.out.println("  剩余个数：" + balls.size());
 		return balls;
 	}
 
