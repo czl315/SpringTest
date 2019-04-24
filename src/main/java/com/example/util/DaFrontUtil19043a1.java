@@ -6,7 +6,7 @@ import java.util.List;
 import java.util.SortedSet;
 import java.util.TreeSet;
 
-import com.example.dto.FrontAreaLimit;
+import com.example.dto.FrontLimit;
 import com.example.dto.FrontBall;
 
 /**
@@ -28,9 +28,9 @@ public class DaFrontUtil19043a1 {
 		int[] filtersLast = {4, 10, 13, 28, 33};// 过滤上期
 
 		// 每个范围限定
-		FrontAreaLimit frontAreaLimit = new FrontAreaLimit();
+		FrontLimit frontAreaLimit = new FrontLimit();
 		frontAreaLimit = null;
-		frontAreaLimit = new FrontAreaLimit();
+		frontAreaLimit = new FrontLimit();
 		frontAreaLimit.setLianLimit(3);// 连号数量限定：
 		frontAreaLimit.setSumMinLimit(35);// 2018年前区和值：40以下-0；5X-8；6X-11；7X=12；8X=31；9X=29；10X=22；11X=20；12X=5；13X=4；14X=2；
 		frontAreaLimit.setSumMaxLimit(85);// 40-150=154（全）；80-110=82；80-90=31；90-100=29；80-100=60；
@@ -144,10 +144,10 @@ public class DaFrontUtil19043a1 {
 			// System.out.println(f1 + "," + f2 + "," + f3 + "," + f4 + "," + f5 + " + ");//
 			// 前区出球
 			if (f1 == yuce1 && f2 == yuce2) {
-//				 System.out.println(f1 + "," + f2 + "," + f3 + "," + f4 + "," + f5 + " + ");//
+				 System.out.println(f1 + "," + f2 + "," + f3 + "," + f4 + "," + f5 + " + ");//
 			} else {
 				// TODO CZL
-//				 System.out.println(f1 + "," + f2 + "," + f3 + "," + f4 + "," + f5 + " +");
+				 System.out.println(f1 + "," + f2 + "," + f3 + "," + f4 + "," + f5 + " +");
 			}
 			yuce1 = f1;
 			yuce2 = f2;
@@ -610,7 +610,7 @@ public class DaFrontUtil19043a1 {
 	 * @return
 	 */
 	private static List<FrontBall> combNolian(FrontBall curBall, List<FrontBall> filterHists, int[] filter,
-			int kuaduMin, int kuaduMax, int oddLimit, int evenLimit, FrontAreaLimit frontAreaLimit) {
+			int kuaduMin, int kuaduMax, int oddLimit, int evenLimit, FrontLimit frontAreaLimit) {
 		int front1limit = 35, front2limit = 35, front3limit = 35, front4limit = 35, front5limit = 35;
 		int sumMinLimit = frontAreaLimit.getSumMinLimit();
 		int sumMaxLimit = frontAreaLimit.getSumMaxLimit();

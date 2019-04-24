@@ -6,7 +6,7 @@ package com.example.dto;
  * @author admin
  *
  */
-public class FrontAreaLimit {
+public class FrontLimit {
 	/**
 	 * 去除连号
 	 */
@@ -59,6 +59,11 @@ public class FrontAreaLimit {
 	 * 前区
 	 */
 	private int f5Max;
+	
+	/**
+	 * 分区5-限定
+	 */
+	private FrontLimitArea5 area5;
 	
 	public int getLianLimit() {
 		return lianLimit;
@@ -137,5 +142,11 @@ public class FrontAreaLimit {
 	}
 	public void setSumMaxLimit(int sumMaxLimit) {
 		this.sumMaxLimit = sumMaxLimit;
+	}
+	public FrontLimitArea5 getArea5() {
+		return area5;
+	}
+	public void setArea5(FrontLimitArea5 area5) {
+		this.area5 = area5;
 	}
 }

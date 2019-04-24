@@ -6,7 +6,7 @@ import java.util.List;
 import java.util.SortedSet;
 import java.util.TreeSet;
 
-import com.example.dto.FrontAreaLimit;
+import com.example.dto.FrontLimit;
 import com.example.dto.FrontBall;
 import com.example.util.DaFrontHis;
 
@@ -50,7 +50,7 @@ public class DaFrontUtil19035before {
 		curBall.setFrontBall5(curBalls[4]);
 
 		// 每个范围限定
-		FrontAreaLimit frontAreaLimit = new FrontAreaLimit();
+		FrontLimit frontAreaLimit = new FrontLimit();
 		frontAreaLimit = null;
 		// frontAreaLimit = new FrontAreaLimit();
 		// frontAreaLimit.setLianLimit(lianLimit);// 连号数量限定
@@ -182,7 +182,7 @@ public class DaFrontUtil19035before {
 	 */
 	private static List<FrontBall> combNolian(FrontBall curBall, int lianLimit, int sumMinLimit, int sumMaxLimit,
 			List<FrontBall> filterHists, int[] filter, int kuaduMin, int kuaduMax, int oddLimit, int evenLimit,
-			FrontAreaLimit frontAreaLimit) {
+			FrontLimit frontAreaLimit) {
 		int front1limit = 35, front2limit = 35, front3limit = 35, front4limit = 35, front5limit = 35;
 		// int allCount = 0;// 个数
 		int lianCount2 = 0;// 连号个数
