@@ -64,7 +64,7 @@ public class DaFrontUtil19046a1 {
 
 		SortedSet<Integer> setFilters = new TreeSet<Integer>();// 过滤
 
-		int[] filtersAdjoin3 = {3,14 };// 过滤3adjoin
+		int[] filtersAdjoin3 = {3 };// 过滤3adjoin
 		// int[] filtersLast100 = { 7,14 };// 过滤Last100 int[] filtersLast100 = {
 		// 7,14,3,16,18 };
 		// for (int i = 0; i < filtersLast100.length; i++) {

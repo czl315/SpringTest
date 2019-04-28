@@ -1,5 +1,8 @@
 
 package com.example.dto;
+
+import java.util.List;
+
 /**
  * 前区-分区5-限定
  * 每个分区不能多于4个
@@ -33,6 +36,11 @@ public class FrontLimitArea5 {
 	 * 每区个数
 	 */
 	private int[] everyAreaCounts;
+	
+	/**
+	 * 每区个数过滤
+	 */
+	private List<int[]> fiterCounts;
 	
 	
 	public int[] getArea1() {
@@ -70,6 +78,12 @@ public class FrontLimitArea5 {
 	}
 	public void setEveryAreaCounts(int[] everyAreaCounts) {
 		this.everyAreaCounts = everyAreaCounts;
+	}
+	public List<int[]> getFiterCounts() {
+		return fiterCounts;
+	}
+	public void setFiterCounts(List<int[]> fiterCounts) {
+		this.fiterCounts = fiterCounts;
 	}
 	
 }
