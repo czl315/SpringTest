@@ -116,6 +116,13 @@ public class DaFrontHis {
 	public static List<FrontBall> frontBall2019(int limitCount) {
 		List<FrontBall> rs = new ArrayList<FrontBall>();
 		for (int i = 1; i <= limitCount; i++) {
+			if (i == 41) rs.add(new FrontBall(12, 19, 20, 22, 28));
+			if (i == 42) rs.add(new FrontBall(4, 10, 13, 28, 33));
+			if (i == 43) rs.add(new FrontBall(2, 6, 7, 12, 15));
+			if (i == 44) rs.add(new FrontBall(3, 6, 10, 12, 31));
+			if (i == 45) rs.add(new FrontBall(1, 4, 16, 19, 33));
+			if (i == 46) rs.add(new FrontBall(2, 8, 14, 15, 35));
+			if (i == 47) rs.add(new FrontBall(3, 4, 10, 16, 32));
 			if (i == 1)
 				rs.add(new FrontBall(6, 18, 23, 26, 28));//历史模糊4；ok；历史模糊3：2009
 			if (i == 2)
