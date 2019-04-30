@@ -23,6 +23,16 @@ public class DaBack2019 {
 	public static List<BackBall> backBallLast2019(int limitCount) {
 		List<BackBall> rs2019 = new ArrayList<BackBall>();
 		for (int i = 1; i <= limitCount; i++) {
+			if (i == 40) rs2019.add(new BackBall(1, 3));
+			if (i == 41) rs2019.add(new BackBall(2, 6));
+			if (i == 42) rs2019.add(new BackBall(11, 12));
+			if (i == 43) rs2019.add(new BackBall(6, 12));
+			if (i == 44) rs2019.add(new BackBall(1, 2));
+			if (i == 45) rs2019.add(new BackBall(3, 12));
+			if (i == 46) rs2019.add(new BackBall(10, 12));
+			if (i == 47) rs2019.add(new BackBall(4, 9));
+			if (i == 48) rs2019.add(new BackBall(5, 11));
+			
 			if (i == 1) {
 				rs2019.add(new BackBall(3, 12));
 			}
@@ -130,8 +140,7 @@ public class DaBack2019 {
 			if (i == 37) rs2019.add(new BackBall(4, 8));
 			if (i == 38) rs2019.add(new BackBall(7, 12));
 			if (i == 39) rs2019.add(new BackBall(6, 12));
-			if (i == 40) rs2019.add(new BackBall(1, 3));
-			if (i == 41) rs2019.add(new BackBall(2, 6));
+			
 			
 		}
 
