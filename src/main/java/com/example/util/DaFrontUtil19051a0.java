@@ -29,8 +29,12 @@ public class DaFrontUtil19051a0 {
 		if (showLast)
 			System.out.println("当期和值===" + (c1 + c2 + c3 + c4 + c5));
 		int[] filtersLast = { 4, 15, 16, 20, 35 };// 过滤上期
-		
+
 		int[] filtersAdjoin3 = { 14 };// 过滤3adjoin-特殊形态
+
+		int[] area5for45 = { 4, 5 };
+		int[] area5for345 = { 3, 4, 5 };
+		int[] tempArea5 = area5for345;
 
 		// 每个范围限定
 		FrontLimit frontLimit = new FrontLimit();
@@ -56,7 +60,7 @@ public class DaFrontUtil19051a0 {
 
 		// 前区-分区5-限定:每个分区不能多于4个
 		FrontLimitArea5 area5 = new FrontLimitArea5();
-		int[] area1 = { 4, 5 }, area2 = { 4, 5 }, area3 = { 4, 5 }, area4 = { 4, 5 }, area55 = { 4, 5 };
+		int[] area1 = tempArea5, area2 = tempArea5, area3 = tempArea5, area4 = tempArea5, area55 = tempArea5;
 		area5.setArea1(area1);
 		area5.setArea2(area2);
 		area5.setArea3(area3);
@@ -215,24 +219,24 @@ public class DaFrontUtil19051a0 {
 					System.out.println("4球中!!!!");
 					yes4++;
 				}
-//				// 中3球
-//				if ((c1 == f1 && c2 == f2 && c3 == f3) || (c1 == f1 && c2 == f2 && c3 == f4)
-//						|| (c1 == f1 && c2 == f2 && c3 == f5) || (c1 == f1 && c2 == f3 && c3 == f4)
-//						|| (c1 == f1 && c2 == f3 && c3 == f5) || (c1 == f1 && c2 == f4 && c3 == f5)
-//						|| (c1 == f1 && c3 == f4 && c4 == f5) || (c1 == f1 && c3 == f2 && c4 == f3)
-//						|| (c1 == f1 && c3 == f2 && c4 == f4) || (c1 == f1 && c3 == f2 && c4 == f5)
-//						|| (c1 == f1 && c3 == f3 && c4 == f4) || (c1 == f1 && c3 == f3 && c4 == f5)
-//						|| (c1 == f1 && c3 == f4 && c4 == f5) || (c1 == f1 && c3 == f4 && c4 == f5)
-//						|| (c1 == f1 && c4 == f2 && c5 == f3) || (c1 == f1 && c4 == f2 && c5 == f4)
-//						|| (c1 == f1 && c4 == f2 && c5 == f5) || (c1 == f1 && c4 == f3 && c5 == f4)
-//						|| (c1 == f1 && c4 == f3 && c5 == f5) || (c1 == f1 && c4 == f4 && c5 == f5)
-//						|| (c1 == f1 && c4 == f4 && c5 == f5) || (c2 == f2 && c3 == f3 && c4 == f4)
-//						|| (c3 == f3 && c4 == f4 && c5 == f5)) {
-//					// System.out.println("3球中!!!");
-//					yes3++;
-//				}
+				// // 中3球
+				// if ((c1 == f1 && c2 == f2 && c3 == f3) || (c1 == f1 && c2 == f2 && c3 == f4)
+				// || (c1 == f1 && c2 == f2 && c3 == f5) || (c1 == f1 && c2 == f3 && c3 == f4)
+				// || (c1 == f1 && c2 == f3 && c3 == f5) || (c1 == f1 && c2 == f4 && c3 == f5)
+				// || (c1 == f1 && c3 == f4 && c4 == f5) || (c1 == f1 && c3 == f2 && c4 == f3)
+				// || (c1 == f1 && c3 == f2 && c4 == f4) || (c1 == f1 && c3 == f2 && c4 == f5)
+				// || (c1 == f1 && c3 == f3 && c4 == f4) || (c1 == f1 && c3 == f3 && c4 == f5)
+				// || (c1 == f1 && c3 == f4 && c4 == f5) || (c1 == f1 && c3 == f4 && c4 == f5)
+				// || (c1 == f1 && c4 == f2 && c5 == f3) || (c1 == f1 && c4 == f2 && c5 == f4)
+				// || (c1 == f1 && c4 == f2 && c5 == f5) || (c1 == f1 && c4 == f3 && c5 == f4)
+				// || (c1 == f1 && c4 == f3 && c5 == f5) || (c1 == f1 && c4 == f4 && c5 == f5)
+				// || (c1 == f1 && c4 == f4 && c5 == f5) || (c2 == f2 && c3 == f3 && c4 == f4)
+				// || (c3 == f3 && c4 == f4 && c5 == f5)) {
+				// // System.out.println("3球中!!!");
+				// yes3++;
+				// }
 				// 中3球
-				int tempCount=0;
+				int tempCount = 0;
 				if ((c1 == f1 || c1 == f2 || c1 == f3 || c1 == f4 || c1 == f5)) {
 					tempCount++;
 				}
@@ -248,7 +252,7 @@ public class DaFrontUtil19051a0 {
 				if ((c5 == f1 || c5 == f2 || c5 == f3 || c5 == f4 || c5 == f5)) {
 					tempCount++;
 				}
-				if(tempCount==3) {
+				if (tempCount == 3) {
 					yes3++;
 				}
 			}
@@ -1320,7 +1324,7 @@ public class DaFrontUtil19051a0 {
 								&& (t4 >= area4Min && t4 <= area4Max)
 								|| ((t3 >= area4Min && t3 <= area4Max) && (t4 >= area4Min && t4 <= area4Max)
 										&& (t5 >= area4Min && t5 <= area4Max)))) {
-					System.out.println("分区4-限定不能有个数3:" + t1 + "," + t2 + "," + t3 + "," + t4 + "," + t5);
+//					System.out.println("分区4-限定不能有个数3:" + t1 + "," + t2 + "," + t3 + "," + t4 + "," + t5);
 					return true;
 				}
 			}
