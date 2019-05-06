@@ -16,7 +16,8 @@ import com.example.dto.FrontBall;
  * @author admin
  */
 public class DaFrontUtil19051a0 {
-	private static boolean showLast = false;
+//	private static boolean showLast = false;
+	private static boolean showLast = true;
 
 	/**
 	 * @param args
@@ -26,15 +27,11 @@ public class DaFrontUtil19051a0 {
 		FrontBall curBall = new FrontBall(4, 15, 16, 20, 35);
 		int c1 = curBall.getFrontBall1(), c2 = curBall.getFrontBall2(), c3 = curBall.getFrontBall3(),
 				c4 = curBall.getFrontBall4(), c5 = curBall.getFrontBall5();
-		if (showLast)
-			System.out.println("当期和值===" + (c1 + c2 + c3 + c4 + c5));
 		int[] filtersLast = { 4, 15, 16, 20, 35 };// 过滤上期
 
 		int[] filtersAdjoin3 = { 14 };// 过滤3adjoin-特殊形态
 
-		int[] area5for45 = { 4, 5 };
-		int[] area5for345 = { 3, 4, 5 };
-		int[] tempArea5 = area5for345;
+		int[] tempArea5 = { 3, 4, 5 };//分区5-过滤3、4、5个
 
 		// 每个范围限定
 		FrontLimit frontLimit = new FrontLimit();
@@ -156,6 +153,8 @@ public class DaFrontUtil19051a0 {
 			System.out.print("，" + filterBalls[i]);
 		}
 		System.out.println("】");
+		if (showLast)
+			System.out.println("当期和值===" + (c1 + c2 + c3 + c4 + c5));
 		// 过滤号码与当期比较，是否错误
 		if (showLast) {
 			for (int i = 0; i < filtersObj.length; i++) {
@@ -196,13 +195,13 @@ public class DaFrontUtil19051a0 {
 			int f1 = ball.getFrontBall1(), f2 = ball.getFrontBall2(), f3 = ball.getFrontBall3(),
 					f4 = ball.getFrontBall4(), f5 = ball.getFrontBall5();
 			if (showLast) {
-				// System.out.println(f1 + "," + f2 + "," + f3 + "," + f4 + "," + f5 + " + ");//
+//				 System.out.println(f1 + "," + f2 + "," + f3 + "," + f4 + "," + f5 + " + ");//
 				// 前区出球
 				if (f1 == yuce1 && f2 == yuce2) {
 					// System.out.println(f1 + "," + f2 + "," + f3 + "," + f4 + "," + f5 + " + ");//
 				} else {
 					// TODO CZL
-					// System.out.println(f1 + "," + f2 + "," + f3 + "," + f4 + "," + f5 + " +");
+					 System.out.println(f1 + "," + f2 + "," + f3 + "," + f4 + "," + f5 + " +");
 				}
 				yuce1 = f1;
 				yuce2 = f2;
