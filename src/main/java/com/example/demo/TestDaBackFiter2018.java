@@ -5,8 +5,7 @@ import java.util.Iterator;
 import java.util.List;
 
 import com.example.dto.BackBall;
-import com.example.util.DaBack2018;
-import com.example.util.DaBack2019;
+import com.example.util.BackHis;
 
 /**
  * 后区全部组合
@@ -31,10 +30,10 @@ public class TestDaBackFiter2018 {
 		 */
 		int limitCount = 1000;
 		List<BackBall> lastBackBalls = new ArrayList<BackBall>();
-		List<BackBall> lastBackBalls2018 = DaBack2018.backBallLast2018(limitCount);
+		List<BackBall> lastBackBalls2018 = BackHis.backBallLast2018(limitCount);
 		System.out.println("获取2018年" + limitCount + "个后区结果size：" + lastBackBalls.size());
 		lastBackBalls.addAll(lastBackBalls2018);
-		List<BackBall> lastBackBalls2019 = DaBack2019.backBallLast2019(limitCount);
+		List<BackBall> lastBackBalls2019 = BackHis.backBallLast2019(limitCount);
 		System.out.println("获取2018年" + limitCount + "个后区结果size：" + lastBackBalls.size());
 
 		for (Iterator<BackBall> iterator = backBalls.iterator(); iterator.hasNext();) {

@@ -31,9 +31,9 @@ public class DaBackUtil {
 		 */
 		int limitCount = 1000;
 		List<BackBall> lastBackBalls = new ArrayList<BackBall>();
-		List<BackBall> lastBackBalls2018 = DaBack2018.backBallLast2018(limitCount);
+		List<BackBall> lastBackBalls2018 = BackHis.backBallLast2018(limitCount);
 //		System.out.println("获取2018年" + limitCount + "个后区结果size：" + lastBackBalls2018.size());
-		List<BackBall> lastBackBalls2019 = DaBack2019.backBallLast2019(limitCount);
+		List<BackBall> lastBackBalls2019 = BackHis.backBallLast2019(limitCount);
 //		System.out.println("获取2019年" + limitCount + "个后区结果size：" + lastBackBalls2019.size());
 		lastBackBalls.addAll(lastBackBalls2018);
 		lastBackBalls.addAll(lastBackBalls2019);
