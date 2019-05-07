@@ -1,4 +1,4 @@
-package com.example.util;
+package com.example.bak;
 
 import java.util.ArrayList;
 import java.util.Iterator;
@@ -8,6 +8,7 @@ import java.util.TreeSet;
 
 import com.example.dto.FrontLimit;
 import com.example.dto.FrontLimitArea5;
+import com.example.util.DaFrontHis;
 import com.example.dto.FrontBall;
 
 /**
@@ -15,7 +16,7 @@ import com.example.dto.FrontBall;
  * 
  * @author admin
  */
-public class DaFrontUtil19048a0 {
+public class DaFrontUtil19047a1 {
 	private static boolean showLast = true;
 
 	/**
@@ -28,18 +29,19 @@ public class DaFrontUtil19048a0 {
 				c4 = curBall.getFrontBall4(), c5 = curBall.getFrontBall5();
 		if (showLast)
 			System.out.println("当期和值===" + (c1 + c2 + c3 + c4 + c5));
-		int[] filtersLast = { 3, 4, 10, 16, 32 };// 过滤上期
+		int[] filtersLast = { 2, 8, 14, 15, 35 };// 过滤上期
 
 		// 每个范围限定
 		FrontLimit frontLimit = new FrontLimit();
-		frontLimit.setLianLimit(2);// 连号数量限定：
+		frontLimit.setLianLimit(3);// 连号数量限定：
+		frontLimit.setSumMinLimit(60);
+		// frontLimit.setSumMinLimit(85);//
 		// 2018年前区和值：40以下-0；5X-8；6X-11；7X=12；8X=31；9X=29；10X=22；11X=20；12X=5；13X=4；14X=2；
-		frontLimit.setSumMinLimit(85);//
 		frontLimit.setSumMaxLimit(95);// 40-150=154（全）；80-110=82；80-90=31；90-100=29；80-100=60；
 
 		frontLimit.setF1Min(1);
 		frontLimit.setF2Min(3);
-		frontLimit.setF3Min(10);
+		frontLimit.setF3Min(9);
 		frontLimit.setF4Min(13);
 		frontLimit.setF5Min(14);
 		frontLimit.setF1Max(7);// 1-7百分比=1240/1819=68.17%
@@ -50,7 +52,7 @@ public class DaFrontUtil19048a0 {
 		int kuaduMin = 1;// 最小跨度
 		int kuaduMax = 33;// 最大跨度
 		int oddLimit = 4;// 奇数限定
-		int evenLimit = 4;// 偶数限定
+		int evenLimit = 5;// 偶数限定
 
 		// 前区-分区5-限定:每个分区不能多于4个
 		FrontLimitArea5 area5 = new FrontLimitArea5();
@@ -66,8 +68,6 @@ public class DaFrontUtil19048a0 {
 		int[] everyAreaCounts11111 = { 1, 1, 1, 1, 1 };
 		fiter5s.add(everyAreaCounts11111);
 		// 过滤分区5-最近n期-5
-		int[] everyAreaCounts121101 = { 2, 1, 1, 0, 1 };
-		fiter5s.add(everyAreaCounts121101);
 		int[] everyAreaCounts12101 = { 1, 2, 1, 0, 1 };
 		fiter5s.add(everyAreaCounts12101);
 		int[] everyAreaCounts20201 = { 2, 0, 2, 0, 1 };
@@ -78,12 +78,13 @@ public class DaFrontUtil19048a0 {
 		fiter5s.add(everyAreaCounts31100);
 		int[] everyAreaCounts12011 = { 1, 2, 0, 1, 1 };
 		fiter5s.add(everyAreaCounts12011);
-		area5.setFiterCounts(fiter5s);
+		 area5.setFiterCounts(fiter5s);
 		frontLimit.setArea5(area5);
 
 		SortedSet<Integer> setFilters = new TreeSet<Integer>();// 过滤
 
-		int[] filtersAdjoin3 = { 4, 17 };// 过滤3adjoin
+		// int[] filtersAdjoin3 = { 3, 14 };// 过滤3adjoin
+		int[] filtersAdjoin3 = { 14 };// 过滤3adjoin
 		System.out.print("[filtersAdjoin3]size():" + filtersAdjoin3.length + "=");
 		for (int i = 0; i < filtersAdjoin3.length; i++) {
 			System.out.print("," + filtersAdjoin3[i]);
@@ -101,8 +102,8 @@ public class DaFrontUtil19048a0 {
 		// for (int i = 0; i < filtersLast20.length; i++) {
 		// setFilters.add(filtersLast20[i]);
 		// }
-		int[] filtersLastCool100 = { 23 };// 遗漏次数：23=41；17=16；25=15
-		int[] filtersMost = { 29 };// 出现总次数：29=349；33=338；35=324；32=321；30=312；35遗漏39期处于历史峰值
+		int[] filtersLastCool100 = { 23, 17 };// 遗漏次数：23=41；17=16；25=15
+		int[] filtersMost = { 29, 33 };// 出现总次数：29=349；33=338；35=324；32=321；30=312；35遗漏39期处于历史峰值
 
 		List<FrontBall> filterHists = DaFrontHis.frontBall2007to2019(5000);// history全过滤4个以上；历史100过滤3个；历史10过滤2个
 		// System.out.println("历史过滤frontBalls个数：" + filterHists.size());
@@ -184,7 +185,7 @@ public class DaFrontUtil19048a0 {
 					// System.out.println(f1 + "," + f2 + "," + f3 + "," + f4 + "," + f5 + " + ");//
 				} else {
 					// TODO CZL
-					 System.out.println(f1 + "," + f2 + "," + f3 + "," + f4 + "," + f5 + " +");
+					// System.out.println(f1 + "," + f2 + "," + f3 + "," + f4 + "," + f5 + " +");
 				}
 				yuce1 = f1;
 				yuce2 = f2;
@@ -1030,8 +1031,8 @@ public class DaFrontUtil19048a0 {
 		// System.out.println(" 每个范围限定t5小于：" + f5limtMinCount);
 		// System.out.println(" 每个范围限定t5大于：" + f5limtMaxCount);
 
-		System.out.println("  分区5每区集中45过滤个数：" + area5EveryCount);
-		System.out.println("  分区5-每区形态个数相同过滤：" + everyAreaCount);
+		System.out.println("  分区5每区过滤个数：" + area5EveryCount);
+		System.out.println("  分区5-每区个数相同过滤：" + everyAreaCount);
 
 		// System.out.println(" 剩余个数：" + balls.size());
 		return balls;

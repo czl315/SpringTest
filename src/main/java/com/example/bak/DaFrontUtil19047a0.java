@@ -1,4 +1,4 @@
-package com.example.util;
+package com.example.bak;
 
 import java.util.ArrayList;
 import java.util.Iterator;
@@ -8,6 +8,7 @@ import java.util.TreeSet;
 
 import com.example.dto.FrontLimit;
 import com.example.dto.FrontLimitArea5;
+import com.example.util.DaFrontHis;
 import com.example.dto.FrontBall;
 
 /**
@@ -15,7 +16,7 @@ import com.example.dto.FrontBall;
  * 
  * @author admin
  */
-public class DaFrontUtil19047a1 {
+public class DaFrontUtil19047a0 {
 	private static boolean showLast = true;
 
 	/**
@@ -23,7 +24,7 @@ public class DaFrontUtil19047a1 {
 	 */
 	public static void main(String[] args) {
 		// 当期2019041
-		FrontBall curBall = new FrontBall(3, 4, 10, 16, 32);
+		FrontBall curBall = new FrontBall(2, 8, 14, 15, 35);
 		int c1 = curBall.getFrontBall1(), c2 = curBall.getFrontBall2(), c3 = curBall.getFrontBall3(),
 				c4 = curBall.getFrontBall4(), c5 = curBall.getFrontBall5();
 		if (showLast)
@@ -32,15 +33,13 @@ public class DaFrontUtil19047a1 {
 
 		// 每个范围限定
 		FrontLimit frontLimit = new FrontLimit();
-		frontLimit.setLianLimit(3);// 连号数量限定：
-		frontLimit.setSumMinLimit(60);
-		// frontLimit.setSumMinLimit(85);//
-		// 2018年前区和值：40以下-0；5X-8；6X-11；7X=12；8X=31；9X=29；10X=22；11X=20；12X=5；13X=4；14X=2；
+		frontLimit.setLianLimit(2);// 连号数量限定：
+		frontLimit.setSumMinLimit(85);// 2018年前区和值：40以下-0；5X-8；6X-11；7X=12；8X=31；9X=29；10X=22；11X=20；12X=5；13X=4；14X=2；
 		frontLimit.setSumMaxLimit(95);// 40-150=154（全）；80-110=82；80-90=31；90-100=29；80-100=60；
 
 		frontLimit.setF1Min(1);
-		frontLimit.setF2Min(3);
-		frontLimit.setF3Min(9);
+		frontLimit.setF2Min(5);
+		frontLimit.setF3Min(13);
 		frontLimit.setF4Min(13);
 		frontLimit.setF5Min(14);
 		frontLimit.setF1Max(7);// 1-7百分比=1240/1819=68.17%
@@ -51,7 +50,7 @@ public class DaFrontUtil19047a1 {
 		int kuaduMin = 1;// 最小跨度
 		int kuaduMax = 33;// 最大跨度
 		int oddLimit = 4;// 奇数限定
-		int evenLimit = 5;// 偶数限定
+		int evenLimit = 4;// 偶数限定
 
 		// 前区-分区5-限定:每个分区不能多于4个
 		FrontLimitArea5 area5 = new FrontLimitArea5();
@@ -77,14 +76,13 @@ public class DaFrontUtil19047a1 {
 		fiter5s.add(everyAreaCounts31100);
 		int[] everyAreaCounts12011 = { 1, 2, 0, 1, 1 };
 		fiter5s.add(everyAreaCounts12011);
-		 area5.setFiterCounts(fiter5s);
+		area5.setFiterCounts(fiter5s);
 		frontLimit.setArea5(area5);
 
 		SortedSet<Integer> setFilters = new TreeSet<Integer>();// 过滤
 
-		// int[] filtersAdjoin3 = { 3, 14 };// 过滤3adjoin
-		int[] filtersAdjoin3 = { 14 };// 过滤3adjoin
-		System.out.print("[filtersAdjoin3]size():" + filtersAdjoin3.length + "=");
+		int[] filtersAdjoin3 = { 3, 14 };// 过滤3adjoin
+		System.out.print("[filtersAdjoin3]size():" + filtersAdjoin3.length+"=");
 		for (int i = 0; i < filtersAdjoin3.length; i++) {
 			System.out.print("," + filtersAdjoin3[i]);
 		}
@@ -125,6 +123,7 @@ public class DaFrontUtil19047a1 {
 				System.out.println("");
 			}
 		}
+		
 
 		for (int i = 0; i < filtersLastCool100.length; i++) {
 			setFilters.add(filtersLastCool100[i]);
@@ -178,13 +177,13 @@ public class DaFrontUtil19047a1 {
 			int f1 = ball.getFrontBall1(), f2 = ball.getFrontBall2(), f3 = ball.getFrontBall3(),
 					f4 = ball.getFrontBall4(), f5 = ball.getFrontBall5();
 			if (showLast) {
-				// System.out.println(f1 + "," + f2 + "," + f3 + "," + f4 + "," + f5 + " + ");//
+//				 System.out.println(f1 + "," + f2 + "," + f3 + "," + f4 + "," + f5 + " + ");//
 				// 前区出球
 				if (f1 == yuce1 && f2 == yuce2) {
 					// System.out.println(f1 + "," + f2 + "," + f3 + "," + f4 + "," + f5 + " + ");//
 				} else {
 					// TODO CZL
-					// System.out.println(f1 + "," + f2 + "," + f3 + "," + f4 + "," + f5 + " +");
+					 System.out.println(f1 + "," + f2 + "," + f3 + "," + f4 + "," + f5 + " +");
 				}
 				yuce1 = f1;
 				yuce2 = f2;
@@ -1057,41 +1056,37 @@ public class DaFrontUtil19047a1 {
 		int area5Min = 29, area5Max = 35;
 
 		List<int[]> list = frontLimitArea5.getFiterCounts();
-		if (list != null) {
+		for (Iterator<int[]> iterator = list.iterator(); iterator.hasNext();) {
+			int[] is = (int[]) iterator.next();
+			int[] everyAreaCounts = is;
+			if (everyAreaCounts != null) {
+				// 分区1-个数：
+				int countArea1 = countArea(tempBall, everyAreaCounts[0], area1Min, area1Max);
+				// if (everyAreaCounts[0] == countArea1 ) {
+				// System.out.println("分区1-个数相同：:" + countArea1);
+				// }
 
-			for (Iterator<int[]> iterator = list.iterator(); iterator.hasNext();) {
-				int[] is = (int[]) iterator.next();
-				int[] everyAreaCounts = is;
-				if (everyAreaCounts != null) {
-					// 分区1-个数：
-					int countArea1 = countArea(tempBall, everyAreaCounts[0], area1Min, area1Max);
-					// if (everyAreaCounts[0] == countArea1 ) {
-					// System.out.println("分区1-个数相同：:" + countArea1);
-					// }
+				// 分区2
+				int countArea2 = countArea(tempBall, everyAreaCounts[1], area2Min, area2Max);
+				// if (everyAreaCounts[1] == countArea2 ) {
+				// System.out.println("分区2-个数相同：:" + countArea1);
+				// }
+				// 分区3
+				int countArea3 = countArea(tempBall, everyAreaCounts[2], area3Min, area3Max);
+				// if (everyAreaCounts[2] == countArea3 ) {
+				// System.out.println("分区3-个数相同：:" + countArea1);
+				// }
+				// 分区4
+				int countArea4 = countArea(tempBall, everyAreaCounts[3], area4Min, area4Max);
+				// 分区5
+				int countArea5 = countArea(tempBall, everyAreaCounts[4], area5Min, area5Max);
 
-					// 分区2
-					int countArea2 = countArea(tempBall, everyAreaCounts[1], area2Min, area2Max);
-					// if (everyAreaCounts[1] == countArea2 ) {
-					// System.out.println("分区2-个数相同：:" + countArea1);
-					// }
-					// 分区3
-					int countArea3 = countArea(tempBall, everyAreaCounts[2], area3Min, area3Max);
-					// if (everyAreaCounts[2] == countArea3 ) {
-					// System.out.println("分区3-个数相同：:" + countArea1);
-					// }
-					// 分区4
-					int countArea4 = countArea(tempBall, everyAreaCounts[3], area4Min, area4Max);
-					// 分区5
-					int countArea5 = countArea(tempBall, everyAreaCounts[4], area5Min, area5Max);
-
-					if (everyAreaCounts[0] == countArea1 && everyAreaCounts[1] == countArea2
-							&& everyAreaCounts[2] == countArea3 && everyAreaCounts[3] == countArea4
-							&& everyAreaCounts[4] == countArea5) {
-						// System.out.println("分区5-每区个数相同:【" + countArea1 + countArea2 + countArea3 +
-						// countArea4 + countArea5
-						// + "】" + t1 + "," + t2 + "," + t3 + "," + t4 + "," + t5);
-						return true;
-					}
+				if (everyAreaCounts[0] == countArea1 && everyAreaCounts[1] == countArea2
+						&& everyAreaCounts[2] == countArea3 && everyAreaCounts[3] == countArea4
+						&& everyAreaCounts[4] == countArea5) {
+//					System.out.println("分区5-每区个数相同:【" + countArea1 + countArea2 + countArea3 + countArea4 + countArea5
+//							+ "】" + t1 + "," + t2 + "," + t3 + "," + t4 + "," + t5);
+					return true;
 				}
 			}
 		}
