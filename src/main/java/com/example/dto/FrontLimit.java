@@ -65,6 +65,11 @@ public class FrontLimit {
 	 */
 	private FrontLimitArea5 area5;
 	
+	/**
+	 * 前区上期
+	 */
+	private FrontLast last;
+	
 	public int getLianLimit() {
 		return lianLimit;
 	}
@@ -148,5 +153,11 @@ public class FrontLimit {
 	}
 	public void setArea5(FrontLimitArea5 area5) {
 		this.area5 = area5;
+	}
+	public FrontLast getLast() {
+		return last;
+	}
+	public void setLast(FrontLast last) {
+		this.last = last;
 	}
 }
