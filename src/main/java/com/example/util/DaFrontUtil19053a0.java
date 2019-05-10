@@ -30,7 +30,7 @@ public class DaFrontUtil19053a0 {
 		FrontBall curBall = new FrontBall(4, 10, 15, 20, 24);
 		int c1 = curBall.getFrontBall1(), c2 = curBall.getFrontBall2(), c3 = curBall.getFrontBall3(),
 				c4 = curBall.getFrontBall4(), c5 = curBall.getFrontBall5();
-		int[] filtersLast = {4, 10, 15, 20, 24};// 过滤上期
+		int[] filtersLast = {};// 过滤上期
 
 		int[] filtersAdjoin3 = { 14, 9, 6 };// 过滤3adjoin-特殊形态;三邻号；遗漏规律重复
 
@@ -222,7 +222,7 @@ public class DaFrontUtil19053a0 {
 					// System.out.println(f1 + "," + f2 + "," + f3 + "," + f4 + "," + f5 + " + ");//
 				} else {
 					// TODO CZL
-//					System.out.println(f1 + "," + f2 + "," + f3 + "," + f4 + "," + f5 + " +");
+					System.out.println(f1 + "," + f2 + "," + f3 + "," + f4 + "," + f5 + " +");
 				}
 				yuce1 = f1;
 				yuce2 = f2;
@@ -1124,7 +1124,7 @@ public class DaFrontUtil19053a0 {
 		System.out.println("  分区5每区集中45过滤个数：" + area5EveryCount);
 		System.out.println("  分区5-每区形态个数相同过滤：" + everyAreaCount);
 
-		System.out.println("  与上期相同的两个号码相同，过滤个数：" + checkLastGe2Rs);
+		System.out.println("  与上期相同的n个号码相同，过滤个数：" + checkLastGe2Rs);
 
 		// System.out.println(" 剩余个数：" + balls.size());
 		return balls;
