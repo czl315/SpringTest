@@ -27,14 +27,14 @@ public class DaFrontUtil19054a1 {
 	 */
 	public static void main(String[] args) {
 		// 当期2019
-		FrontBall curBall = new FrontBall(2,18,23,27,30);
+		FrontBall curBall = new FrontBall(2, 18, 23, 27, 30);
 		int c1 = curBall.getFrontBall1(), c2 = curBall.getFrontBall2(), c3 = curBall.getFrontBall3(),
 				c4 = curBall.getFrontBall4(), c5 = curBall.getFrontBall5();
 		int[] filtersLast = { 1, 11, 19, 26, 35 };// 过滤上期
 		int last1 = filtersLast[0], last2 = filtersLast[1], last3 = filtersLast[2], last4 = filtersLast[3],
 				last5 = filtersLast[4];
 
-		int[] filtersAdjoin3 = { 12, 4,13,29,32 };// 过滤3adjoin-特殊形态;三邻号；遗漏规律重复
+		int[] filtersAdjoin3 = { 12, 4, 13, 29, 32 };// 过滤3adjoin-特殊形态;三邻号；遗漏规律重复
 
 		int[] tempArea5 = { 3, 4, 5 };// 分区5-过滤3、4、5个
 
@@ -142,7 +142,7 @@ public class DaFrontUtil19054a1 {
 		// }
 
 		// 遗漏次数：23=47；17=22；25=21
-		int[] filtersLastCool100 = {  };
+		int[] filtersLastCool100 = {};
 		for (int i = 0; i < filtersLastCool100.length; i++) {
 			if (i == 0) {
 				System.out.print("[Cool100]filter。size():" + filtersLastCool100.length + "=");
@@ -152,7 +152,7 @@ public class DaFrontUtil19054a1 {
 		}
 		System.out.println("");
 
-		int[] filtersMost = { 29};// 出现总次数：29=349；33=338；35=324；32=321；30=312；35遗漏39期处于历史峰值
+		int[] filtersMost = { 29 };// 出现总次数：29=349；33=338；35=324；32=321；30=312；35遗漏39期处于历史峰值
 
 		for (int i = 0; i < filtersMost.length; i++) {
 			if (i == 0) {
@@ -224,7 +224,7 @@ public class DaFrontUtil19054a1 {
 					// System.out.println(f1 + "," + f2 + "," + f3 + "," + f4 + "," + f5 + " + ");//
 				} else {
 					// TODO CZL
-//					 System.out.println(f1 + "," + f2 + "," + f3 + "," + f4 + "," + f5 + " +");
+					// System.out.println(f1 + "," + f2 + "," + f3 + "," + f4 + "," + f5 + " +");
 				}
 				yuce1 = f1;
 				yuce2 = f2;
@@ -233,12 +233,12 @@ public class DaFrontUtil19054a1 {
 			if (curBall != null) {
 				// 中5球
 				if (c1 == f1 && c2 == f2 && c3 == f3 && c4 == f4 && c5 == f5) {
-					System.out.println("5球全中！！！！！！！！"+f1 + "," + f2 + "," + f3 + "," + f4 + "," + f5 + " +");
+					System.out.println("5球全中！！！！！！！！" + f1 + "," + f2 + "," + f3 + "," + f4 + "," + f5 + " +");
 					yes5++;
 				}
 				// 中4球
 				if ((c1 == f1 && c2 == f2 && c3 == f3 && c4 == f4) || (c2 == f2 && c3 == f3 && c4 == f4 && c5 == f5)) {
-					System.out.println("4球中!!!!"+f1 + "," + f2 + "," + f3 + "," + f4 + "," + f5 + " +");
+					System.out.println("4球中!!!!" + f1 + "," + f2 + "," + f3 + "," + f4 + "," + f5 + " +");
 					yes4++;
 				}
 				// 中3球
@@ -914,25 +914,26 @@ public class DaFrontUtil19054a1 {
 							// continue;
 							// }
 
-							boolean checkOddRs= checkOddLimit(tempBall, oddLimit);
+							boolean checkOddRs = checkOddLimit(tempBall, oddLimit);
 							if (checkOddRs) {
 								oddCount++;
 								continue;
 							}
-//							if (oddLimit == 4) {// 去除4个奇数
-//								if ((t1 % 2 == 1 && t2 % 2 == 1 && t3 % 2 == 1 && t4 % 2 == 1)
-//										|| (t2 % 2 == 1 && t3 % 2 == 1 && t4 % 2 == 1 && t5 % 2 == 1)) {
-//									oddCount++;
-//									continue;
-//								}
-//							}
-//							if (oddLimit == 5) {// 去除5个奇数
-//								if (t1 % 2 == 1 && t2 % 2 == 1 && t3 % 2 == 1 && t4 % 2 == 1 && t5 % 2 == 1) {
-//									oddCount++;
-//									continue;
-//								}
-//							}
-							boolean checkEvenRs= checkEvenLimit(tempBall, evenLimit);
+							// if (oddLimit == 4) {// 去除4个奇数
+							// if ((t1 % 2 == 1 && t2 % 2 == 1 && t3 % 2 == 1 && t4 % 2 == 1)
+							// || (t2 % 2 == 1 && t3 % 2 == 1 && t4 % 2 == 1 && t5 % 2 == 1)) {
+							// oddCount++;
+							// continue;
+							// }
+							// }
+							// if (oddLimit == 5) {// 去除5个奇数
+							// if (t1 % 2 == 1 && t2 % 2 == 1 && t3 % 2 == 1 && t4 % 2 == 1 && t5 % 2 == 1)
+							// {
+							// oddCount++;
+							// continue;
+							// }
+							// }
+							boolean checkEvenRs = checkEvenLimit(tempBall, evenLimit);
 							if (checkEvenRs) {
 								evenCount++;
 								continue;
@@ -1078,8 +1079,8 @@ public class DaFrontUtil19054a1 {
 		System.out.println(sumMaxLimit + "  和值限定过滤个数：" + sumMaxCount);
 		System.out.println(sumMinLimit + "  和值限定过滤个数：" + sumMinCount);
 
-		 System.out.println(" 奇数过滤个数：" + oddCount);
-		 System.out.println(" 偶数过滤个数：" + evenCount);
+		System.out.println(" 奇数过滤个数：" + oddCount);
+		System.out.println(" 偶数过滤个数：" + evenCount);
 
 		System.out.println("  限定号码过滤个数：" + filterCount);
 

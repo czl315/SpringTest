@@ -21,12 +21,13 @@ import com.example.dto.FrontLimitArea5;
 public class DaFrontUtil19055a1 {
 	// private static boolean showLast = false;
 	private static boolean showLast = true;
+
 	/**
 	 * @param args
 	 */
 	public static void main(String[] args) {
 		// 当期2019
-		FrontBall curBall = new FrontBall(2,4,6,19,22);
+		FrontBall curBall = new FrontBall(2, 4, 6, 19, 22);
 		int c1 = curBall.getFrontBall1(), c2 = curBall.getFrontBall2(), c3 = curBall.getFrontBall3(),
 				c4 = curBall.getFrontBall4(), c5 = curBall.getFrontBall5();
 		int[] filtersLast = { 2, 18, 23, 27, 30 };// 过滤上期
@@ -49,7 +50,7 @@ public class DaFrontUtil19055a1 {
 		}
 		System.out.println("");
 		// 遗漏次数：17=28；25=27;9=18
-		int[] filtersCool = {17,25};
+		int[] filtersCool = { 17, 25 };
 		for (int i = 0; i < filtersCool.length; i++) {
 			if (i == 0) {
 				System.out.print("[filtersCool]filter。size():" + filtersCool.length + "=");
@@ -69,7 +70,7 @@ public class DaFrontUtil19055a1 {
 		}
 		System.out.println("");
 
-		int[] tempArea5 = {  4, 5 };// 分区5-过滤3、4、5个
+		int[] tempArea5 = { 4, 5 };// 分区5-过滤3、4、5个
 
 		// 每个范围限定
 		FrontLimit frontLimit = new FrontLimit();
@@ -227,7 +228,7 @@ public class DaFrontUtil19055a1 {
 					// System.out.println(f1 + "," + f2 + "," + f3 + "," + f4 + "," + f5 + " + ");//
 				} else {
 					// TODO CZL
-//					 System.out.println(f1 + "," + f2 + "," + f3 + "," + f4 + "," + f5 + " +");
+					// System.out.println(f1 + "," + f2 + "," + f3 + "," + f4 + "," + f5 + " +");
 				}
 				yuce1 = f1;
 				yuce2 = f2;
@@ -855,34 +856,34 @@ public class DaFrontUtil19055a1 {
 							// continue;
 							// }
 
-//							boolean pipei4FilerFlag = false;// 精确匹配过滤4个
-//							if (filterHists != null) {
-//								for (Iterator<FrontBall> iterator = filterHists.iterator(); iterator.hasNext();) {
-//									FrontBall exactObj = (FrontBall) iterator.next();
-//									int ex1 = exactObj.getFrontBall1();
-//									int ex2 = exactObj.getFrontBall2();
-//									int ex3 = exactObj.getFrontBall3();
-//									int ex4 = exactObj.getFrontBall4();
-//									int ex5 = exactObj.getFrontBall5();
-//									if ((ex1 == t1 && ex2 == t2 && ex3 == t3 && ex4 == t4)
-//											|| (ex2 == t2 && ex3 == t3 && ex4 == t4 && ex5 == t5)) {
-//										pipei4FilerFlag = true;
-//										// if ((1 == t1 && 3 == t2 && 5 == t3) || (3 == t2 && 5 == t3 && 7 == t4)
-//										// || (5 == t3 && 7 == t4 && 18 == t5)) {
-//										// System.out.println("精确匹配4个过滤-已出：" + ex1 + "," + ex2 + "," + ex3 + "," + ex4
-//										// + "," + ex5);
-//										// System.out.println(
-//										// "精确匹配4个过滤-当前：" + t1 + "," + t2 + "," + t3 + "," + t4 + "," + t5);
-//										// }
-//
-//										break;
-//									}
-//								}
-//							}
-//							if (pipei4FilerFlag) {
-//								pipei4FilerCount++;
-//								continue;
-//							}
+							boolean pipei4FilerFlag = false;// 精确匹配过滤4个
+							if (filterHists != null) {
+								for (Iterator<FrontBall> iterator = filterHists.iterator(); iterator.hasNext();) {
+									FrontBall exactObj = (FrontBall) iterator.next();
+									int ex1 = exactObj.getFrontBall1();
+									int ex2 = exactObj.getFrontBall2();
+									int ex3 = exactObj.getFrontBall3();
+									int ex4 = exactObj.getFrontBall4();
+									int ex5 = exactObj.getFrontBall5();
+									if ((ex1 == t1 && ex2 == t2 && ex3 == t3 && ex4 == t4)
+											|| (ex2 == t2 && ex3 == t3 && ex4 == t4 && ex5 == t5)) {
+										pipei4FilerFlag = true;
+										// if ((1 == t1 && 3 == t2 && 5 == t3) || (3 == t2 && 5 == t3 && 7 == t4)
+										// || (5 == t3 && 7 == t4 && 18 == t5)) {
+										// System.out.println("精确匹配4个过滤-已出：" + ex1 + "," + ex2 + "," + ex3 + "," +ex4
+										// + "," + ex5);
+										// System.out.println(
+										// "精确匹配4个过滤-当前：" + t1 + "," + t2 + "," + t3 + "," + t4 + "," + t5);
+										// }
+
+										break;
+									}
+								}
+							}
+							if (pipei4FilerFlag) {
+								pipei4FilerCount++;
+								continue;
+							}
 
 							// 历史匹配过滤3个--此匹配过滤太多，慎用
 							// boolean pipei3FilerFlag = false;
