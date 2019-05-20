@@ -37,7 +37,7 @@ public class DaBackUtil {
 //		System.out.println("获取2019年" + limitCount + "个后区结果size：" + lastBackBalls2019.size());
 		lastBackBalls.addAll(lastBackBalls2018);
 		lastBackBalls.addAll(lastBackBalls2019);
-		System.out.println("获取2018年至今" + limitCount + "个后区结果size：" + lastBackBalls.size());
+//		System.out.println("获取2018年至今" + limitCount + "个后区结果size：" + lastBackBalls.size());
 
 		// 频率
 		Map<String, Integer> pinlvMap = new HashMap<String, Integer>();
@@ -67,29 +67,27 @@ public class DaBackUtil {
 			if (isChuxian) {
 				// System.out.println(showStrChuxian);
 			} else {
-				System.out.println(showStr + "未出现过！！！");
-				System.out.println();
+				System.out.println(showStr + "-2018至今未出现过！！！");
 			}
 		}
 		int[] cishuCounts = new int[10];// 出现次数
 		for (String key : pinlvMap.keySet()) {
 			for (int i = 1; i <= 10; i++) {
 				if (pinlvMap.get(key) == i) {// 仅出现n次
-//					System.out.println(key + ":" + pinlvMap.get(key));
 					System.out.println(key + ":" + pinlvMap.get(key));
-					if (i == 1) {
+//					if (i == 2) {
 						int count2019Limit = 0;//限定最近期过滤
-						int limit2019Max = 40;//限定最近期过滤
+						int limit2019Max = 30;//限定最近期过滤
 						for (Iterator iterator = lastBackBalls2019.iterator(); iterator.hasNext();) {
 							BackBall backBall = (BackBall) iterator.next();
-							String last = backBall.getBackBall1()+","+backBall.getBackBall2();
-//							System.out.println(last);
+							String his2019one = backBall.getBackBall1()+","+backBall.getBackBall2();
+//							System.out.println("his2019one:"+his2019one);
 							//2019
 							count2019Limit++;
 							if(count2019Limit>limit2019Max) {
-								break;
+//								break;
 							}else {
-								if(last.equals(key)) {
+								if(his2019one.equals(key)) {
 									System.out.println("最近"+limit2019Max+"出现："+key + ":" + pinlvMap.get(key));
 									continue;
 								}else {
@@ -98,7 +96,7 @@ public class DaBackUtil {
 								}
 							}
 						}
-					}
+//					}
 					cishuCounts[i]=cishuCounts[i]+1;
 				}
 			}

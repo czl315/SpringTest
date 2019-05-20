@@ -75,7 +75,7 @@ public class DaFrontUtil19057a0 {
 		FrontLimit frontLimit = new FrontLimit();
 		frontLimit.setLianLimit(2);// 连号数量限定：
 		// 2018年前区和值：40以下-0；5X-8；6X-11；7X=12；8X=31；9X=29；10X=22；11X=20；12X=5；13X=4；14X=2；
-		frontLimit.setSumMinLimit(93);//
+		frontLimit.setSumMinLimit(92);//
 		frontLimit.setSumMaxLimit(94);// 40-150=154（全）；80-110=82；80-90=31；90-100=29；80-100=60；
 
 		frontLimit.setF1Min(1);
@@ -221,7 +221,7 @@ public class DaFrontUtil19057a0 {
 					// System.out.println(f1 + "," + f2 + "," + f3 + "," + f4 + "," + f5 + " + ");//
 				} else {
 					// TODO CZL
-					 System.out.println(f1 + "," + f2 + "," + f3 + "," + f4 + "," + f5 + " +");
+//					 System.out.println(f1 + "," + f2 + "," + f3 + "," + f4 + "," + f5 + " +");
 				}
 				yuce1 = f1;
 				yuce2 = f2;
