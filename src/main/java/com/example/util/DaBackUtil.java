@@ -77,7 +77,7 @@ public class DaBackUtil {
 					System.out.println(key + ":" + pinlvMap.get(key));
 //					if (i == 2) {
 						int count2019Limit = 0;//限定最近期过滤
-						int limit2019Max = 30;//限定最近期过滤
+						int limit2019Max = 10;//限定最近期过滤
 						for (Iterator iterator = lastBackBalls2019.iterator(); iterator.hasNext();) {
 							BackBall backBall = (BackBall) iterator.next();
 							String his2019one = backBall.getBackBall1()+","+backBall.getBackBall2();
