@@ -96,7 +96,7 @@ public class Front59a0 {
 		int evenLimit = 3;// 偶数限定
 
 		FrontLast frontLast = new FrontLast();
-		frontLast.setLimitCount(0);// 相同个数限定
+		frontLast.setLimitCount(1);// 相同个数限定
 		frontLast.setLast1(last1);
 		frontLast.setLast2(last2);
 		frontLast.setLast3(last3);

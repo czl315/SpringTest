@@ -46,13 +46,13 @@ public class DaBackUtil {
 		for (Iterator<BackBall> iterator = backBalls.iterator(); iterator.hasNext();) {
 			BackBall backBallAll = (BackBall) iterator.next();
 			String showStr = backBallAll.getBackBall1() + "," + backBallAll.getBackBall2();
-			String showStrChuxian = "";
+//			String showStrChuxian = "";
 			boolean isChuxian = false;
 			for (Iterator<BackBall> iterator2 = lastBackBalls.iterator(); iterator2.hasNext();) {
 				BackBall backBallSomeone = (BackBall) iterator2.next();
 				if (backBallAll.getBackBall1() == backBallSomeone.getBackBall1()
 						&& backBallAll.getBackBall2() == backBallSomeone.getBackBall2()) {
-					showStrChuxian = showStr + "---2018已出现过---";
+//					showStrChuxian = showStr + "---2018已出现过---";
 					if (pinlvMap.get(showStr) != null) {
 						curPinlv = pinlvMap.get(showStr).intValue();
 						curPinlv++;
