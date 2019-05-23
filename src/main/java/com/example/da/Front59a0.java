@@ -51,7 +51,7 @@ public class Front59a0 {
 		}
 		System.out.println("");
 		// 遗漏次数：17=28；25=27;9=18;21=18
-		int[] filtersCool = { 17 };
+		int[] filtersCool = { 17,25,20,7,16,19,31,33,16,24 };
 		for (int i = 0; i < filtersCool.length; i++) {
 			if (i == 0) {
 				System.out.print("[filtersCool]filter。size():" + filtersCool.length + "=");
@@ -221,7 +221,7 @@ public class Front59a0 {
 				if (f1 == c1 && f2 == c2 && f3 == c3 && f4 == c4 && f5 == c5) {
 					System.out.println("过滤后当期：：：" + f1 + "," + f2 + "," + f3 + "," + f4 + "," + f5);
 				}
-				 System.out.println(f1 + "," + f2 + "," + f3 + "," + f4 + "," + f5 + " + ");//
+//				 System.out.println(f1 + "," + f2 + "," + f3 + "," + f4 + "," + f5 + " + ");//
 				// 前区出球
 				if (f1 == yuce1 && f2 == yuce2) {
 					// System.out.println(f1 + "," + f2 + "," + f3 + "," + f4 + "," + f5 + " + ");//
