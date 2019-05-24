@@ -1,5 +1,7 @@
 package com.example.dto;
 
+import java.util.List;
+
 /**
  * 每个范围限定
  * 
@@ -69,6 +71,15 @@ public class FrontLimit {
 	 * 前区上期
 	 */
 	private FrontLast last;
+	
+	/**
+	 * 360杀号
+	 */
+	private List<Integer> kill360two;
+	/**
+	 * 360杀号-限定个数
+	 */
+	private int kill360LimitCount;
 	
 	public int getLianLimit() {
 		return lianLimit;
@@ -159,5 +170,17 @@ public class FrontLimit {
 	}
 	public void setLast(FrontLast last) {
 		this.last = last;
+	}
+	public List<Integer> getKill360two() {
+		return kill360two;
+	}
+	public void setKill360two(List<Integer> kill360two) {
+		this.kill360two = kill360two;
+	}
+	public int getKill360LimitCount() {
+		return kill360LimitCount;
+	}
+	public void setKill360LimitCount(int kill360LimitCount) {
+		this.kill360LimitCount = kill360LimitCount;
 	}
 }
