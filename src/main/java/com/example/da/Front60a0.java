@@ -21,7 +21,7 @@ import com.example.util.DaFrontHis;
  * 
  * @author admin
  */
-public class Front59a0 {
+public class Front60a0 {
 	// private static boolean showLast = false;
 	private static boolean showLast = true;
 
@@ -30,58 +30,23 @@ public class Front59a0 {
 	 */
 	public static void main(String[] args) {
 		// 当期2019
-		FrontBall curBall = new FrontBall(7,8,15,27,32);
+		FrontBall curBall = new FrontBall(7, 8, 15, 27, 32);
 		int c1 = curBall.getFrontBall1(), c2 = curBall.getFrontBall2(), c3 = curBall.getFrontBall3(),
 				c4 = curBall.getFrontBall4(), c5 = curBall.getFrontBall5();
-		int[] filtersLast = { 3, 10, 13, 14, 32 };// 过滤上期
+		int[] filtersLast = { 7, 8, 15, 27, 32 };// 过滤上期
 		int last1 = filtersLast[0], last2 = filtersLast[1], last3 = filtersLast[2], last4 = filtersLast[3],
 				last5 = filtersLast[4];
-
-		SortedSet<Integer> setFilters = new TreeSet<Integer>();// 过滤
-		int[] filtersAdjoin3 = { 12 };// 过滤3adjoin-特殊形态;三邻号
-		System.out.print("[filtersAdjoin3]size():" + filtersAdjoin3.length + "=");
-		for (int i = 0; i < filtersAdjoin3.length; i++) {
-			System.out.print("," + filtersAdjoin3[i]);
-			setFilters.add(filtersAdjoin3[i]);
-		}
-		System.out.println("");
-		int[] filtersRuleRepeat = { 1, 27 };// 过滤规律重复
-		System.out.print("[filtersRuleRepeat]size():" + filtersRuleRepeat.length + "=");
-		for (int i = 0; i < filtersRuleRepeat.length; i++) {
-			System.out.print("," + filtersRuleRepeat[i]);
-			setFilters.add(filtersRuleRepeat[i]);
-		}
-		System.out.println("");
-		// 遗漏次数：17=28；25=27;9=18;21=18
-		int[] filtersCool = { 17 };
-		for (int i = 0; i < filtersCool.length; i++) {
-			if (i == 0) {
-				System.out.print("[filtersCool]filter。size():" + filtersCool.length + "=");
-			}
-			setFilters.add(filtersCool[i]);
-			System.out.print("," + filtersCool[i]);
-		}
-		System.out.println("");
-
+		int[] filtersAdjoin3 = { 16, 32 };// 过滤3adjoin-特殊形态;三邻号
+		int[] filtersRuleRepeat = { 10 };// 过滤规律重复1, 27
 		int[] filtersMost = { 29 };// 出现总次数：29=349；33=338；35=324；32=321；30=312；35遗漏39期处于历史峰值
-		for (int i = 0; i < filtersMost.length; i++) {
-			if (i == 0) {
-				System.out.print("[history]filter。size():" + filtersMost.length + "=");
-			}
-			setFilters.add(filtersMost[i]);
-			System.out.print("," + filtersMost[i]);
-		}
-		System.out.println("");
-
+		int[] filtersCool = { 17 };// 遗漏次数：17=28；25=27;9=18;21=18
 		int[] tempArea5 = { 3, 4, 5 };// 分区5-过滤3、4、5个
-
 		// 每个范围限定
 		FrontLimit frontLimit = new FrontLimit();
 		frontLimit.setLianLimit(2);// 连号数量限定：
 		// 2018年前区和值：40以下-0；5X-8；6X-11；7X=12；8X=31；9X=29；10X=22；11X=20；12X=5；13X=4；14X=2；
-		frontLimit.setSumMinLimit(85);//
-		frontLimit.setSumMaxLimit(95);// 40-150=154（全）；80-110=82；80-90=31；90-100=29；80-100=60；
-
+		frontLimit.setSumMinLimit(93);//
+		frontLimit.setSumMaxLimit(93);// 40-150=154（全）；80-110=82；80-90=31；90-100=29；80-100=60；
 		frontLimit.setF1Min(1);
 		frontLimit.setF2Min(4);
 		frontLimit.setF3Min(7);
@@ -92,24 +57,12 @@ public class Front59a0 {
 		frontLimit.setF3Max(30);
 		frontLimit.setF4Max(32);// 32
 		frontLimit.setF5Max(35);
-		int kuaduMin = 26;// 最小跨度
+		int kuaduMin = 25;// 最小跨度
 		int kuaduMax = 33;// 最大跨度
 		int oddLimit = 3;// 奇数限定
 		int evenLimit = 3;// 偶数限定
-
-		// 360杀号定胆
-		frontLimit.setKill360LimitCount(1);
-		List<Integer> kill360 = new ArrayList<Integer>();
-		int[] kill360Array = {};// 20, 7, 16, 25, 19, 17, 31, 33, 16, 24 
-		for (int i = 0; i < kill360Array.length; i++) {
-			if (i == 0) {
-				System.out.print("[kill360]filter。size():" + kill360Array.length + "=");
-			}
-			kill360.add(kill360Array[i]);
-			System.out.print("," + kill360Array[i]);
-		}
-		System.out.println("");
-		frontLimit.setKill360two(kill360);
+		int[] kill360Array = { 11, 20, 28, 5, 15, 20, 30, 15, 15, 14 };// 360杀号定胆
+		frontLimit.setKill360LimitCount(1);// 360杀号限定n个
 
 		FrontLast frontLast = new FrontLast();
 		frontLast.setLimitCount(1);// 相同个数限定
@@ -119,16 +72,6 @@ public class Front59a0 {
 		frontLast.setLast4(last4);
 		frontLast.setLast5(last5);
 		frontLimit.setLast(frontLast);// 前区上期
-		// for (int i = 0; i < filtersLast.length; i++) {
-		// if (i == 0) {
-		// System.out.print("[last]filter。size()：" + filtersLast.length + "=");
-		// }
-		// System.out.print("," + filtersLast[i]);
-		// setFilters.add(filtersLast[i]);
-		// if ((i == filtersLast.length - 1)) {
-		// System.out.println("");
-		// }
-		// }
 
 		// 前区-分区5-限定:每个分区不能多于n个
 		FrontLimitArea5 area5 = new FrontLimitArea5();
@@ -141,7 +84,6 @@ public class Front59a0 {
 		List<int[]> fiter5s = new ArrayList<int[]>();
 		// 过滤分区5-11111
 		int[] everyAreaCounts11111 = { 1, 1, 1, 1, 1 };
-		// area5.setEveryAreaCounts(everyAreaCounts11111);
 		fiter5s.add(everyAreaCounts11111);
 		// 过滤分区5-最近n期-
 		int[] everyAreaCounts13001 = { 1, 3, 0, 0, 1 };
@@ -178,6 +120,73 @@ public class Front59a0 {
 		fiter5s.add(everyAreaCounts12011);
 		area5.setFiterCounts(fiter5s);
 		frontLimit.setArea5(area5);
+
+		SortedSet<Integer> setFilters = new TreeSet<Integer>();// 过滤
+		for (int i = 0; i < filtersAdjoin3.length; i++) {
+			if (i == 0) {
+				System.out.print("[filtersAdjoin3]size():" + filtersAdjoin3.length + "=");
+			}
+			System.out.print("," + filtersAdjoin3[i]);
+			setFilters.add(filtersAdjoin3[i]);
+			if (i == (filtersAdjoin3.length - 1)) {
+				System.out.println("");
+			}
+		}
+		for (int i = 0; i < filtersRuleRepeat.length; i++) {
+			if (i == 0) {
+				System.out.print("[filtersRuleRepeat]size():" + filtersRuleRepeat.length + "=");
+			}
+			System.out.print("," + filtersRuleRepeat[i]);
+			setFilters.add(filtersRuleRepeat[i]);
+			if (i == (filtersRuleRepeat.length - 1)) {
+				System.out.println("");
+			}
+		}
+
+		for (int i = 0; i < filtersCool.length; i++) {
+			if (i == 0) {
+				System.out.print("[filtersCool]filter。size():" + filtersCool.length + "=");
+			}
+			setFilters.add(filtersCool[i]);
+			System.out.print("," + filtersCool[i]);
+			if (i == (filtersCool.length - 1)) {
+				System.out.println("");
+			}
+		}
+
+		for (int i = 0; i < filtersMost.length; i++) {
+			if (i == 0) {
+				System.out.print("[filtersMost]filter。size():" + filtersMost.length + "=");
+			}
+			setFilters.add(filtersMost[i]);
+			System.out.print("," + filtersMost[i]);
+			if (i == (filtersMost.length - 1)) {
+				System.out.println("");
+			}
+		}
+
+		// 360杀号定胆
+		List<Integer> kill360 = new ArrayList<Integer>();
+		for (int i = 0; i < kill360Array.length; i++) {
+			if (i == 0) {
+				System.out.print("[kill360]filter。size():" + kill360Array.length + "=");
+			}
+			kill360.add(kill360Array[i]);
+			System.out.print("," + kill360Array[i]);
+		}
+		System.out.println("");
+		frontLimit.setKill360two(kill360);
+
+		// for (int i = 0; i < filtersLast.length; i++) {
+		// if (i == 0) {
+		// System.out.print("[last]filter。size()：" + filtersLast.length + "=");
+		// }
+		// System.out.print("," + filtersLast[i]);
+		// setFilters.add(filtersLast[i]);
+		// if ((i == filtersLast.length - 1)) {
+		// System.out.println("");
+		// }
+		// }
 
 		List<FrontBall> filterHists = DaFrontHis.frontBall2007to2019(5000);// history全过滤4个以上；历史100过滤3个；历史10过滤2个
 		// System.out.println("历史过滤frontBalls个数：" + filterHists.size());
@@ -237,13 +246,13 @@ public class Front59a0 {
 				if (f1 == c1 && f2 == c2 && f3 == c3 && f4 == c4 && f5 == c5) {
 					System.out.println("过滤后当期：：：" + f1 + "," + f2 + "," + f3 + "," + f4 + "," + f5);
 				}
-//				 System.out.println(f1 + "," + f2 + "," + f3 + "," + f4 + "," + f5 + " + ");//
+				// System.out.println(f1 + "," + f2 + "," + f3 + "," + f4 + "," + f5 + " + ");//
 				// 前区出球
 				if (f1 == yuce1 && f2 == yuce2) {
 					// System.out.println(f1 + "," + f2 + "," + f3 + "," + f4 + "," + f5 + " + ");//
 				} else {
 					// TODO CZL
-					// System.out.println(f1 + "," + f2 + "," + f3 + "," + f4 + "," + f5 + " +");
+					 System.out.println(f1 + "," + f2 + "," + f3 + "," + f4 + "," + f5 + " +");
 				}
 				yuce1 = f1;
 				yuce2 = f2;

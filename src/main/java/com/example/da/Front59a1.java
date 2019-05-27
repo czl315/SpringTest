@@ -21,7 +21,7 @@ import com.example.util.DaFrontHis;
  * 
  * @author admin
  */
-public class Front59a0 {
+public class Front59a1 {
 	// private static boolean showLast = false;
 	private static boolean showLast = true;
 
@@ -30,7 +30,7 @@ public class Front59a0 {
 	 */
 	public static void main(String[] args) {
 		// 当期2019
-		FrontBall curBall = new FrontBall(7,8,15,27,32);
+		FrontBall curBall = new FrontBall(7,8,15,27,32 );
 		int c1 = curBall.getFrontBall1(), c2 = curBall.getFrontBall2(), c3 = curBall.getFrontBall3(),
 				c4 = curBall.getFrontBall4(), c5 = curBall.getFrontBall5();
 		int[] filtersLast = { 3, 10, 13, 14, 32 };// 过滤上期
@@ -45,7 +45,7 @@ public class Front59a0 {
 			setFilters.add(filtersAdjoin3[i]);
 		}
 		System.out.println("");
-		int[] filtersRuleRepeat = { 1, 27 };// 过滤规律重复
+		int[] filtersRuleRepeat = { 1 };// 过滤规律重复1, 27
 		System.out.print("[filtersRuleRepeat]size():" + filtersRuleRepeat.length + "=");
 		for (int i = 0; i < filtersRuleRepeat.length; i++) {
 			System.out.print("," + filtersRuleRepeat[i]);
@@ -77,10 +77,10 @@ public class Front59a0 {
 
 		// 每个范围限定
 		FrontLimit frontLimit = new FrontLimit();
-		frontLimit.setLianLimit(2);// 连号数量限定：
+		frontLimit.setLianLimit(3);// 连号数量限定：
 		// 2018年前区和值：40以下-0；5X-8；6X-11；7X=12；8X=31；9X=29；10X=22；11X=20；12X=5；13X=4；14X=2；
-		frontLimit.setSumMinLimit(85);//
-		frontLimit.setSumMaxLimit(95);// 40-150=154（全）；80-110=82；80-90=31；90-100=29；80-100=60；
+		frontLimit.setSumMinLimit(89);//
+		frontLimit.setSumMaxLimit(89);// 40-150=154（全）；80-110=82；80-90=31；90-100=29；80-100=60；
 
 		frontLimit.setF1Min(1);
 		frontLimit.setF2Min(4);
@@ -92,7 +92,7 @@ public class Front59a0 {
 		frontLimit.setF3Max(30);
 		frontLimit.setF4Max(32);// 32
 		frontLimit.setF5Max(35);
-		int kuaduMin = 26;// 最小跨度
+		int kuaduMin = 23;// 最小跨度
 		int kuaduMax = 33;// 最大跨度
 		int oddLimit = 3;// 奇数限定
 		int evenLimit = 3;// 偶数限定
@@ -100,7 +100,7 @@ public class Front59a0 {
 		// 360杀号定胆
 		frontLimit.setKill360LimitCount(1);
 		List<Integer> kill360 = new ArrayList<Integer>();
-		int[] kill360Array = {};// 20, 7, 16, 25, 19, 17, 31, 33, 16, 24 
+		int[] kill360Array = { 20, 7, 16, 25, 19, 17, 31, 33, 16, 24 };
 		for (int i = 0; i < kill360Array.length; i++) {
 			if (i == 0) {
 				System.out.print("[kill360]filter。size():" + kill360Array.length + "=");
@@ -140,9 +140,8 @@ public class Front59a0 {
 		area5.setArea5(area55);
 		List<int[]> fiter5s = new ArrayList<int[]>();
 		// 过滤分区5-11111
-		int[] everyAreaCounts11111 = { 1, 1, 1, 1, 1 };
-		// area5.setEveryAreaCounts(everyAreaCounts11111);
-		fiter5s.add(everyAreaCounts11111);
+//		int[] everyAreaCounts11111 = { 1, 1, 1, 1, 1 };
+//		fiter5s.add(everyAreaCounts11111);
 		// 过滤分区5-最近n期-
 		int[] everyAreaCounts13001 = { 1, 3, 0, 0, 1 };
 		fiter5s.add(everyAreaCounts13001);
