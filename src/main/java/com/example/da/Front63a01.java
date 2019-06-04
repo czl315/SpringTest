@@ -34,7 +34,7 @@ public class Front63a01 {
 	 */
 	public static void main(String[] args) {
 		// 当期2019
-		FrontBall curBall = new FrontBall(5, 16, 23, 25, 28);
+		FrontBall curBall = new FrontBall(5,8,15,18,21);
 		int c1 = curBall.getFrontBall1(), c2 = curBall.getFrontBall2(), c3 = curBall.getFrontBall3(),
 				c4 = curBall.getFrontBall4(), c5 = curBall.getFrontBall5();
 		int[] filtersLast = { 5, 16, 23, 25, 28 };// 过滤上期

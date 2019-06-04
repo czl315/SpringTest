@@ -81,12 +81,14 @@ public class FrontLimit {
 	 */
 	private int kill360LimitCount;
 	
-	private List<Integer> CzlFilters;
 	/**
-	 * 360杀号-限定个数
+	 * 我自己过滤号码
 	 */
-	private int CzlFiltersCount;
-	
+	private List<Integer> czlFilters;
+	/**
+	 * 我自己过滤号码个数
+	 */
+	private int czlFiltersCount;
 	
 	public int getLianLimit() {
 		return lianLimit;
@@ -191,15 +193,15 @@ public class FrontLimit {
 		this.kill360LimitCount = kill360LimitCount;
 	}
 	public List<Integer> getCzlFilters() {
-		return CzlFilters;
+		return czlFilters;
 	}
 	public void setCzlFilters(List<Integer> czlFilters) {
-		CzlFilters = czlFilters;
+		this.czlFilters = czlFilters;
 	}
 	public int getCzlFiltersCount() {
-		return CzlFiltersCount;
+		return czlFiltersCount;
 	}
 	public void setCzlFiltersCount(int czlFiltersCount) {
-		CzlFiltersCount = czlFiltersCount;
+		this.czlFiltersCount = czlFiltersCount;
 	}
 }

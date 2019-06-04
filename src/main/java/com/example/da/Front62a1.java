@@ -23,7 +23,7 @@ import com.example.util.DaFrontHis;
  * 
  * @author admin
  */
-public class Front62a0 {
+public class Front62a1 {
 	// private static boolean showLast = false;
 	private static boolean showLast = true;
 
@@ -41,14 +41,14 @@ public class Front62a0 {
 		int[] filtersAdjoin3 = {3,14};// 过滤3adjoin-特殊形态;三邻号
 		int[] filtersRuleRepeat = { 1,6,7,2 };// 过滤规律重复1, 27;上次重号，本次不再重号
 		int[] filtersMost = { 29 };// 出现总次数：29=349；33=338；35=324；32=321；30=312；35遗漏39期处于历史峰值
-		int[] filtersCool = { 17,25 };// 遗漏次数：17=28；25=27;9=18;21=18
-		int[] tempArea5 = { 3, 4, 5 };// 分区5-过滤3、4、5个
+		int[] filtersCool = { 17 };// 遗漏次数：17=28；25=27;9=18;21=18  17,25
+		int[] tempArea5 = {  4, 5 };// 分区5-过滤3、4、5个3, 4, 5
 		// 每个范围限定
 		FrontLimit frontLimit = new FrontLimit();
 		frontLimit.setLianLimit(2);// 连号数量限定：过滤掉
 		// 2018年前区和值：40以下-0；5X-8；6X-11；7X=12；8X=31；9X=29；10X=22；11X=20；12X=5；13X=4；14X=2；
 		frontLimit.setSumMinLimit(93);//
-		frontLimit.setSumMaxLimit(93);// 40-150=154（全）；80-110=82；80-90=31；90-100=29；80-100=60；
+		frontLimit.setSumMaxLimit(103);// 40-150=154（全）；80-110=82；80-90=31；90-100=29；80-100=60；
 		frontLimit.setF1Min(1);
 		frontLimit.setF2Min(4);// 4
 		frontLimit.setF3Min(7);
@@ -59,7 +59,7 @@ public class Front62a0 {
 		frontLimit.setF3Max(30);
 		frontLimit.setF4Max(32);// 32
 		frontLimit.setF5Max(35);
-		int kuaduMin = 25;// 最小跨度
+		int kuaduMin = 20;// 最小跨度25
 		int kuaduMax = 33;// 最大跨度
 		int oddLimit = 4;// 奇数限定
 		int evenLimit = 3;// 偶数限定
@@ -484,34 +484,34 @@ public class Front62a0 {
 							// continue;
 							// }
 
-							boolean pipei4FilerFlag = false;// 精确匹配过滤4个
-							if (filterHists != null) {
-								for (Iterator<FrontBall> iterator = filterHists.iterator(); iterator.hasNext();) {
-									FrontBall exactObj = (FrontBall) iterator.next();
-									int ex1 = exactObj.getFrontBall1();
-									int ex2 = exactObj.getFrontBall2();
-									int ex3 = exactObj.getFrontBall3();
-									int ex4 = exactObj.getFrontBall4();
-									int ex5 = exactObj.getFrontBall5();
-									if ((ex1 == t1 && ex2 == t2 && ex3 == t3 && ex4 == t4)
-											|| (ex2 == t2 && ex3 == t3 && ex4 == t4 && ex5 == t5)) {
-										pipei4FilerFlag = true;
-										// if ((1 == t1 && 3 == t2 && 5 == t3) || (3 == t2 && 5 == t3 && 7 == t4)
-										// || (5 == t3 && 7 == t4 && 18 == t5)) {
-										// System.out.println("精确匹配4个过滤-已出：" + ex1 + "," + ex2 + "," + ex3 + "," + ex4
-										// + "," + ex5);
-										// System.out.println(
-										// "精确匹配4个过滤-当前：" + t1 + "," + t2 + "," + t3 + "," + t4 + "," + t5);
-										// }
-
-										break;
-									}
-								}
-							}
-							if (pipei4FilerFlag) {
-								pipei4FilerCount++;
-								continue;
-							}
+//							boolean pipei4FilerFlag = false;// 精确匹配过滤4个
+//							if (filterHists != null) {
+//								for (Iterator<FrontBall> iterator = filterHists.iterator(); iterator.hasNext();) {
+//									FrontBall exactObj = (FrontBall) iterator.next();
+//									int ex1 = exactObj.getFrontBall1();
+//									int ex2 = exactObj.getFrontBall2();
+//									int ex3 = exactObj.getFrontBall3();
+//									int ex4 = exactObj.getFrontBall4();
+//									int ex5 = exactObj.getFrontBall5();
+//									if ((ex1 == t1 && ex2 == t2 && ex3 == t3 && ex4 == t4)
+//											|| (ex2 == t2 && ex3 == t3 && ex4 == t4 && ex5 == t5)) {
+//										pipei4FilerFlag = true;
+//										// if ((1 == t1 && 3 == t2 && 5 == t3) || (3 == t2 && 5 == t3 && 7 == t4)
+//										// || (5 == t3 && 7 == t4 && 18 == t5)) {
+//										// System.out.println("精确匹配4个过滤-已出：" + ex1 + "," + ex2 + "," + ex3 + "," + ex4
+//										// + "," + ex5);
+//										// System.out.println(
+//										// "精确匹配4个过滤-当前：" + t1 + "," + t2 + "," + t3 + "," + t4 + "," + t5);
+//										// }
+//
+//										break;
+//									}
+//								}
+//							}
+//							if (pipei4FilerFlag) {
+//								pipei4FilerCount++;
+//								continue;
+//							}
 							// 历史匹配过滤3个--此匹配过滤太多，慎用
 
 							boolean checkOddRs = checkOddLimit(tempBall, oddLimit);
