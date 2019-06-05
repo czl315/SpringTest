@@ -1,6 +1,7 @@
 package com.example.da;
 
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.Iterator;
 import java.util.List;
 import java.util.SortedSet;
@@ -177,26 +178,18 @@ public class Front64a0 {
 
 		// 360杀号定胆
 		List<Integer> kill360 = new ArrayList<Integer>();
+		SortedSet<Integer> kill360set = new TreeSet<Integer>();
+		System.out.print("[kill360set]filter。size():" + kill360set.size() + "=");
 		for (int i = 0; i < kill360Array.length; i++) {
-			if (i == 0) {
-				System.out.print("[kill360]filter。size():" + kill360Array.length + "=");
-			}
-			kill360.add(kill360Array[i]);
-			System.out.print("," + kill360Array[i]);
+			kill360set.add(kill360Array[i]);
+		}
+		for (Iterator<Integer> iterator = kill360set.iterator(); iterator.hasNext();) {
+			Integer integer = (Integer) iterator.next();
+			System.out.print("," + integer);
 		}
 		System.out.println("");
+		kill360.addAll(kill360set);
 		frontLimit.setKill360two(kill360);
-
-		// for (int i = 0; i < filtersLast.length; i++) {
-		// if (i == 0) {
-		// System.out.print("[last]filter。size()：" + filtersLast.length + "=");
-		// }
-		// System.out.print("," + filtersLast[i]);
-		// setFilters.add(filtersLast[i]);
-		// if ((i == filtersLast.length - 1)) {
-		// System.out.println("");
-		// }
-		// }
 
 		List<FrontBall> filterHists = DaFrontHis.frontBall2007to2019(5000);// history全过滤4个以上；历史100过滤3个；历史10过滤2个
 		// System.out.println("历史过滤frontBalls个数：" + filterHists.size());
