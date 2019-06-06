@@ -52,7 +52,7 @@ public class DaFrontUtil19035after {
 		FrontLimit frontAreaLimit = new FrontLimit();
 		frontAreaLimit = null;
 		frontAreaLimit = new FrontLimit();
-		frontAreaLimit.setLianLimit(lianLimit);// 连号数量限定
+		frontAreaLimit.setKillLianLimit(lianLimit);// 连号数量限定
 		frontAreaLimit.setF1Min(1);
 		frontAreaLimit.setF1Max(7);// 11
 		frontAreaLimit.setF2Min(4);

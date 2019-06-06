@@ -45,7 +45,7 @@ public class Front62a1 {
 		int[] tempArea5 = {  4, 5 };// 分区5-过滤3、4、5个3, 4, 5
 		// 每个范围限定
 		FrontLimit frontLimit = new FrontLimit();
-		frontLimit.setLianLimit(2);// 连号数量限定：过滤掉
+		frontLimit.setKillLianLimit(2);// 连号数量限定：过滤掉
 		// 2018年前区和值：40以下-0；5X-8；6X-11；7X=12；8X=31；9X=29；10X=22；11X=20；12X=5；13X=4；14X=2；
 		frontLimit.setSumMinLimit(93);//
 		frontLimit.setSumMaxLimit(103);// 40-150=154（全）；80-110=82；80-90=31；90-100=29；80-100=60；
@@ -232,7 +232,7 @@ public class Front62a1 {
 		List<FrontBall> combs = combNolian(curBall, filterHists, filterBalls, kuaduMin, kuaduMax, oddLimit, evenLimit,
 				frontLimit);// 精确匹配多个
 
-		System.out.println("前区组合限定:" + "no" + frontLimit.getLianLimit() + "连;和值最小" + frontLimit.getSumMinLimit() + ";最大"
+		System.out.println("前区组合限定:" + "no" + frontLimit.getKillLianLimit() + "连;和值最小" + frontLimit.getSumMinLimit() + ";最大"
 				+ frontLimit.getSumMaxLimit() + ";剩余组合：" + combs.size());
 
 		int yes5 = 0;// 5球全中
@@ -331,7 +331,7 @@ public class Front62a1 {
 		int sumMaxLimit = frontLimit.getSumMaxLimit();
 		FrontLast last = frontLimit.getLast();// 前区上期
 		// int allCount = 0;// 个数
-		int lianLimit = frontLimit.getLianLimit();// 默认连号限定
+		int lianLimit = frontLimit.getKillLianLimit();// 默认连号限定
 		int lianCount2 = 0;// 连号个数
 		// boolean lianCountIsYesShowed = false;
 		int lianCount3 = 0;// 连号个数

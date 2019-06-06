@@ -29,7 +29,7 @@ public class DaFrontUtil1903901 {
 		FrontLimit frontAreaLimit = new FrontLimit();
 		frontAreaLimit = null;
 		frontAreaLimit = new FrontLimit();
-		frontAreaLimit.setLianLimit(2);// 连号数量限定：
+		frontAreaLimit.setKillLianLimit(2);// 连号数量限定：
 		frontAreaLimit.setSumMinLimit(85);// 2018年前区和值：40以下-0；5X-8；6X-11；7X=12；8X=31；9X=29；10X=22；11X=20；12X=5；13X=4；14X=2；
 		frontAreaLimit.setSumMaxLimit(95);// 40-150=154（全）；80-110=82；80-90=31；90-100=29；80-100=60；
 		// int sumMinLimit = 100;
@@ -119,7 +119,7 @@ public class DaFrontUtil1903901 {
 		// sumMaxLimit, filterHists, filterBalls,
 		// kuaduMin, kuaduMax, oddLimit, evenLimit, frontAreaLimit);// 精确匹配多个
 
-		System.out.println("前区组合限定:" + "no" + frontAreaLimit.getLianLimit() + "连;和值最小" + frontAreaLimit.getSumMinLimit()
+		System.out.println("前区组合限定:" + "no" + frontAreaLimit.getKillLianLimit() + "连;和值最小" + frontAreaLimit.getSumMinLimit()
 				+ ";最大" + frontAreaLimit.getSumMaxLimit() + ";匹配：" + combs.size());
 
 		int yes5 = 0;// 5球全中
@@ -610,7 +610,7 @@ public class DaFrontUtil1903901 {
 		int sumMinLimit = frontAreaLimit.getSumMinLimit();
 		int sumMaxLimit = frontAreaLimit.getSumMaxLimit();
 		// int allCount = 0;// 个数
-		int lianLimit = frontAreaLimit.getLianLimit();// 默认连号限定
+		int lianLimit = frontAreaLimit.getKillLianLimit();// 默认连号限定
 		int lianCount2 = 0;// 连号个数
 		boolean lianCountIsYesShowed = false;
 		int lianCount3 = 0;// 连号个数
