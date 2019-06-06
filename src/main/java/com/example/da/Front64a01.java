@@ -26,7 +26,7 @@ import com.example.util.DaFrontHis;
  * 
  * @author admin
  */
-public class Front64a0 {
+public class Front64a01 {
 	// private static boolean showLast = false;
 	private static boolean showLast = true;
 

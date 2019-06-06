@@ -1,6 +1,9 @@
 package com.example.dto;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
+import java.util.Set;
 
 /**
  * 每个范围限定
@@ -80,6 +83,15 @@ public class FrontLimit {
 	 * 360杀号-限定个数
 	 */
 	private int kill360LimitCount;
+	
+	/**
+	 * 杀号数组
+	 */
+	private List<Map<Integer,Set<Integer>>> killNos;
+	/**
+	 * 杀号数组-限定个数
+	 */
+	private int[] killNosLimitCount;
 	
 	/**
 	 * 我自己过滤号码
@@ -203,5 +215,17 @@ public class FrontLimit {
 	}
 	public void setCzlFiltersCount(int czlFiltersCount) {
 		this.czlFiltersCount = czlFiltersCount;
+	}
+	public int[] getKillNosLimitCount() {
+		return killNosLimitCount;
+	}
+	public void setKillNosLimitCount(int[] killNosLimitCount) {
+		this.killNosLimitCount = killNosLimitCount;
+	}
+	public List<Map<Integer, Set<Integer>>> getKillNos() {
+		return killNos;
+	}
+	public void setKillNos(List<Map<Integer, Set<Integer>>> killNos) {
+		this.killNos = killNos;
 	}
 }
