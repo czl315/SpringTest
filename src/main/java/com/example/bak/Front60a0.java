@@ -1,4 +1,4 @@
-package com.example.da;
+package com.example.bak;
 
 import java.util.ArrayList;
 import java.util.Iterator;
@@ -21,7 +21,7 @@ import com.example.util.DaFrontHis;
  * 
  * @author admin
  */
-public class Front60a1 {
+public class Front60a0 {
 	// private static boolean showLast = false;
 	private static boolean showLast = true;
 
@@ -30,7 +30,7 @@ public class Front60a1 {
 	 */
 	public static void main(String[] args) {
 		// 当期2019
-		FrontBall curBall = new FrontBall(1,11,12,18,21);
+		FrontBall curBall = new FrontBall(7, 8, 15, 27, 32);
 		int c1 = curBall.getFrontBall1(), c2 = curBall.getFrontBall2(), c3 = curBall.getFrontBall3(),
 				c4 = curBall.getFrontBall4(), c5 = curBall.getFrontBall5();
 		int[] filtersLast = { 7, 8, 15, 27, 32 };// 过滤上期
@@ -43,21 +43,21 @@ public class Front60a1 {
 		int[] tempArea5 = { 3, 4, 5 };// 分区5-过滤3、4、5个
 		// 每个范围限定
 		FrontLimit frontLimit = new FrontLimit();
-		frontLimit.setKillLianLimit(3);// 连号数量限定：
+		frontLimit.setKillLianLimit(2);// 连号数量限定：
 		// 2018年前区和值：40以下-0；5X-8；6X-11；7X=12；8X=31；9X=29；10X=22；11X=20；12X=5；13X=4；14X=2；
-		frontLimit.setSumMinLimit(60);//
+		frontLimit.setSumMinLimit(93);//
 		frontLimit.setSumMaxLimit(93);// 40-150=154（全）；80-110=82；80-90=31；90-100=29；80-100=60；
 		frontLimit.setF1Min(1);
 		frontLimit.setF2Min(4);
 		frontLimit.setF3Min(7);
 		frontLimit.setF4Min(13);
-		frontLimit.setF5Min(20);
+		frontLimit.setF5Min(25);
 		frontLimit.setF1Max(7);// 1-7百分比=1240/1819=68.17%
 		frontLimit.setF2Max(22);
 		frontLimit.setF3Max(30);
 		frontLimit.setF4Max(32);// 32
 		frontLimit.setF5Max(35);
-		int kuaduMin = 18;// 最小跨度
+		int kuaduMin = 25;// 最小跨度
 		int kuaduMax = 33;// 最大跨度
 		int oddLimit = 3;// 奇数限定
 		int evenLimit = 3;// 偶数限定
@@ -252,7 +252,7 @@ public class Front60a1 {
 					// System.out.println(f1 + "," + f2 + "," + f3 + "," + f4 + "," + f5 + " + ");//
 				} else {
 					// TODO CZL
-//					 System.out.println(f1 + "," + f2 + "," + f3 + "," + f4 + "," + f5 + " +");
+					 System.out.println(f1 + "," + f2 + "," + f3 + "," + f4 + "," + f5 + " +");
 				}
 				yuce1 = f1;
 				yuce2 = f2;

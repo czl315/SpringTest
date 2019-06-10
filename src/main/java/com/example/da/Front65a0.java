@@ -44,18 +44,18 @@ public class Front65a0 {
 		int evenLimit = 3;// 偶数限定
 
 		int[] kill360Array = { 26, 3, 16, 35, 27, 3, 27, 5, 35, 4 };// 360杀号定胆
-		int kill360LimitCount = 1;
+		int kill360LimitCount = 4;
 		// int[] killcjw = {};// 杀号-彩经网
 		int[] killcjw = { 23, 34, 8, 5, 20, 20, 30, 8, 7, 7 };// 杀号-彩经网
-		int[] killNoLimits = { 1 };
+		int[] killNoLimits = { 3 };
 
 		// 每个范围限定
 
 		frontLimit.setKillLianLimit(2);// 连号数量限定：过滤掉
 
 		// 2018年前区和值：40以下-0；5X-8；6X-11；7X=12；8X=31；9X=29；10X=22；11X=20；12X=5；13X=4；14X=2；
-		frontLimit.setSumMinLimit(99);//
-		frontLimit.setSumMaxLimit(99);// 40-150=154（全）；80-110=82；80-90=31；90-100=29；80-100=60；
+		frontLimit.setSumMinLimit(85);//
+		frontLimit.setSumMaxLimit(94);// 40-150=154（全）；80-110=82；80-90=31；90-100=29；80-100=60；
 		frontLimit.setF1Min(1);
 		frontLimit.setF2Min(4);// 4
 		frontLimit.setF3Min(9);// 7
@@ -286,7 +286,7 @@ public class Front65a0 {
 					// System.out.println(f1 + "," + f2 + "," + f3 + "," + f4 + "," + f5 + " + ");//
 				} else {
 					// TODO CZL
-					 System.out.println(f1 + "," + f2 + "," + f3 + "," + f4 + "," + f5 + " +");
+//					 System.out.println(f1 + "," + f2 + "," + f3 + "," + f4 + "," + f5 + " +");
 				}
 				yuce1 = f1;
 				yuce2 = f2;
