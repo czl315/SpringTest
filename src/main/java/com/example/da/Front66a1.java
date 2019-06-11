@@ -20,7 +20,7 @@ import com.example.util.DaFrontHis;
  * 
  * @author admin
  */
-public class Front66a0 {
+public class Front66a1 {
 	private static boolean showLast = true;// false true
 
 	public static void main(String[] args) {
@@ -38,23 +38,23 @@ public class Front66a0 {
 
 		int[] tempArea5 = { 3, 4, 5 };// 分区5-过滤3、4、5个3, 4, 5
 
-		int kuaduMin = 30;// 最小跨度
+		int kuaduMin = 25;// 最小跨度
 		int kuaduMax = 35;// 最大跨度
 		int oddLimit = 3;// 奇数限定
 		int evenLimit = 3;// 偶数限定
 
 		int[] kill360Array = { 31, 15, 31, 15, 1, 11, 31, 32, 13, 24 };// 360杀号定胆
-		int kill360LimitCount = 1;
+		int kill360LimitCount = 2;
 		// int[] killcjw = {};// 杀号-彩经网
 		int[] killcjw = { 4, 8, 8, 35, 27, 19, 4, 23, 7, 34 };// 杀号-彩经网
 		int[] killNoLimits = { 1 };
 
 		// 每个范围限定
 
-		frontLimit.setKillLianLimit(2);// 连号数量限定：过滤掉
+		frontLimit.setKillLianLimit(3);// 连号数量限定：过滤掉
 
 		// 2018年前区和值：40以下-0；5X-8；6X-11；7X=12；8X=31；9X=29；10X=22；11X=20；12X=5；13X=4；14X=2；
-		frontLimit.setSumMinLimit(99);//
+		frontLimit.setSumMinLimit(70);//
 		frontLimit.setSumMaxLimit(99);// 40-150=154（全）；80-110=82；80-90=31；90-100=29；80-100=60；
 		frontLimit.setF1Min(1);
 		frontLimit.setF2Min(4);// 4
@@ -98,43 +98,43 @@ public class Front66a0 {
 		// 过滤分区5-11111
 		int[] everyAreaCounts11111 = { 1, 1, 1, 1, 1 };
 		fiter5s.add(everyAreaCounts11111);
-		// 过滤分区5-最近n期-
-		int[] everyAreaCounts11300 = { 1, 1, 3, 0, 0 };
-		fiter5s.add(everyAreaCounts11300);
-		int[] everyAreaCounts12200 = { 1, 2, 2, 0, 0 };
-		fiter5s.add(everyAreaCounts12200);
-		int[] everyAreaCounts13001 = { 1, 3, 0, 0, 1 };
-		fiter5s.add(everyAreaCounts13001);
-		int[] everyAreaCounts02102 = { 0, 2, 1, 0, 2 };
-		fiter5s.add(everyAreaCounts02102);
-		int[] everyAreaCounts22010 = { 2, 2, 0, 1, 0 };
-		fiter5s.add(everyAreaCounts22010);
-		int[] everyAreaCounts30110 = { 3, 0, 1, 1, 0 };
-		fiter5s.add(everyAreaCounts30110);
-		int[] everyAreaCounts10121 = { 1, 0, 1, 2, 1 };
-		fiter5s.add(everyAreaCounts10121);
-		int[] everyAreaCounts11210 = { 1, 1, 2, 1, 0 };
-		fiter5s.add(everyAreaCounts11210);
-		int[] everyAreaCounts01301 = { 0, 1, 3, 0, 1 };
-		fiter5s.add(everyAreaCounts01301);
-		int[] everyAreaCounts10301 = { 1, 0, 3, 0, 1 };
-		fiter5s.add(everyAreaCounts10301);
-		int[] everyAreaCounts01130 = { 0, 1, 1, 3, 0 };
-		fiter5s.add(everyAreaCounts01130);
-		int[] everyAreaCounts11102 = { 1, 1, 1, 0, 2 };
-		fiter5s.add(everyAreaCounts11102);
-		int[] everyAreaCounts21101 = { 2, 1, 1, 0, 1 };
-		fiter5s.add(everyAreaCounts21101);
-		int[] everyAreaCounts12101 = { 1, 2, 1, 0, 1 };
-		fiter5s.add(everyAreaCounts12101);
-		int[] everyAreaCounts20201 = { 2, 0, 2, 0, 1 };
-		fiter5s.add(everyAreaCounts20201);
-		int[] everyAreaCounts22001 = { 2, 2, 0, 0, 1 };
-		fiter5s.add(everyAreaCounts22001);
-		int[] everyAreaCounts31100 = { 3, 1, 1, 0, 0 };
-		fiter5s.add(everyAreaCounts31100);
-		int[] everyAreaCounts12011 = { 1, 2, 0, 1, 1 };
-		fiter5s.add(everyAreaCounts12011);
+//		// 过滤分区5-最近n期-
+//		int[] everyAreaCounts11300 = { 1, 1, 3, 0, 0 };
+//		fiter5s.add(everyAreaCounts11300);
+//		int[] everyAreaCounts12200 = { 1, 2, 2, 0, 0 };
+//		fiter5s.add(everyAreaCounts12200);
+//		int[] everyAreaCounts13001 = { 1, 3, 0, 0, 1 };
+//		fiter5s.add(everyAreaCounts13001);
+//		int[] everyAreaCounts02102 = { 0, 2, 1, 0, 2 };
+//		fiter5s.add(everyAreaCounts02102);
+//		int[] everyAreaCounts22010 = { 2, 2, 0, 1, 0 };
+//		fiter5s.add(everyAreaCounts22010);
+//		int[] everyAreaCounts30110 = { 3, 0, 1, 1, 0 };
+//		fiter5s.add(everyAreaCounts30110);
+//		int[] everyAreaCounts10121 = { 1, 0, 1, 2, 1 };
+//		fiter5s.add(everyAreaCounts10121);
+//		int[] everyAreaCounts11210 = { 1, 1, 2, 1, 0 };
+//		fiter5s.add(everyAreaCounts11210);
+//		int[] everyAreaCounts01301 = { 0, 1, 3, 0, 1 };
+//		fiter5s.add(everyAreaCounts01301);
+//		int[] everyAreaCounts10301 = { 1, 0, 3, 0, 1 };
+//		fiter5s.add(everyAreaCounts10301);
+//		int[] everyAreaCounts01130 = { 0, 1, 1, 3, 0 };
+//		fiter5s.add(everyAreaCounts01130);
+//		int[] everyAreaCounts11102 = { 1, 1, 1, 0, 2 };
+//		fiter5s.add(everyAreaCounts11102);
+//		int[] everyAreaCounts21101 = { 2, 1, 1, 0, 1 };
+//		fiter5s.add(everyAreaCounts21101);
+//		int[] everyAreaCounts12101 = { 1, 2, 1, 0, 1 };
+//		fiter5s.add(everyAreaCounts12101);
+//		int[] everyAreaCounts20201 = { 2, 0, 2, 0, 1 };
+//		fiter5s.add(everyAreaCounts20201);
+//		int[] everyAreaCounts22001 = { 2, 2, 0, 0, 1 };
+//		fiter5s.add(everyAreaCounts22001);
+//		int[] everyAreaCounts31100 = { 3, 1, 1, 0, 0 };
+//		fiter5s.add(everyAreaCounts31100);
+//		int[] everyAreaCounts12011 = { 1, 2, 0, 1, 1 };
+//		fiter5s.add(everyAreaCounts12011);
 		area5.setFiterCounts(fiter5s);
 		frontLimit.setArea5(area5);
 
@@ -467,7 +467,7 @@ public class Front66a0 {
 		int fenqu1MinCount = 0;// 三分区，t1不能大于个数
 		@SuppressWarnings("unused")
 		int fenqu5MaxCount = 0;// 三分区，t5不能小于个数
-		int f1limtMinCount = 0;// 每个范围限定t1小于
+//		int f1limtMinCount = 0;// 每个范围限定t1小于
 		int f1limtMaxCount = 0;// 每个范围限定t1大于
 		int f2limtMinCount = 0;// 每个范围限定t2小于
 		int f2limtMaxCount = 0;// 每个范围限定t2大于
@@ -688,7 +688,7 @@ public class Front66a0 {
 									// System.out.println("每个范围限定t1小于" + frontAreaLimit.getF1Min() + ":" + t1 + ","
 									// + t2
 									// + "," + t3 + "," + t4 + "," + t5);
-									f1limtMinCount++;
+//									f1limtMinCount++;
 									continue;
 								}
 								if (t1 > frontLimit.getF1Max()) {
@@ -826,14 +826,14 @@ public class Front66a0 {
 
 		// System.out.println(" 每个范围限定t1小于：" + f1limtMinCount);
 		System.out.println("  每个范围限定t1大于：" + f1limtMaxCount);
-		// System.out.println(" 每个范围限定t2小于：" + f2limtMinCount);
-		// System.out.println(" 每个范围限定t2大于：" + f2limtMaxCount);
-		// System.out.println(" 每个范围限定t3小于：" + f3limtMinCount);
-		// System.out.println(" 每个范围限定t3大于：" + f3limtMaxCount);
-		// System.out.println(" 每个范围限定t4小于：" + f4limtMinCount);
-		// System.out.println(" 每个范围限定t4大于：" + f4limtMaxCount);
-		// System.out.println(" 每个范围限定t5小于：" + f5limtMinCount);
-		// System.out.println(" 每个范围限定t5大于：" + f5limtMaxCount);
+		 System.out.println(" 每个范围限定t2小于：" + f2limtMinCount);
+		 System.out.println(" 每个范围限定t2大于：" + f2limtMaxCount);
+		 System.out.println(" 每个范围限定t3小于：" + f3limtMinCount);
+		 System.out.println(" 每个范围限定t3大于：" + f3limtMaxCount);
+		 System.out.println(" 每个范围限定t4小于：" + f4limtMinCount);
+		 System.out.println(" 每个范围限定t4大于：" + f4limtMaxCount);
+		 System.out.println(" 每个范围限定t5小于：" + f5limtMinCount);
+		 System.out.println(" 每个范围限定t5大于：" + f5limtMaxCount);
 
 		System.out.println("  分区5每区集中45过滤个数：" + area5EveryCount);
 		System.out.println("  分区5-每区形态个数相同过滤：" + everyAreaCount);
