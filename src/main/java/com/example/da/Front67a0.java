@@ -27,7 +27,7 @@ public class Front67a0 {
 		FrontLimit frontLimit = new FrontLimit();//限定过滤
 		FrontBall curBall = new FrontBall(4,10,11,18,31);// 当期2019
 		int[] filtersLast = { 4,10,11,18,31 };// 过滤上期
-		int lastLimitCount = 1;// 上期相同个数限定
+		int lastLimitCount = 0;// 上期相同个数限定
 
 		int[] filtersAdjoin3 = { 5,12 };// 过滤3adjoin-特殊形态;三邻号
 		int[] filtersRuleRepeat = { 2,7,8,13,15,16 };// 过滤规律重复1, 27;上次重号，本次不再重号
@@ -48,13 +48,12 @@ public class Front67a0 {
 		int[] killcjw = { 13, 31, 15, 2, 29, 28, 10, 5, 7, 26 };// 杀号-彩经网
 		int[] killNoLimits = { 1 };
 
-		// 每个范围限定
-
 		frontLimit.setKillLianLimit(2);// 连号数量限定：过滤掉
 
 		// 2018年前区和值：40以下-0；5X-8；6X-11；7X=12；8X=31；9X=29；10X=22；11X=20；12X=5；13X=4；14X=2；
 		frontLimit.setSumMinLimit(99);//
 		frontLimit.setSumMaxLimit(99);// 40-150=154（全）；80-110=82；80-90=31；90-100=29；80-100=60；
+		// 每个范围限定
 		frontLimit.setF1Min(1);
 		frontLimit.setF2Min(4);// 4
 		frontLimit.setF3Min(9);// 7
