@@ -20,12 +20,12 @@ import com.example.util.DaFrontHis;
  * 
  * @author admin
  */
-public class Front67a0 {
+public class Front67a1 {
 	private static boolean showLast = true;// false true
 
 	public static void main(String[] args) {
 		FrontLimit frontLimit = new FrontLimit();// 限定过滤
-		FrontBall curBall = new FrontBall(3,8,11,15,16);// 当期2019
+		FrontBall curBall = new FrontBall(3,8,11,15,16);// 03 08 11 15 16 02 10 
 		int[] filtersLast = { 4, 10, 11, 18, 31 };// 过滤上期
 		int lastLimitCount = 0;// 上期相同个数限定
 
@@ -48,7 +48,7 @@ public class Front67a0 {
 		int[] killcjw = { 13, 31, 15, 2, 29, 28, 10, 5, 7, 26 };// 杀号-彩经网
 		int[] killNoLimits = { 1 };
 
-		frontLimit.setKillLianLimit(2);// 连号数量限定：过滤掉
+		frontLimit.setKillLianLimit(3);// 连号数量限定：过滤掉
 
 		// 2018年前区和值：40以下-0；5X-8；6X-11；7X=12；8X=31；9X=29；10X=22；11X=20；12X=5；13X=4；14X=2；
 		frontLimit.setSumMinLimit(99);//
@@ -183,10 +183,10 @@ public class Front67a0 {
 		// 360杀号定胆
 		List<Integer> kill360 = new ArrayList<Integer>();
 		SortedSet<Integer> kill360set = new TreeSet<Integer>();
-		System.out.print("[kill360set]filter。size():" + kill360Array.length + "=");
 		for (int i = 0; i < kill360Array.length; i++) {
 			kill360set.add(kill360Array[i]);
 		}
+		System.out.print("[kill360set]filter。size():" + kill360set.size() + "=");
 		for (Iterator<Integer> iterator = kill360set.iterator(); iterator.hasNext();) {
 			Integer integer = (Integer) iterator.next();
 			System.out.print("," + integer);
@@ -198,10 +198,10 @@ public class Front67a0 {
 
 		// 彩经网
 		SortedSet<Integer> killcjwsSet = new TreeSet<Integer>();
-		System.out.print("[killcjw]filter。size():" + killcjw.length + "=");
 		for (int i = 0; i < killcjw.length; i++) {
 			killcjwsSet.add(killcjw[i]);
 		}
+		System.out.print("[killcjw]filter。size():" + killcjwsSet.size() + "=");
 		for (Iterator<Integer> iterator = killcjwsSet.iterator(); iterator.hasNext();) {
 			Integer integer = (Integer) iterator.next();
 			System.out.print("," + integer);
@@ -237,25 +237,6 @@ public class Front67a0 {
 			System.out.println("当期和值===" + (c1 + c2 + c3 + c4 + c5));
 		// 过滤号码与当期比较，是否错误
 		showIsYes(curBall, filtersLast,"上期号码：");
-		// if (showLast) {
-		// for (int i = 0; i < filtersObj.length; i++) {
-		// if (c1 == filterBalls[i]) {
-		// System.out.println("当期号码c1错误：" + filterBalls[i]);
-		// }
-		// if (c2 == filterBalls[i]) {
-		// System.out.println("当期号码c2错误：" + filterBalls[i]);
-		// }
-		// if (c3 == filterBalls[i]) {
-		// System.out.println("当期号码c3错误：" + filterBalls[i]);
-		// }
-		// if (c4 == filterBalls[i]) {
-		// System.out.println("当期号码c4错误：" + filterBalls[i]);
-		// }
-		// if (c5 == filterBalls[i]) {
-		// System.out.println("当期号码c5错误：" + filterBalls[i]);
-		// }
-		// }
-		// }
 
 		/**
 		 * 剩余组合
