@@ -27,17 +27,17 @@ public class Front67a1 {
 		FrontLimit frontLimit = new FrontLimit();// 限定过滤
 		FrontBall curBall = new FrontBall(3,8,11,15,16);// 03 08 11 15 16 02 10 
 		int[] filtersLast = { 4, 10, 11, 18, 31 };// 过滤上期
-		int lastLimitCount = 0;// 上期相同个数限定
+		int lastLimitCount = 1;// 上期相同个数限定
 
 		int[] filtersAdjoin3 = { 5, 12 };// 过滤3adjoin-特殊形态;三邻号
 		int[] filtersRuleRepeat = { 2, 7, 8, 13, 15, 16,10 };// 过滤规律重复1, 27;上次重号，本次不再重号
 		int[] filtersMost = { 29, 33 };// 出现总次数：29=349；33=338；35=324；32=321；30=312；35遗漏39期处于历史峰值
 		int[] filtersCool = { 17, 9 };// 遗漏次数：17=36；9=26;31=18
-		frontLimit.setCzlFiltersCount(2);// 我自己杀号限定个数
+		frontLimit.setCzlFiltersCount(3);// 我自己杀号限定个数
 
 		int[] tempArea5 = { 3, 4, 5 };// 分区5-过滤3、4、5个3, 4, 5
 
-		int kuaduMin = 30;// 最小跨度
+		int kuaduMin = 12;// 最小跨度
 		int kuaduMax = 35;// 最大跨度
 		int oddLimit = 3;// 奇数限定
 		int evenLimit = 3;// 偶数限定
@@ -51,14 +51,14 @@ public class Front67a1 {
 		frontLimit.setKillLianLimit(3);// 连号数量限定：过滤掉
 
 		// 2018年前区和值：40以下-0；5X-8；6X-11；7X=12；8X=31；9X=29；10X=22；11X=20；12X=5；13X=4；14X=2；
-		frontLimit.setSumMinLimit(99);//
+		frontLimit.setSumMinLimit(50);//
 		frontLimit.setSumMaxLimit(99);// 40-150=154（全）；80-110=82；80-90=31；90-100=29；80-100=60；
 		// 每个范围限定
 		frontLimit.setF1Min(1);
 		frontLimit.setF2Min(4);// 4
 		frontLimit.setF3Min(9);// 7
 		frontLimit.setF4Min(13);
-		frontLimit.setF5Min(25);
+		frontLimit.setF5Min(15);//25
 		frontLimit.setF1Max(7);// 1-7百分比=1240/1819=68.17%
 		frontLimit.setF2Max(18);
 		frontLimit.setF3Max(25);
@@ -96,43 +96,43 @@ public class Front67a1 {
 		// 过滤分区5-11111
 		int[] everyAreaCounts11111 = { 1, 1, 1, 1, 1 };
 		fiter5s.add(everyAreaCounts11111);
-		// 过滤分区5-最近n期-
-		int[] everyAreaCounts11300 = { 1, 1, 3, 0, 0 };
-		fiter5s.add(everyAreaCounts11300);
-		int[] everyAreaCounts12200 = { 1, 2, 2, 0, 0 };
-		fiter5s.add(everyAreaCounts12200);
-		int[] everyAreaCounts13001 = { 1, 3, 0, 0, 1 };
-		fiter5s.add(everyAreaCounts13001);
-		int[] everyAreaCounts02102 = { 0, 2, 1, 0, 2 };
-		fiter5s.add(everyAreaCounts02102);
-		int[] everyAreaCounts22010 = { 2, 2, 0, 1, 0 };
-		fiter5s.add(everyAreaCounts22010);
-		int[] everyAreaCounts30110 = { 3, 0, 1, 1, 0 };
-		fiter5s.add(everyAreaCounts30110);
-		int[] everyAreaCounts10121 = { 1, 0, 1, 2, 1 };
-		fiter5s.add(everyAreaCounts10121);
-		int[] everyAreaCounts11210 = { 1, 1, 2, 1, 0 };
-		fiter5s.add(everyAreaCounts11210);
-		int[] everyAreaCounts01301 = { 0, 1, 3, 0, 1 };
-		fiter5s.add(everyAreaCounts01301);
-		int[] everyAreaCounts10301 = { 1, 0, 3, 0, 1 };
-		fiter5s.add(everyAreaCounts10301);
-		int[] everyAreaCounts01130 = { 0, 1, 1, 3, 0 };
-		fiter5s.add(everyAreaCounts01130);
-		int[] everyAreaCounts11102 = { 1, 1, 1, 0, 2 };
-		fiter5s.add(everyAreaCounts11102);
-		int[] everyAreaCounts21101 = { 2, 1, 1, 0, 1 };
-		fiter5s.add(everyAreaCounts21101);
-		int[] everyAreaCounts12101 = { 1, 2, 1, 0, 1 };
-		fiter5s.add(everyAreaCounts12101);
-		int[] everyAreaCounts20201 = { 2, 0, 2, 0, 1 };
-		fiter5s.add(everyAreaCounts20201);
-		int[] everyAreaCounts22001 = { 2, 2, 0, 0, 1 };
-		fiter5s.add(everyAreaCounts22001);
-		int[] everyAreaCounts31100 = { 3, 1, 1, 0, 0 };
-		fiter5s.add(everyAreaCounts31100);
-		int[] everyAreaCounts12011 = { 1, 2, 0, 1, 1 };
-		fiter5s.add(everyAreaCounts12011);
+//		// 过滤分区5-最近n期-
+//		int[] everyAreaCounts11300 = { 1, 1, 3, 0, 0 };
+//		fiter5s.add(everyAreaCounts11300);
+//		int[] everyAreaCounts12200 = { 1, 2, 2, 0, 0 };
+//		fiter5s.add(everyAreaCounts12200);
+//		int[] everyAreaCounts13001 = { 1, 3, 0, 0, 1 };
+//		fiter5s.add(everyAreaCounts13001);
+//		int[] everyAreaCounts02102 = { 0, 2, 1, 0, 2 };
+//		fiter5s.add(everyAreaCounts02102);
+//		int[] everyAreaCounts22010 = { 2, 2, 0, 1, 0 };
+//		fiter5s.add(everyAreaCounts22010);
+//		int[] everyAreaCounts30110 = { 3, 0, 1, 1, 0 };
+//		fiter5s.add(everyAreaCounts30110);
+//		int[] everyAreaCounts10121 = { 1, 0, 1, 2, 1 };
+//		fiter5s.add(everyAreaCounts10121);
+//		int[] everyAreaCounts11210 = { 1, 1, 2, 1, 0 };
+//		fiter5s.add(everyAreaCounts11210);
+//		int[] everyAreaCounts01301 = { 0, 1, 3, 0, 1 };
+//		fiter5s.add(everyAreaCounts01301);
+//		int[] everyAreaCounts10301 = { 1, 0, 3, 0, 1 };
+//		fiter5s.add(everyAreaCounts10301);
+//		int[] everyAreaCounts01130 = { 0, 1, 1, 3, 0 };
+//		fiter5s.add(everyAreaCounts01130);
+//		int[] everyAreaCounts11102 = { 1, 1, 1, 0, 2 };
+//		fiter5s.add(everyAreaCounts11102);
+//		int[] everyAreaCounts21101 = { 2, 1, 1, 0, 1 };
+//		fiter5s.add(everyAreaCounts21101);
+//		int[] everyAreaCounts12101 = { 1, 2, 1, 0, 1 };
+//		fiter5s.add(everyAreaCounts12101);
+//		int[] everyAreaCounts20201 = { 2, 0, 2, 0, 1 };
+//		fiter5s.add(everyAreaCounts20201);
+//		int[] everyAreaCounts22001 = { 2, 2, 0, 0, 1 };
+//		fiter5s.add(everyAreaCounts22001);
+//		int[] everyAreaCounts31100 = { 3, 1, 1, 0, 0 };
+//		fiter5s.add(everyAreaCounts31100);
+//		int[] everyAreaCounts12011 = { 1, 2, 0, 1, 1 };
+//		fiter5s.add(everyAreaCounts12011);
 		area5s.setFiterCounts(fiter5s);
 		frontLimit.setArea5(area5s);
 
