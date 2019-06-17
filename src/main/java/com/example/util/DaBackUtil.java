@@ -19,7 +19,8 @@ public class DaBackUtil {
 
 	public static void main(String[] args) {
 		// 当期2019041
-		BackBall curBall = new BackBall(2, 6);
+		BackBall curBall = new BackBall(6, 11);
+		String curBallStr = curBall.getBackBall1()+","+curBall.getBackBall2();
 		int minPinlvCount = 0;
 		int maxPinlvCount = 12;
 		int back1limit = 12, back2limit = 12;// 后区第2个2-12,第二个不能小于第一个
@@ -76,11 +77,15 @@ public class DaBackUtil {
 		for (String key : pinlvMap.keySet()) {
 			for (int i = minPinlvCount; i <= maxPinlvCount; i++) {
 				if (pinlvMap.get(key) == i) {// 仅出现n次
-					System.out.println(key + ":" + pinlvMap.get(key));
+					if(key.equals(curBallStr)) {
+						System.out.println(key + ":" + pinlvMap.get(key)+"[当期出现]");
+					}else {
+						System.out.println(key + ":" + pinlvMap.get(key));
+					}
 //					if (i == 2) {
 						int count2019Limit = 0;//限定最近期过滤
-						int limit2019Max = 10;//限定最近期过滤
-						for (Iterator iterator = lastBackBalls2019.iterator(); iterator.hasNext();) {
+						int limit2019Max = 20;//限定最近期过滤
+						for (Iterator<BackBall> iterator = lastBackBalls2019.iterator(); iterator.hasNext();) {
 							BackBall backBall = (BackBall) iterator.next();
 							String his2019one = backBall.getBackBall1()+","+backBall.getBackBall2();
 //							System.out.println("his2019one:"+his2019one);
