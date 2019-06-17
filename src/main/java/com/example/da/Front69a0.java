@@ -41,28 +41,28 @@ public class Front69a0 {
 		int[] tempArea5 = { 3, 4, 5 };// 分区5-过滤3、4、5个3, 4, 5
 //		int[] tempArea5 = { 4, 5 };// 分区5-过滤3、4、5个3, 4, 5
 
-//		int lastLimitCount = 0;// 上期相同个数限定
-		int lastLimitCount = 1;// 上期相同个数限定
-		frontLimit.setCzlFiltersCount(2);// 我自己杀号限定个数
-//		frontLimit.setCzlFiltersCount(1);// 我自己杀号限定个数
-//		int kill360LimitCount = 1;
-		int kill360LimitCount = 2;
-//		int[] killNoLimits = { 1 };
-		int[] killNoLimits = { 2 };
-//		frontLimit.setKillLianLimit(2);// 连号数量限定：过滤掉
-		frontLimit.setKillLianLimit(3);// 连号数量限定：过滤掉
+		int lastLimitCount = 0;// 上期相同个数限定
+//		int lastLimitCount = 1;// 上期相同个数限定
+		frontLimit.setCzlFiltersCount(1);// 我自己杀号限定个数
+//		frontLimit.setCzlFiltersCount(2);// 我自己杀号限定个数
+		int kill360LimitCount = 1;
+//		int kill360LimitCount = 2;
+		int[] killNoLimits = { 1 };
+//		int[] killNoLimits = { 2 };
+		frontLimit.setKillLianLimit(2);// 连号数量限定：过滤掉
+//		frontLimit.setKillLianLimit(3);// 连号数量限定：过滤掉
 
 		// 2018年前区和值：40以下-0；5X-8；6X-11；7X=12；8X=31；9X=29；10X=22；11X=20；12X=5；13X=4；14X=2；
-		frontLimit.setSumMinLimit(80);//
-		frontLimit.setSumMaxLimit(99);// 40-150=154（全）；80-110=82；80-90=31；90-100=29；80-100=60；
+//		frontLimit.setSumMinLimit(80);//
+//		frontLimit.setSumMaxLimit(99);// 40-150=154（全）；80-110=82；80-90=31；90-100=29；80-100=60；
 //		frontLimit.setSumMinLimit(85);//
 //		frontLimit.setSumMaxLimit(94);// 40-150=154（全）；80-110=82；80-90=31；90-100=29；80-100=60
-//		frontLimit.setSumMinLimit(99);
-//		frontLimit.setSumMaxLimit(99);
+		frontLimit.setSumMinLimit(99);
+		frontLimit.setSumMaxLimit(99);
 		
-		int kuaduMin = 22;// 最小跨度
+//		int kuaduMin = 22;// 最小跨度
 //		int kuaduMin = 26;// 最小跨度
-//		int kuaduMin = 30;// 最小跨度
+		int kuaduMin = 30;// 最小跨度
 		
 		int kuaduMax = 35;// 最大跨度
 		int oddLimit = 3;// 奇数限定
@@ -74,7 +74,7 @@ public class Front69a0 {
 		frontLimit.setF3Min(9);// 7 9
 		frontLimit.setF4Min(13);//15
 		frontLimit.setF5Min(22);// 25
-		frontLimit.setF1Max(9);// 1-7百分比=1240/1819=68.17% 9
+		frontLimit.setF1Max(7);// 1-7百分比=1240/1819=68.17% 9
 		frontLimit.setF2Max(18);
 		frontLimit.setF3Max(25);
 		frontLimit.setF4Max(32);// 32
