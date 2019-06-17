@@ -25,7 +25,7 @@ public class Front68a0 {
 
 	public static void main(String[] args) {
 		FrontLimit frontLimit = new FrontLimit();// 限定过滤
-		FrontBall curBall = new FrontBall(3, 8, 11, 15, 16);// 03 08 11 15 16 02 10
+		FrontBall curBall = new FrontBall(4,5,8,17,27);// 03 08 11 15 16 02 10
 		int[] filtersLast = { 3, 8, 11, 15, 16 };// 过滤上期
 //		int lastLimitCount = 1;// 上期相同个数限定
 		int lastLimitCount = 0;// 上期相同个数限定
