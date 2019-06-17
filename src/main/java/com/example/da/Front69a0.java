@@ -27,31 +27,29 @@ public class Front69a0 {
 		FrontLimit frontLimit = new FrontLimit();// 限定过滤
 		FrontBall curBall = new FrontBall(4,5,8,17,27);// 03 08 11 15 16 02 10
 		int[] filtersLast = { 4,5,8,17,27 };// 过滤上期
-//		int lastLimitCount = 1;// 上期相同个数限定
-		int lastLimitCount = 0;// 上期相同个数限定
-
+		
 		int[] filtersAdjoin3 = { 5,18 };// 过滤3adjoin-特殊形态;三邻号
 		int[] filtersRuleRepeat = { 3,7,8,18 };// 过滤规律重复1, 27;上次重号，本次不再重号
 		int[] filtersMost = { 29, 33 };// 出现总次数：29=349；33=338；35=324；32=321；30=312；35遗漏39期处于历史峰值
 		int[] filtersCool = { 9,33 };// 遗漏次数：9=32;33=20
-//		frontLimit.setCzlFiltersCount(2);// 我自己杀号限定个数
-		frontLimit.setCzlFiltersCount(1);// 我自己杀号限定个数
+
 		int[] kill360Array = { 26,13,24,13,24,17,15,3,23,4 };// 360杀号定胆
-		int kill360LimitCount = 1;
+
 		// int[] killcjw = {};// 杀号-彩经网
 		int[] killcjw = { 15,12,16,6,24,12,21,4,23,17 };// 杀号-彩经网
-		int[] killNoLimits = { 1 };
 
 		int[] tempArea5 = { 3, 4, 5 };// 分区5-过滤3、4、5个3, 4, 5
 //		int[] tempArea5 = { 4, 5 };// 分区5-过滤3、4、5个3, 4, 5
 
-//		int kuaduMin = 22;// 最小跨度
-		int kuaduMin = 30;// 最小跨度
-		
-		int kuaduMax = 35;// 最大跨度
-		int oddLimit = 3;// 奇数限定
-		int evenLimit = 3;// 偶数限定
+		frontLimit.setSumMaxLimit(99);
 
+		
+//		int lastLimitCount = 1;// 上期相同个数限定
+		int lastLimitCount = 0;// 上期相同个数限定
+//		frontLimit.setCzlFiltersCount(2);// 我自己杀号限定个数
+		frontLimit.setCzlFiltersCount(1);// 我自己杀号限定个数
+		int kill360LimitCount = 1;
+		int[] killNoLimits = { 1 };
 //		frontLimit.setKillLianLimit(3);// 连号数量限定：过滤掉
 		frontLimit.setKillLianLimit(2);// 连号数量限定：过滤掉
 
@@ -61,7 +59,14 @@ public class Front69a0 {
 //		frontLimit.setSumMinLimit(85);//
 //		frontLimit.setSumMaxLimit(94);// 40-150=154（全）；80-110=82；80-90=31；90-100=29；80-100=60
 		frontLimit.setSumMinLimit(99);
-		frontLimit.setSumMaxLimit(99);
+		
+//		int kuaduMin = 22;// 最小跨度
+		int kuaduMin = 30;// 最小跨度
+		
+		int kuaduMax = 35;// 最大跨度
+		int oddLimit = 3;// 奇数限定
+		int evenLimit = 3;// 偶数限定
+		
 		// 每个范围限定
 		frontLimit.setF1Min(1);
 		frontLimit.setF2Min(4);// 4
