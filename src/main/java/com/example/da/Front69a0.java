@@ -43,7 +43,6 @@ public class Front69a0 {
 
 		frontLimit.setSumMaxLimit(99);
 
-		
 //		int lastLimitCount = 1;// 上期相同个数限定
 		int lastLimitCount = 0;// 上期相同个数限定
 //		frontLimit.setCzlFiltersCount(2);// 我自己杀号限定个数
