@@ -1,4 +1,4 @@
-package com.example.util;
+package com.example.bak;
 
 import java.util.ArrayList;
 import java.util.Iterator;
@@ -10,6 +10,7 @@ import com.example.dto.FrontBall;
 import com.example.dto.FrontLast;
 import com.example.dto.FrontLimit;
 import com.example.dto.FrontLimitArea5;
+import com.example.util.DaFrontHis;
 
 /**
  * 后区全部组合个数：324632
@@ -18,7 +19,7 @@ import com.example.dto.FrontLimitArea5;
  * 
  * @author admin
  */
-public class DaFrontUtil19056a0 {
+public class DaFrontUtil19057a0 {
 //	 private static boolean showLast = false;
 	private static boolean showLast = true;
 	/**
@@ -26,30 +27,30 @@ public class DaFrontUtil19056a0 {
 	 */
 	public static void main(String[] args) {
 		// 当期2019
-		FrontBall curBall = new FrontBall(2, 4, 6, 19, 22);
+		FrontBall curBall = new FrontBall(1, 7, 10, 12, 23);
 		int c1 = curBall.getFrontBall1(), c2 = curBall.getFrontBall2(), c3 = curBall.getFrontBall3(),
 				c4 = curBall.getFrontBall4(), c5 = curBall.getFrontBall5();
-		int[] filtersLast = { 2, 4, 6, 19, 22 };// 过滤上期
+		int[] filtersLast = { 1, 7, 10, 12, 23 };// 过滤上期
 		int last1 = filtersLast[0], last2 = filtersLast[1], last3 = filtersLast[2], last4 = filtersLast[3],
 				last5 = filtersLast[4];
 
 		SortedSet<Integer> setFilters = new TreeSet<Integer>();// 过滤
-		int[] filtersAdjoin3 = { 20,21 };// 过滤3adjoin-特殊形态;三邻号；遗漏规律重复
+		int[] filtersAdjoin3 = { 8,24 };// 过滤3adjoin-特殊形态;三邻号；遗漏规律重复
 		System.out.print("[filtersAdjoin3]size():" + filtersAdjoin3.length + "=");
 		for (int i = 0; i < filtersAdjoin3.length; i++) {
 			System.out.print("," + filtersAdjoin3[i]);
 			setFilters.add(filtersAdjoin3[i]);
 		}
 		System.out.println("");
-		int[] filtersRuleRepeat = { 35 };// 过滤规律重复
+		int[] filtersRuleRepeat = { 19,26 };// 过滤规律重复
 		System.out.print("[filtersRuleRepeat]size():" + filtersRuleRepeat.length + "=");
 		for (int i = 0; i < filtersRuleRepeat.length; i++) {
 			System.out.print("," + filtersRuleRepeat[i]);
 			setFilters.add(filtersRuleRepeat[i]);
 		}
 		System.out.println("");
-		// 遗漏次数：17=28；25=27;9=18
-		int[] filtersCool = {17};
+		// 遗漏次数：17=28；25=27;9=18;21=18
+		int[] filtersCool = {17,25};
 		for (int i = 0; i < filtersCool.length; i++) {
 			if (i == 0) {
 				System.out.print("[filtersCool]filter。size():" + filtersCool.length + "=");
@@ -75,21 +76,21 @@ public class DaFrontUtil19056a0 {
 		FrontLimit frontLimit = new FrontLimit();
 		frontLimit.setKillLianLimit(2);// 连号数量限定：
 		// 2018年前区和值：40以下-0；5X-8；6X-11；7X=12；8X=31；9X=29；10X=22；11X=20；12X=5；13X=4；14X=2；
-		frontLimit.setSumMinLimit(80);//
-		frontLimit.setSumMaxLimit(90);// 40-150=154（全）；80-110=82；80-90=31；90-100=29；80-100=60；
+		frontLimit.setSumMinLimit(90);//
+		frontLimit.setSumMaxLimit(100);// 40-150=154（全）；80-110=82；80-90=31；90-100=29；80-100=60；
 
 		frontLimit.setF1Min(1);
 		frontLimit.setF2Min(3);
 		frontLimit.setF3Min(5);
 		frontLimit.setF4Min(13);
-		frontLimit.setF5Min(20);
+		frontLimit.setF5Min(25);
 		frontLimit.setF1Max(9);// 1-7百分比=1240/1819=68.17%
 		frontLimit.setF2Max(22);
 		frontLimit.setF3Max(30);
 		frontLimit.setF4Max(32);
 		frontLimit.setF5Max(35);
 		int kuaduMin = 26;// 最小跨度
-		int kuaduMax = 33;// 最大跨度
+		int kuaduMax = 30;// 最大跨度
 		int oddLimit = 4;// 奇数限定
 		int evenLimit = 4;// 偶数限定
 
@@ -126,6 +127,8 @@ public class DaFrontUtil19056a0 {
 		int[] everyAreaCounts11111 = { 1, 1, 1, 1, 1 };
 		fiter5s.add(everyAreaCounts11111);
 		// 过滤分区5-最近n期-
+		int[] everyAreaCounts22010 = { 2, 2, 0, 1, 0 };
+		fiter5s.add(everyAreaCounts22010);
 		int[] everyAreaCounts30110 = { 3, 0, 1, 1, 0 };
 		fiter5s.add(everyAreaCounts30110);
 		int[] everyAreaCounts10121 = { 1, 0, 1, 2, 1 };
@@ -213,13 +216,13 @@ public class DaFrontUtil19056a0 {
 				if (f1 == c1 && f2 == c2 && f3 == c3 && f4 == c4 && f5 == c5) {
 					System.out.println("过滤后当期：：：" + f1 + "," + f2 + "," + f3 + "," + f4 + "," + f5);
 				}
-				// System.out.println(f1 + "," + f2 + "," + f3 + "," + f4 + "," + f5 + " + ");//
+//				 System.out.println(f1 + "," + f2 + "," + f3 + "," + f4 + "," + f5 + " + ");//
 				// 前区出球
 				if (f1 == yuce1 && f2 == yuce2) {
 					// System.out.println(f1 + "," + f2 + "," + f3 + "," + f4 + "," + f5 + " + ");//
 				} else {
 					// TODO CZL
-					 System.out.println(f1 + "," + f2 + "," + f3 + "," + f4 + "," + f5 + " +");
+//					 System.out.println(f1 + "," + f2 + "," + f3 + "," + f4 + "," + f5 + " +");
 				}
 				yuce1 = f1;
 				yuce2 = f2;
@@ -1334,7 +1337,7 @@ public class DaFrontUtil19056a0 {
 				if ((t1 >= area1Min && t1 <= area1Max) && (t2 >= area1Min && t2 <= area1Max)
 						&& (t3 >= area1Min && t3 <= area1Max) && (t4 >= area1Min && t4 <= area1Max)
 						&& (t5 >= area1Min && t5 <= area1Max)) {
-					System.out.println("分区1-限定不能有个数5:" + t1 + "," + t2 + "," + t3 + "," + t4 + "," + t5);
+//					System.out.println("分区1-限定不能有个数5:" + t1 + "," + t2 + "," + t3 + "," + t4 + "," + t5);
 					return true;
 				}
 			}
@@ -1343,7 +1346,7 @@ public class DaFrontUtil19056a0 {
 						&& (t3 >= area1Min && t3 <= area1Max) && (t4 >= area1Min && t4 <= area1Max))
 						|| ((t2 >= area1Min && t2 <= area1Max) && (t3 >= area1Min && t3 <= area1Max)
 								&& (t4 >= area1Min && t4 <= area1Max) && (t5 >= area1Min && t5 <= area1Max))) {
-					System.out.println("分区1-限定不能有个数4:" + t1 + "," + t2 + "," + t3 + "," + t4 + "," + t5);
+//					System.out.println("分区1-限定不能有个数4:" + t1 + "," + t2 + "," + t3 + "," + t4 + "," + t5);
 					return true;
 				}
 			}
@@ -1354,7 +1357,7 @@ public class DaFrontUtil19056a0 {
 								&& (t4 >= area1Min && t4 <= area1Max)
 								|| ((t3 >= area1Min && t3 <= area1Max) && (t4 >= area1Min && t4 <= area1Max)
 										&& (t5 >= area1Min && t5 <= area1Max)))) {
-					System.out.println("分区1-限定不能有个数3:" + t1 + "," + t2 + "," + t3 + "," + t4 + "," + t5);
+//					System.out.println("分区1-限定不能有个数3:" + t1 + "," + t2 + "," + t3 + "," + t4 + "," + t5);
 					return true;
 				}
 			}

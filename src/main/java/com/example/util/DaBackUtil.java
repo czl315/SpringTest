@@ -20,6 +20,8 @@ public class DaBackUtil {
 	public static void main(String[] args) {
 		// 当期2019041
 		BackBall curBall = new BackBall(2, 6);
+		int minPinlvCount = 0;
+		int maxPinlvCount = 12;
 		int back1limit = 12, back2limit = 12;// 后区第2个2-12,第二个不能小于第一个
 		/**
 		 * 后区所有可能组合
@@ -72,7 +74,7 @@ public class DaBackUtil {
 		}
 		int[] cishuCounts = new int[10];// 出现次数
 		for (String key : pinlvMap.keySet()) {
-			for (int i = 1; i <= 10; i++) {
+			for (int i = minPinlvCount; i <= maxPinlvCount; i++) {
 				if (pinlvMap.get(key) == i) {// 仅出现n次
 					System.out.println(key + ":" + pinlvMap.get(key));
 //					if (i == 2) {
@@ -101,9 +103,9 @@ public class DaBackUtil {
 				}
 			}
 		}
-		for (int i = 0; i < cishuCounts.length; i++) {
-			System.out.println("cishu["+i+"]:" + cishuCounts[i]);
-		}
+//		for (int i = 0; i < cishuCounts.length; i++) {
+//			System.out.println("cishu["+i+"]:" + cishuCounts[i]);
+//		}
 	}
 
 	/**

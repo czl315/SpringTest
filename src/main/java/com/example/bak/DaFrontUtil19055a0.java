@@ -1,4 +1,4 @@
-package com.example.util;
+package com.example.bak;
 
 import java.util.ArrayList;
 import java.util.Iterator;
@@ -10,6 +10,7 @@ import com.example.dto.FrontBall;
 import com.example.dto.FrontLast;
 import com.example.dto.FrontLimit;
 import com.example.dto.FrontLimitArea5;
+import com.example.util.DaFrontHis;
 
 /**
  * 后区全部组合个数：324632
@@ -18,7 +19,7 @@ import com.example.dto.FrontLimitArea5;
  * 
  * @author admin
  */
-public class DaFrontUtil19054a1 {
+public class DaFrontUtil19055a0 {
 	// private static boolean showLast = false;
 	private static boolean showLast = true;
 
@@ -27,36 +28,71 @@ public class DaFrontUtil19054a1 {
 	 */
 	public static void main(String[] args) {
 		// 当期2019
-		FrontBall curBall = new FrontBall(2, 18, 23, 27, 30);
+		FrontBall curBall = new FrontBall(2,4,6,19,22);//  2, 18, 23, 27, 30
 		int c1 = curBall.getFrontBall1(), c2 = curBall.getFrontBall2(), c3 = curBall.getFrontBall3(),
 				c4 = curBall.getFrontBall4(), c5 = curBall.getFrontBall5();
-		int[] filtersLast = { 1, 11, 19, 26, 35 };// 过滤上期
+		int[] filtersLast = { 2, 18, 23, 27, 30 };// 过滤上期
 		int last1 = filtersLast[0], last2 = filtersLast[1], last3 = filtersLast[2], last4 = filtersLast[3],
 				last5 = filtersLast[4];
 
-		int[] filtersAdjoin3 = { 12, 4, 13, 29, 32 };// 过滤3adjoin-特殊形态;三邻号；遗漏规律重复
+		SortedSet<Integer> setFilters = new TreeSet<Integer>();// 过滤
 
-		int[] tempArea5 = { 3, 4, 5 };// 分区5-过滤3、4、5个
+		int[] filtersAdjoin3 = { 3, 17, 28 };// 过滤3adjoin-特殊形态;三邻号；遗漏规律重复
+		System.out.print("[filtersAdjoin3]size():" + filtersAdjoin3.length + "=");
+		for (int i = 0; i < filtersAdjoin3.length; i++) {
+			System.out.print("," + filtersAdjoin3[i]);
+			setFilters.add(filtersAdjoin3[i]);
+		}
+		System.out.println("");
+		int[] filtersRuleRepeat = { 10, 11 };// 过滤规律重复
+		System.out.print("[filtersRuleRepeat]size():" + filtersRuleRepeat.length + "=");
+		for (int i = 0; i < filtersRuleRepeat.length; i++) {
+			System.out.print("," + filtersRuleRepeat[i]);
+			setFilters.add(filtersRuleRepeat[i]);
+		}
+		System.out.println("");
+		// 遗漏次数：17=28；25=27;9=18
+		int[] filtersCool = {17,25};
+		for (int i = 0; i < filtersCool.length; i++) {
+			if (i == 0) {
+				System.out.print("[filtersCool]filter。size():" + filtersCool.length + "=");
+			}
+			setFilters.add(filtersCool[i]);
+			System.out.print("," + filtersCool[i]);
+		}
+		System.out.println("");
+
+		int[] filtersMost = { 29 };// 出现总次数：29=349；33=338；35=324；32=321；30=312；35遗漏39期处于历史峰值
+		for (int i = 0; i < filtersMost.length; i++) {
+			if (i == 0) {
+				System.out.print("[history]filter。size():" + filtersMost.length + "=");
+			}
+			setFilters.add(filtersMost[i]);
+			System.out.print("," + filtersMost[i]);
+		}
+		System.out.println("");
+
+		int[] tempArea5 = {  4, 5 };// 分区5-过滤3、4、5个
 
 		// 每个范围限定
 		FrontLimit frontLimit = new FrontLimit();
 		frontLimit.setKillLianLimit(2);// 连号数量限定：
 		// 2018年前区和值：40以下-0；5X-8；6X-11；7X=12；8X=31；9X=29；10X=22；11X=20；12X=5；13X=4；14X=2；
-		frontLimit.setSumMinLimit(85);//
-		frontLimit.setSumMaxLimit(105);// 40-150=154（全）；80-110=82；80-90=31；90-100=29；80-100=60；
+		frontLimit.setSumMinLimit(80);//
+		frontLimit.setSumMaxLimit(90);// 40-150=154（全）；80-110=82；80-90=31；90-100=29；80-100=60；
 
 		frontLimit.setF1Min(1);
 		frontLimit.setF2Min(3);
 		frontLimit.setF3Min(10);
 		frontLimit.setF4Min(13);
 		frontLimit.setF5Min(25);
-		frontLimit.setF1Max(7);// 1-7百分比=1240/1819=68.17%
+		frontLimit.setF1Max(9);// 1-7百分比=1240/1819=68.17%
 		frontLimit.setF2Max(22);
 		frontLimit.setF3Max(30);
 		frontLimit.setF4Max(32);
 		frontLimit.setF5Max(35);
 		int kuaduMin = 26;// 最小跨度
-		int kuaduMax = 30;// 最大跨度
+		int kuaduMax = 33;// 最大跨度
 		int oddLimit = 4;// 奇数限定
 		int evenLimit = 4;// 偶数限定
 
@@ -93,6 +129,8 @@ public class DaFrontUtil19054a1 {
 		int[] everyAreaCounts11111 = { 1, 1, 1, 1, 1 };
 		fiter5s.add(everyAreaCounts11111);
 		// 过滤分区5-最近n期-
+		int[] everyAreaCounts10121 = { 1, 0, 1, 2, 1 };
+		fiter5s.add(everyAreaCounts10121);
 		int[] everyAreaCounts11210 = { 1, 1, 2, 1, 0 };
 		fiter5s.add(everyAreaCounts11210);
 		int[] everyAreaCounts01301 = { 0, 1, 3, 0, 1 };
@@ -121,16 +159,6 @@ public class DaFrontUtil19054a1 {
 		List<FrontBall> filterHists = DaFrontHis.frontBall2007to2019(5000);// history全过滤4个以上；历史100过滤3个；历史10过滤2个
 		// System.out.println("历史过滤frontBalls个数：" + filterHists.size());
 
-		SortedSet<Integer> setFilters = new TreeSet<Integer>();// 过滤
-
-		System.out.print("[filtersAdjoin3]size():" + filtersAdjoin3.length + "=");
-		for (int i = 0; i < filtersAdjoin3.length; i++) {
-			System.out.print("," + filtersAdjoin3[i]);
-		}
-		System.out.println("");
-		for (int i = 0; i < filtersAdjoin3.length; i++) {
-			setFilters.add(filtersAdjoin3[i]);
-		}
 		// int[] filtersLast100 = { 7,14 };// 过滤Last100 int[] filtersLast100 = {
 		// 7,14,3,16,18 };
 		// for (int i = 0; i < filtersLast100.length; i++) {
@@ -140,28 +168,6 @@ public class DaFrontUtil19054a1 {
 		// for (int i = 0; i < filtersLast20.length; i++) {
 		// setFilters.add(filtersLast20[i]);
 		// }
-
-		// 遗漏次数：23=47；17=22；25=21
-		int[] filtersLastCool100 = {};
-		for (int i = 0; i < filtersLastCool100.length; i++) {
-			if (i == 0) {
-				System.out.print("[Cool100]filter。size():" + filtersLastCool100.length + "=");
-			}
-			setFilters.add(filtersLastCool100[i]);
-			System.out.print("," + filtersLastCool100[i]);
-		}
-		System.out.println("");
-
-		int[] filtersMost = { 29 };// 出现总次数：29=349；33=338；35=324；32=321；30=312；35遗漏39期处于历史峰值
-
-		for (int i = 0; i < filtersMost.length; i++) {
-			if (i == 0) {
-				System.out.print("[history]filter。size():" + filtersMost.length + "=");
-			}
-			setFilters.add(filtersMost[i]);
-			System.out.print("," + filtersMost[i]);
-		}
-		System.out.println("");
 
 		Object[] filtersObj = (Object[]) setFilters.toArray();
 		int[] filterBalls = new int[filtersObj.length];
@@ -224,7 +230,7 @@ public class DaFrontUtil19054a1 {
 					// System.out.println(f1 + "," + f2 + "," + f3 + "," + f4 + "," + f5 + " + ");//
 				} else {
 					// TODO CZL
-					// System.out.println(f1 + "," + f2 + "," + f3 + "," + f4 + "," + f5 + " +");
+					 System.out.println(f1 + "," + f2 + "," + f3 + "," + f4 + "," + f5 + " +");
 				}
 				yuce1 = f1;
 				yuce2 = f2;
