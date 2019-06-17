@@ -41,10 +41,8 @@ public class Front69a0 {
 		int[] tempArea5 = { 3, 4, 5 };// 分区5-过滤3、4、5个3, 4, 5
 //		int[] tempArea5 = { 4, 5 };// 分区5-过滤3、4、5个3, 4, 5
 
-		frontLimit.setSumMaxLimit(99);
-
-//		int lastLimitCount = 1;// 上期相同个数限定
-		int lastLimitCount = 0;// 上期相同个数限定
+		int lastLimitCount = 1;// 上期相同个数限定
+//		int lastLimitCount = 0;// 上期相同个数限定
 //		frontLimit.setCzlFiltersCount(2);// 我自己杀号限定个数
 		frontLimit.setCzlFiltersCount(1);// 我自己杀号限定个数
 		int kill360LimitCount = 1;
@@ -55,12 +53,13 @@ public class Front69a0 {
 		// 2018年前区和值：40以下-0；5X-8；6X-11；7X=12；8X=31；9X=29；10X=22；11X=20；12X=5；13X=4；14X=2；
 //		frontLimit.setSumMinLimit(80);//
 //		frontLimit.setSumMaxLimit(99);// 40-150=154（全）；80-110=82；80-90=31；90-100=29；80-100=60；
-//		frontLimit.setSumMinLimit(85);//
-//		frontLimit.setSumMaxLimit(94);// 40-150=154（全）；80-110=82；80-90=31；90-100=29；80-100=60
-		frontLimit.setSumMinLimit(99);
+		frontLimit.setSumMinLimit(85);//
+		frontLimit.setSumMaxLimit(94);// 40-150=154（全）；80-110=82；80-90=31；90-100=29；80-100=60
+//		frontLimit.setSumMinLimit(99);
+//		frontLimit.setSumMaxLimit(99);
 		
 //		int kuaduMin = 22;// 最小跨度
-		int kuaduMin = 30;// 最小跨度
+		int kuaduMin = 26;// 最小跨度
 		
 		int kuaduMax = 35;// 最大跨度
 		int oddLimit = 3;// 奇数限定
