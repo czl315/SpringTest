@@ -586,11 +586,11 @@ public class Front70a1 {
 							}
 
 							// 尾号每个区域过滤
-							boolean killWeiEveryCountRs = KillUtil.checkKillWeiEveryCount(tempBall, frontLimit);
-							if (killWeiEveryCountRs) {
-								killWeiEveryCount++;
-								continue;
-							}
+//							boolean killWeiEveryCountRs = KillUtil.checkKillWeiEveryCount(tempBall, frontLimit);
+//							if (killWeiEveryCountRs) {
+//								killWeiEveryCount++;
+//								continue;
+//							}
 
 							boolean checkLian = checkLianLimit(lianLimit, t1, t2, t3, t4, t5);
 							if (lianLimit == 2 && checkLian) {// 去除2连号
