@@ -119,6 +119,11 @@ public class FrontLimit {
 	 */
 	private int evenLimit ;
 	
+	/**
+	 * 尾号每个区域过滤
+	 */
+	private int[] killWeiEveryCount;
+	
 	public int getKillLianLimit() {
 		return killLianLimit;
 	}
@@ -268,5 +273,11 @@ public class FrontLimit {
 	}
 	public void setEvenLimit(int evenLimit) {
 		this.evenLimit = evenLimit;
+	}
+	public int[] getKillWeiEveryCount() {
+		return killWeiEveryCount;
+	}
+	public void setKillWeiEveryCount(int[] killWeiEveryCount) {
+		this.killWeiEveryCount = killWeiEveryCount;
 	}
 }
