@@ -40,15 +40,15 @@ public class Front70a1 {
 		frontLimit.setKillWeiEveryCount(killWeiEveryCount);
 
 //		 int lastLimitCount = 0;// 上期相同个数限定
-		int lastLimitCount = 1;// 上期相同个数限定
+		int lastLimitCount = 2;// 上期相同个数限定
 		frontLimit.setCzlFiltersCount(1);// 我自己杀号限定个数
 		// frontLimit.setCzlFiltersCount(2);// 我自己杀号限定个数
-//		int kill360LimitCount = 1;
-		 int kill360LimitCount = 2;
-//		int[] killNoLimits = { 1 };
-		 int[] killNoLimits = { 2 };
-//		frontLimit.setKillLianLimit(2);// 连号数量限定：过滤掉
-		 frontLimit.setKillLianLimit(3);// 连号数量限定：过滤掉
+		int kill360LimitCount = 1;
+//		 int kill360LimitCount = 2;
+		int[] killNoLimits = { 1 };
+//		 int[] killNoLimits = { 2 };
+		frontLimit.setKillLianLimit(2);// 连号数量限定：过滤掉
+//		 frontLimit.setKillLianLimit(3);// 连号数量限定：过滤掉
 
 		// 2018年前区和值：40以下-0；5X-8；6X-11；7X=12；8X=31；9X=29；10X=22；11X=20；12X=5；13X=4；14X=2；
 		 frontLimit.setSumMinLimit(80);//
@@ -59,9 +59,9 @@ public class Front70a1 {
 //		 frontLimit.setSumMinLimit(99);
 //		 frontLimit.setSumMaxLimit(99);
 
-		 int kuaduMin = 22;// 最小跨度
+//		 int kuaduMin = 22;// 最小跨度
 //		int kuaduMin = 26;// 最小跨度
-//		 int kuaduMin = 30;// 最小跨度
+		 int kuaduMin = 30;// 最小跨度
 
 		int kuaduMax = 35;// 最大跨度
 		int oddLimit = 3;// 奇数限定
@@ -70,7 +70,7 @@ public class Front70a1 {
 		// 每个范围限定
 		frontLimit.setF1Min(1);
 		frontLimit.setF2Min(4);// 4
-		frontLimit.setF3Min(9);// 7 9
+		frontLimit.setF3Min(7);// 7 9
 		frontLimit.setF4Min(13);// 15
 		frontLimit.setF5Min(22);// 25
 		frontLimit.setF1Max(7);// 1-7百分比=1240/1819=68.17% 9 7
@@ -108,8 +108,8 @@ public class Front70a1 {
 		area5s.setArea5(area5);
 		List<int[]> fiter5s = new ArrayList<int[]>();
 		// 过滤分区5-11111
-		int[] everyAreaCounts11111 = { 1, 1, 1, 1, 1 };
-		fiter5s.add(everyAreaCounts11111);
+//		int[] everyAreaCounts11111 = { 1, 1, 1, 1, 1 };
+//		fiter5s.add(everyAreaCounts11111);
 		// 过滤分区5-最近n期-
 		int[] everyAreaCounts11300 = { 1, 1, 3, 0, 0 };
 		fiter5s.add(everyAreaCounts11300);
@@ -337,12 +337,15 @@ public class Front70a1 {
 					tempCount++;
 				}
 				if (tempCount == 3) {
+//					System.out.println("3球中!!!!" + f1 + "," + f2 + "," + f3 + "," + f4 + "," + f5 + " +");
 					yes3++;
 				}
 				if (tempCount == 2) {
+//					System.out.println("2球中!!!!" + f1 + "," + f2 + "," + f3 + "," + f4 + "," + f5 + " +");
 					yes2++;
 				}
 				if (tempCount == 1) {
+//					System.out.println("1球中!!!!" + f1 + "," + f2 + "," + f3 + "," + f4 + "," + f5 + " +");
 					yes1++;
 				}
 			}

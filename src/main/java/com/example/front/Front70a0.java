@@ -41,8 +41,8 @@ public class Front70a0 {
 		int[] tempArea5 = { 3, 4, 5 };// 分区5-过滤3、4、5个3, 4, 5
 		// int[] tempArea5 = { 4, 5 };// 分区5-过滤3、4、5个3, 4, 5
 
-//		int lastLimitCount = 0;// 上期相同个数限定
-		 int lastLimitCount = 1;// 上期相同个数限定
+		int lastLimitCount = 0;// 上期相同个数限定
+//		 int lastLimitCount = 1;// 上期相同个数限定
 		frontLimit.setCzlFiltersCount(1);// 我自己杀号限定个数
 		// frontLimit.setCzlFiltersCount(2);// 我自己杀号限定个数
 		int kill360LimitCount = 1;
@@ -56,14 +56,14 @@ public class Front70a0 {
 		// frontLimit.setSumMinLimit(80);//
 		// frontLimit.setSumMaxLimit(99);//
 		// 40-150=154（全）；80-110=82；80-90=31；90-100=29；80-100=60；
-		 frontLimit.setSumMinLimit(85);//
-		 frontLimit.setSumMaxLimit(94);//
-//		frontLimit.setSumMinLimit(99);
-//		frontLimit.setSumMaxLimit(99);
+//		 frontLimit.setSumMinLimit(85);//
+//		 frontLimit.setSumMaxLimit(94);//
+		frontLimit.setSumMinLimit(99);
+		frontLimit.setSumMaxLimit(99);
 
 		// int kuaduMin = 22;// 最小跨度
-		 int kuaduMin = 26;// 最小跨度
-//		int kuaduMin = 30;// 最小跨度
+//		 int kuaduMin = 26;// 最小跨度
+		int kuaduMin = 30;// 最小跨度
 
 		int kuaduMax = 35;// 最大跨度
 		int oddLimit = 3;// 奇数限定
@@ -270,6 +270,7 @@ public class Front70a0 {
 		int yes2 = 0;// 2球中
 		int yes1 = 0;// 1球中
 		int yuce1 = 0, yuce2 = 0, yuce3 = 0, yuce4 = 0, yuce5 = 0;// 预测
+		int curOk1 = 0, curOk2 = 0, curOk3 = 0, curOk4 = 0, curOk5 = 0;// 当期中
 
 		for (Iterator<FrontBall> iterator = combs.iterator(); iterator.hasNext();) {
 			FrontBall ball = (FrontBall) iterator.next();
@@ -339,12 +340,15 @@ public class Front70a0 {
 					tempCount++;
 				}
 				if (tempCount == 3) {
+					System.out.println("3球中!!!!" + f1 + "," + f2 + "," + f3 + "," + f4 + "," + f5 + " +");
 					yes3++;
 				}
 				if (tempCount == 2) {
+					System.out.println("2球中!!!!" + f1 + "," + f2 + "," + f3 + "," + f4 + "," + f5 + " +");
 					yes2++;
 				}
 				if (tempCount == 1) {
+					System.out.println("1球中!!!!" + f1 + "," + f2 + "," + f3 + "," + f4 + "," + f5 + " +");
 					yes1++;
 				}
 			}
