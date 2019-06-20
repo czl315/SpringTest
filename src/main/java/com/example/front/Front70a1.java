@@ -20,7 +20,7 @@ public class Front70a1 {
 
 	public static void main(String[] args) {
 		FrontLimit frontLimit = new FrontLimit();// 限定过滤
-		FrontBall curBall = new FrontBall(8, 22, 23, 33, 34);// 08 22 23 33 34 04 06
+		FrontBall curBall = new FrontBall(2,13,15,22,34);// 02 13 15 22 34 02 12 
 		int[] filtersLast = { 8, 22, 23, 33, 34 };// 过滤上期 TODO
 
 		int[] filtersAdjoin3 = {};// 过滤3adjoin-特殊形态;三邻号
@@ -39,7 +39,7 @@ public class Front70a1 {
 		int[] killWeiEveryCount = { 2, 2, 2, 2, 2, 2, 2, 2, 2, 2 };// 尾号每个区域过滤
 		frontLimit.setKillWeiEveryCount(killWeiEveryCount);
 
-		// int lastLimitCount = 0;// 上期相同个数限定
+//		 int lastLimitCount = 0;// 上期相同个数限定
 		int lastLimitCount = 1;// 上期相同个数限定
 		frontLimit.setCzlFiltersCount(1);// 我自己杀号限定个数
 		// frontLimit.setCzlFiltersCount(2);// 我自己杀号限定个数
@@ -56,12 +56,12 @@ public class Front70a1 {
 		// 40-150=154（全）；80-110=82；80-90=31；90-100=29；80-100=60；
 		frontLimit.setSumMinLimit(85);//
 		frontLimit.setSumMaxLimit(94);//
-		// frontLimit.setSumMinLimit(99);
-		// frontLimit.setSumMaxLimit(99);
+//		 frontLimit.setSumMinLimit(99);
+//		 frontLimit.setSumMaxLimit(99);
 
 		// int kuaduMin = 22;// 最小跨度
 		int kuaduMin = 26;// 最小跨度
-		// int kuaduMin = 30;// 最小跨度
+//		 int kuaduMin = 30;// 最小跨度
 
 		int kuaduMax = 35;// 最大跨度
 		int oddLimit = 3;// 奇数限定
