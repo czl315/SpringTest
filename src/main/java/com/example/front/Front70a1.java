@@ -43,24 +43,24 @@ public class Front70a1 {
 		int lastLimitCount = 1;// 上期相同个数限定
 		frontLimit.setCzlFiltersCount(1);// 我自己杀号限定个数
 		// frontLimit.setCzlFiltersCount(2);// 我自己杀号限定个数
-		int kill360LimitCount = 1;
-		// int kill360LimitCount = 2;
-		int[] killNoLimits = { 1 };
-		// int[] killNoLimits = { 2 };
-		frontLimit.setKillLianLimit(2);// 连号数量限定：过滤掉
-		// frontLimit.setKillLianLimit(3);// 连号数量限定：过滤掉
+//		int kill360LimitCount = 1;
+		 int kill360LimitCount = 2;
+//		int[] killNoLimits = { 1 };
+		 int[] killNoLimits = { 2 };
+//		frontLimit.setKillLianLimit(2);// 连号数量限定：过滤掉
+		 frontLimit.setKillLianLimit(3);// 连号数量限定：过滤掉
 
 		// 2018年前区和值：40以下-0；5X-8；6X-11；7X=12；8X=31；9X=29；10X=22；11X=20；12X=5；13X=4；14X=2；
-		// frontLimit.setSumMinLimit(80);//
-		// frontLimit.setSumMaxLimit(99);//
+		 frontLimit.setSumMinLimit(80);//
+		 frontLimit.setSumMaxLimit(99);//
 		// 40-150=154（全）；80-110=82；80-90=31；90-100=29；80-100=60；
-		frontLimit.setSumMinLimit(85);//
-		frontLimit.setSumMaxLimit(94);//
+//		frontLimit.setSumMinLimit(85);//
+//		frontLimit.setSumMaxLimit(94);//
 //		 frontLimit.setSumMinLimit(99);
 //		 frontLimit.setSumMaxLimit(99);
 
-		// int kuaduMin = 22;// 最小跨度
-		int kuaduMin = 26;// 最小跨度
+		 int kuaduMin = 22;// 最小跨度
+//		int kuaduMin = 26;// 最小跨度
 //		 int kuaduMin = 30;// 最小跨度
 
 		int kuaduMax = 35;// 最大跨度
