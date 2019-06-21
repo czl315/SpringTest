@@ -23,8 +23,8 @@ public class Front71a0 {
 		FrontBall curBall = new FrontBall(2, 13, 15, 22, 34);// 02 13 15 22 34 02 12
 		int[] filtersLast = { 2, 13, 15, 22, 34 };// 过滤上期 TODO
 
-		int[] filtersAdjoin3 = {35};// 过滤3adjoin-特殊形态;三邻号
-		int[] filtersRuleRepeat = { 8,22,27,34 };// 过滤规律重复1, 27;上次重号，本次不再重号
+		int[] filtersAdjoin3 = { 35 };// 过滤3adjoin-特殊形态;三邻号
+		int[] filtersRuleRepeat = { 8, 22, 27, 34 };// 过滤规律重复1, 27;上次重号，本次不再重号
 		int[] filtersMost = { 29, 33 };// 出现总次数：29=352；33=341；35=328；32=321；30=312；35遗漏39期处于历史峰值
 		int[] filtersCool = { 9, 20, 24 };// 遗漏次数：9=32;20=17;24=17
 
@@ -36,11 +36,11 @@ public class Front71a0 {
 		int[] tempArea5 = { 3, 4, 5 };// 分区5-过滤3、4、5个3, 4, 5
 		// int[] tempArea5 = { 4, 5 };// 分区5-过滤3、4、5个3, 4, 5
 
-		int[] killWeiEveryCount = { 2, 2, 2, 2, 2, 2, 2, 2, 2, 2 };// 尾号每个区域过滤
+		int[] killWeiEveryCount = { 2, 2, 1, 2, 2, 2, 2, 2, 2, 2 };// 尾号每个区域过滤
 		frontLimit.setKillWeiEveryCount(killWeiEveryCount);
 
-		 int lastLimitCount = 0;// 上期相同个数限定
-//		int lastLimitCount = 1;// 上期相同个数限定
+		int lastLimitCount = 0;// 上期相同个数限定
+		// int lastLimitCount = 1;// 上期相同个数限定
 		frontLimit.setCzlFiltersCount(1);// 我自己杀号限定个数
 		// frontLimit.setCzlFiltersCount(2);// 我自己杀号限定个数
 		int kill360LimitCount = 1;
@@ -51,19 +51,19 @@ public class Front71a0 {
 		// frontLimit.setKillLianLimit(3);// 连号数量限定：过滤掉
 
 		// 2018年前区和值：40以下-0；5X-8；6X-11；7X=12；8X=31；9X=29；10X=22；11X=20；12X=5；13X=4；14X=2；
-//		frontLimit.setSumMinLimit(80);//
-//		frontLimit.setSumMaxLimit(99);//
+		// frontLimit.setSumMinLimit(80);//
+		// frontLimit.setSumMaxLimit(99);//
 		// 40-150=154（全）；80-110=82；80-90=31；90-100=29；80-100=60；
 		// frontLimit.setSumMinLimit(85);//
 		// frontLimit.setSumMaxLimit(94);//
-		 frontLimit.setSumMinLimit(99);
-		 frontLimit.setSumMaxLimit(99);
+		frontLimit.setSumMinLimit(99);//80
+		frontLimit.setSumMaxLimit(99);
 
-		// int kuaduMin = 22;// 最小跨度
-		// int kuaduMin = 26;// 最小跨度
-		int kuaduMin = 30;// 最小跨度
+		 int kuaduMin = 22;// 最小跨度
+//		 int kuaduMin = 26;// 最小跨度
+//		int kuaduMin = 30;// 最小跨度
 
-		int kuaduMax = 35;// 最大跨度
+		int kuaduMax = 29;// 最大跨度
 		int oddLimit = 3;// 奇数限定
 		int evenLimit = 3;// 偶数限定
 
@@ -299,7 +299,7 @@ public class Front71a0 {
 					// System.out.println(f1 + "," + f2 + "," + f3 + "," + f4 + "," + f5 + " + ");//
 				} else {
 					// TODO CZL
-					// System.out.println(f1 + "," + f2 + "," + f3 + "," + f4 + "," + f5 + " +");
+					System.out.println(f1 + "," + f2 + "," + f3 + "," + f4 + "," + f5 + " +");
 				}
 				yuce1 = f1;
 				yuce2 = f2;
@@ -592,12 +592,11 @@ public class Front71a0 {
 							}
 
 							// 尾号每个区域过滤
-							// boolean killWeiEveryCountRs = KillUtil.checkKillWeiEveryCount(tempBall,
-							// frontLimit);
-							// if (killWeiEveryCountRs) {
-							// killWeiEveryCount++;
-							// continue;
-							// }
+							boolean killWeiEveryCountRs = KillUtil.checkKillWeiEveryCount(tempBall, frontLimit);
+							if (killWeiEveryCountRs) {
+								killWeiEveryCount++;
+								continue;
+							}
 
 							boolean checkLian = checkLianLimit(lianLimit, t1, t2, t3, t4, t5);
 							if (lianLimit == 2 && checkLian) {// 去除2连号
@@ -846,49 +845,6 @@ public class Front71a0 {
 
 		// System.out.println(" 剩余个数：" + balls.size());
 		return balls;
-	}
-
-	/**
-	 * 尾号每个区域过滤
-	 * 
-	 * @param tempBall
-	 * @param frontLimit
-	 * @return
-	 */
-	private static boolean checkKillWeiEveryCount(FrontBall tempBall, FrontLimit frontLimit) {
-		int t1 = tempBall.getFrontBall1();
-		int t2 = tempBall.getFrontBall2();
-		int t3 = tempBall.getFrontBall3();
-		int t4 = tempBall.getFrontBall4();
-		int t5 = tempBall.getFrontBall5();
-		int[] killWeiEveryCount = frontLimit.getKillWeiEveryCount();
-		// int count = 0;
-		int[] tmpWeiEveryCount = { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 };
-		for (int i = 0; i <= 9; i++) {
-			if (t1 % 10 == i) {
-				tmpWeiEveryCount[i]++;
-			}
-			if (t2 % 10 == i) {
-				tmpWeiEveryCount[i]++;
-			}
-			if (t3 % 10 == i) {
-				tmpWeiEveryCount[i]++;
-			}
-			if (t4 % 10 == i) {
-				tmpWeiEveryCount[i]++;
-			}
-			if (t5 % 10 == i) {
-				tmpWeiEveryCount[i]++;
-			}
-		}
-		for (int i = 0; i < tmpWeiEveryCount.length; i++) {
-			if (tmpWeiEveryCount[i] > killWeiEveryCount[i]) {
-				// System.out.println("尾号每个区域过滤:" + t1 + "," + t2 + "," + t3 + "," + t4 + "," +
-				// t5);
-				return true;
-			}
-		}
-		return false;
 	}
 
 	/**
