@@ -15,12 +15,12 @@ import com.example.dto.FrontLimit;
 import com.example.dto.FrontLimitArea5;
 import com.example.util.DaFrontHis;
 
-public class Front71a0 {
+public class Front71a1 {
 	private static boolean showLast = true;// false true
 
 	public static void main(String[] args) {
 		FrontLimit frontLimit = new FrontLimit();// 限定过滤
-		FrontBall curBall = new FrontBall(7,13,14,15,22);// 7,13,14,15,22+7,11
+		FrontBall curBall = new FrontBall(7,13,14,15,22);// 7,13,14,15,22+7,11 
 		int[] filtersLast = { 2, 13, 15, 22, 34 };// 过滤上期 TODO
 
 		int[] filtersAdjoin3 = { 35 };// 过滤3adjoin-特殊形态;三邻号
@@ -39,31 +39,34 @@ public class Front71a0 {
 		int[] killWeiEveryCount = { 2, 2, 1, 2, 2, 2, 2, 2, 2, 2 };// 尾号每个区域过滤
 		frontLimit.setKillWeiEveryCount(killWeiEveryCount);
 
-		int lastLimitCount = 0;// 上期相同个数限定
-		// int lastLimitCount = 1;// 上期相同个数限定
-		frontLimit.setCzlFiltersCount(1);// 我自己杀号限定个数
-		// frontLimit.setCzlFiltersCount(2);// 我自己杀号限定个数
-		int kill360LimitCount = 1;
-		// int kill360LimitCount = 2;
-		int[] killNoLimits = { 1 };
-		// int[] killNoLimits = { 2 };
-		frontLimit.setKillLianLimit(2);// 连号数量限定：过滤掉
-		// frontLimit.setKillLianLimit(3);// 连号数量限定：过滤掉
+		int lastLimitCount = 3;// 上期相同个数限定
+//		 int lastLimitCount = 1;// 上期相同个数限定
+//		frontLimit.setCzlFiltersCount(1);// 我自己杀号限定个数
+		 frontLimit.setCzlFiltersCount(2);// 我自己杀号限定个数
+//		int kill360LimitCount = 1;
+		 int kill360LimitCount = 2;
+//		int[] killNoLimits = { 1 };
+		 int[] killNoLimits = { 2 };
+//		frontLimit.setKillLianLimit(2);// 连号数量限定：过滤掉
+		 frontLimit.setKillLianLimit(4);// 连号数量限定：过滤掉
 
 		// 2018年前区和值：40以下-0；5X-8；6X-11；7X=12；8X=31；9X=29；10X=22；11X=20；12X=5；13X=4；14X=2；
-		// frontLimit.setSumMinLimit(80);//
-		// frontLimit.setSumMaxLimit(99);//
+//		 frontLimit.setSumMinLimit(80);//
+//		 frontLimit.setSumMaxLimit(99);//
 		// 40-150=154（全）；80-110=82；80-90=31；90-100=29；80-100=60；
-		// frontLimit.setSumMinLimit(85);//
-		// frontLimit.setSumMaxLimit(94);//
-		frontLimit.setSumMinLimit(99);//80
+//		 frontLimit.setSumMinLimit(85);//
+//		 frontLimit.setSumMaxLimit(94);//
+		frontLimit.setSumMinLimit(70);//80
 		frontLimit.setSumMaxLimit(99);
 
-		 int kuaduMin = 22;// 最小跨度
+		int kuaduMin = 14;// 最小跨度
+//		 int kuaduMin = 22;// 最小跨度
 //		 int kuaduMin = 26;// 最小跨度
 //		int kuaduMin = 30;// 最小跨度
 
-		int kuaduMax = 29;// 最大跨度
+//		int kuaduMax = 29;// 最大跨度
+		int kuaduMax = 35;// 最大跨度
+		
 		int oddLimit = 3;// 奇数限定
 		int evenLimit = 3;// 偶数限定
 
@@ -108,8 +111,8 @@ public class Front71a0 {
 		area5s.setArea5(area5);
 		List<int[]> fiter5s = new ArrayList<int[]>();
 		// 过滤分区5-11111
-		// int[] everyAreaCounts11111 = { 1, 1, 1, 1, 1 };
-		// fiter5s.add(everyAreaCounts11111);
+		 int[] everyAreaCounts11111 = { 1, 1, 1, 1, 1 };
+		 fiter5s.add(everyAreaCounts11111);
 		// 过滤分区5-最近n期-
 		int[] everyAreaCounts11300 = { 1, 1, 3, 0, 0 };
 		fiter5s.add(everyAreaCounts11300);
@@ -299,7 +302,7 @@ public class Front71a0 {
 					// System.out.println(f1 + "," + f2 + "," + f3 + "," + f4 + "," + f5 + " + ");//
 				} else {
 					// TODO CZL
-					System.out.println(f1 + "," + f2 + "," + f3 + "," + f4 + "," + f5 + " +");
+//					System.out.println(f1 + "," + f2 + "," + f3 + "," + f4 + "," + f5 + " +");
 				}
 				yuce1 = f1;
 				yuce2 = f2;
@@ -681,7 +684,7 @@ public class Front71a0 {
 							}
 							if (pipei4FilerFlag) {
 								pipei4FilerCount++;
-								continue;
+//								continue;TODO 
 							}
 							// 历史匹配过滤3个--此匹配过滤太多，慎用
 
