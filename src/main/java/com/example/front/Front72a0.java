@@ -20,7 +20,7 @@ public class Front72a0 {
 
 	public static void main(String[] args) {
 		FrontLimit frontLimit = new FrontLimit();// 限定过滤
-		FrontBall curBall = new FrontBall(7, 13, 14, 15, 22);// 7,13,14,15,22+7,11
+		FrontBall curBall = new FrontBall(2,4,6,9,18);// 2,4,6,9,18+7,10 
 		int[] filtersLast = { 7, 13, 14, 15, 22 };// 过滤上期 TODO
 
 		int[] filtersAdjoin3 = { 13, 15 };// 过滤3adjoin-特殊形态;三邻号
@@ -303,7 +303,7 @@ public class Front72a0 {
 					// System.out.println(f1 + "," + f2 + "," + f3 + "," + f4 + "," + f5 + " + ");//
 				} else {
 					// TODO CZL
-					 System.out.println(f1 + "," + f2 + "," + f3 + "," + f4 + "," + f5 + " +");
+//					 System.out.println(f1 + "," + f2 + "," + f3 + "," + f4 + "," + f5 + " +");
 				}
 				yuce1 = f1;
 				yuce2 = f2;
