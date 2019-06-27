@@ -20,7 +20,7 @@ public class Front73a0 {
 
 	public static void main(String[] args) {
 		FrontLimit frontLimit = new FrontLimit();// 限定过滤
-		FrontBall curBall = new FrontBall(2, 4, 6, 9, 18);// 2,4,6,9,18+7,10
+		FrontBall curBall = new FrontBall(4, 11, 19, 20, 24);// 4,11,19,20,24+8,11
 		int[] filtersLast = { 2, 4, 6, 9, 18 };// 过滤上期 TODO
 
 		int[] filtersAdjoin3 = { 5 };// 过滤3adjoin-特殊形态;三邻号
@@ -36,7 +36,7 @@ public class Front73a0 {
 		int[] tempArea5 = { 3, 4, 5 };// 分区5-过滤3、4、5个3, 4, 5
 		// int[] tempArea5 = { 4, 5 };// 分区5-过滤3、4、5个3, 4, 5
 
-		int[] killWeiEveryCount = { 2, 2, 2, 2, 2, 2, 2, 2, 2, 2 };// 尾号每个区域过滤
+		int[] killWeiEveryCount = { 2, 2, 1, 2, 1, 2, 1, 2, 1, 1 };// 尾号每个区域过滤
 		frontLimit.setKillWeiEveryCount(killWeiEveryCount);
 
 		int lastLimitCount = 0;// 上期相同个数限定
@@ -57,15 +57,15 @@ public class Front73a0 {
 		// 40-150=154（全）；80-110=82；80-90=31；90-100=29；80-100=60；
 		// frontLimit.setSumMinLimit(85);//
 		// frontLimit.setSumMaxLimit(94);//
-		frontLimit.setSumMinLimit(99);// 80
+		frontLimit.setSumMinLimit(98);// 80
 		frontLimit.setSumMaxLimit(99);
 
 		int kuaduMin = 22;// 最小跨度
 		// int kuaduMin = 24;// 最小跨度
 		// int kuaduMin = 30;// 最小跨度
 
-		// int kuaduMax = 28;// 最大跨度
-		int kuaduMax = 30;// 最大跨度
+		int kuaduMax = 28;// 最大跨度
+		// int kuaduMax = 30;// 最大跨度
 		// int kuaduMax = 35;// 最大跨度
 
 		int oddLimit = 3;// 奇数限定
@@ -76,7 +76,7 @@ public class Front73a0 {
 		frontLimit.setF2Min(4);// 4
 		frontLimit.setF3Min(7);// 7 9
 		frontLimit.setF4Min(13);// 15
-		frontLimit.setF5Min(22);// 25
+		frontLimit.setF5Min(27);// 25 29
 		frontLimit.setF1Max(7);// 1-7百分比=1240/1819=68.17% 9 7
 		frontLimit.setF2Max(18);// 18
 		frontLimit.setF3Max(25);
@@ -262,9 +262,10 @@ public class Front73a0 {
 		 */
 		List<FrontBall> combs = combNolian(curBall, filterHists, frontLimit);// 精确匹配多个
 
-		System.out.println("前区组合限定:" + "no" + frontLimit.getKillLianLimit() + "连;和值" + frontLimit.getSumMinLimit() + "-"
-				+ frontLimit.getSumMaxLimit() + ";跨度" + frontLimit.getKuaduMin() + "-" + frontLimit.getKuaduMax()
-				+ ";剩余组合：" + combs.size());
+		System.out.println(
+				"前区组合限定:" + "上期限定" + frontLimit.getLast().getLimitCount() + ";" + "no" + frontLimit.getKillLianLimit()
+						+ "连;和值" + frontLimit.getSumMinLimit() + "-" + frontLimit.getSumMaxLimit() + ";跨度"
+						+ frontLimit.getKuaduMin() + "-" + frontLimit.getKuaduMax() + ";剩余组合：" + combs.size());
 
 		int yes5 = 0;// 5球全中
 		int yes4 = 0;// 4球中
@@ -303,7 +304,7 @@ public class Front73a0 {
 					// System.out.println(f1 + "," + f2 + "," + f3 + "," + f4 + "," + f5 + " + ");//
 				} else {
 					// TODO CZL
-					 System.out.println(f1 + "," + f2 + "," + f3 + "," + f4 + "," + f5 + " +");
+					// System.out.println(f1 + "," + f2 + "," + f3 + "," + f4 + "," + f5 + " +");
 				}
 				yuce1 = f1;
 				yuce2 = f2;
