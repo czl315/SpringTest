@@ -15,7 +15,7 @@ import com.example.dto.FrontLimit;
 import com.example.dto.FrontLimitArea5;
 import com.example.util.DaFrontHis;
 
-public class Front75a0 {
+public class Front75a1 {
 	private static boolean showLast = true;// false true
 
 	public static void main(String[] args) {
@@ -33,23 +33,23 @@ public class Front75a0 {
 		// int[] killcjw = {};// 杀号-彩经网
 		int[] killcjw = { 24, 13, 11, 9, 30, 26, 10, 23, 16, 24 };// 杀号-彩经网
 
-		int[] tempArea5 = { 3, 4, 5 };// 分区5-过滤3、4、5个3, 4, 5
-//		 int[] tempArea5 = { 4, 5 };// 分区5-过滤3、4、5个3, 4, 5
+//		int[] tempArea5 = { 3, 4, 5 };// 分区5-过滤3、4、5个3, 4, 5
+		 int[] tempArea5 = { 4, 5 };// 分区5-过滤3、4、5个3, 4, 5
 
 		int[] killWeiEveryCount = { 2, 2, 2, 2, 2, 2, 2, 2, 2, 2 };// 尾号每个区域过滤
 		frontLimit.setKillWeiEveryCount(killWeiEveryCount);
 
-		int lastLimitCount = 0;// 上期相同个数限定
-		frontLimit.setCzlFiltersCount(1);// 我自己杀号限定个数
-		int kill360LimitCount = 1;
-		int[] killNoLimits = { 1 };
-		frontLimit.setKillLianLimit(2);// 连号数量限定：过滤掉
+//		int lastLimitCount = 0;// 上期相同个数限定
+//		frontLimit.setCzlFiltersCount(1);// 我自己杀号限定个数
+//		int kill360LimitCount = 1;
+//		int[] killNoLimits = { 1 };
+//		frontLimit.setKillLianLimit(2);// 连号数量限定：过滤掉
 
-//		 int lastLimitCount = 1;// 上期相同个数限定
-//		 frontLimit.setCzlFiltersCount(2);// 我自己杀号限定个数
-//		 int kill360LimitCount = 2;
-//		 int[] killNoLimits = { 2 };
-//		 frontLimit.setKillLianLimit(3);// 连号数量限定：过滤掉
+		 int lastLimitCount = 0;// 上期相同个数限定
+		 frontLimit.setCzlFiltersCount(1);// 我自己杀号限定个数
+		 int kill360LimitCount = 2;
+		 int[] killNoLimits = { 2 };
+		 frontLimit.setKillLianLimit(4);// 连号数量限定：过滤掉
 
 		// 2018年前区和值：40以下-0；5X-8；6X-11；7X=12；8X=31；9X=29；10X=22；11X=20；12X=5；13X=4；14X=2；
 		// frontLimit.setSumMinLimit(80);//
@@ -57,11 +57,11 @@ public class Front75a0 {
 		// 40-150=154（全）；80-110=82；80-90=31；90-100=29；80-100=60；
 		// frontLimit.setSumMinLimit(85);//
 		// frontLimit.setSumMaxLimit(94);//
-		frontLimit.setSumMinLimit(99);// 80
+		frontLimit.setSumMinLimit(45);// 80
 		frontLimit.setSumMaxLimit(99);
 
 		// int kuaduMin = 20;// 最小跨度
-		int kuaduMin = 26;// 最小跨度
+		int kuaduMin = 10;// 最小跨度
 		// int kuaduMin = 30;// 最小跨度
 
 //		 int kuaduMax = 28;// 最大跨度
@@ -75,8 +75,8 @@ public class Front75a0 {
 		frontLimit.setF1Min(1);
 		frontLimit.setF2Min(4);// 4
 		frontLimit.setF3Min(7);// 7 9
-		frontLimit.setF4Min(13);// 15 13
-		frontLimit.setF5Min(27);// 25 29 27
+		frontLimit.setF4Min(11);// 15 13
+		frontLimit.setF5Min(15);// 25 29 27
 		frontLimit.setF1Max(7);// 1-7百分比=1240/1819=68.17% 9 7
 		frontLimit.setF2Max(18);// 18
 		frontLimit.setF3Max(23);
@@ -114,43 +114,43 @@ public class Front75a0 {
 		// 过滤分区5-11111
 		int[] everyAreaCounts11111 = { 1, 1, 1, 1, 1 };
 		fiter5s.add(everyAreaCounts11111);
-		// 过滤分区5-最近n期-
-		int[] everyAreaCounts11300 = { 1, 1, 3, 0, 0 };
-		fiter5s.add(everyAreaCounts11300);
-		int[] everyAreaCounts12200 = { 1, 2, 2, 0, 0 };
-		fiter5s.add(everyAreaCounts12200);
-		int[] everyAreaCounts13001 = { 1, 3, 0, 0, 1 };
-		fiter5s.add(everyAreaCounts13001);
-		int[] everyAreaCounts02102 = { 0, 2, 1, 0, 2 };
-		fiter5s.add(everyAreaCounts02102);
-		int[] everyAreaCounts22010 = { 2, 2, 0, 1, 0 };
-		fiter5s.add(everyAreaCounts22010);
-		int[] everyAreaCounts30110 = { 3, 0, 1, 1, 0 };
-		fiter5s.add(everyAreaCounts30110);
-		int[] everyAreaCounts10121 = { 1, 0, 1, 2, 1 };
-		fiter5s.add(everyAreaCounts10121);
-		int[] everyAreaCounts11210 = { 1, 1, 2, 1, 0 };
-		fiter5s.add(everyAreaCounts11210);
-		int[] everyAreaCounts01301 = { 0, 1, 3, 0, 1 };
-		fiter5s.add(everyAreaCounts01301);
-		int[] everyAreaCounts10301 = { 1, 0, 3, 0, 1 };
-		fiter5s.add(everyAreaCounts10301);
-		int[] everyAreaCounts01130 = { 0, 1, 1, 3, 0 };
-		fiter5s.add(everyAreaCounts01130);
-		int[] everyAreaCounts11102 = { 1, 1, 1, 0, 2 };
-		fiter5s.add(everyAreaCounts11102);
-		int[] everyAreaCounts21101 = { 2, 1, 1, 0, 1 };
-		fiter5s.add(everyAreaCounts21101);
-		int[] everyAreaCounts12101 = { 1, 2, 1, 0, 1 };
-		fiter5s.add(everyAreaCounts12101);
-		int[] everyAreaCounts20201 = { 2, 0, 2, 0, 1 };
-		fiter5s.add(everyAreaCounts20201);
-		int[] everyAreaCounts22001 = { 2, 2, 0, 0, 1 };
-		fiter5s.add(everyAreaCounts22001);
-		int[] everyAreaCounts31100 = { 3, 1, 1, 0, 0 };
-		fiter5s.add(everyAreaCounts31100);
-		int[] everyAreaCounts12011 = { 1, 2, 0, 1, 1 };
-		fiter5s.add(everyAreaCounts12011);
+//		// 过滤分区5-最近n期-
+//		int[] everyAreaCounts11300 = { 1, 1, 3, 0, 0 };
+//		fiter5s.add(everyAreaCounts11300);
+//		int[] everyAreaCounts12200 = { 1, 2, 2, 0, 0 };
+//		fiter5s.add(everyAreaCounts12200);
+//		int[] everyAreaCounts13001 = { 1, 3, 0, 0, 1 };
+//		fiter5s.add(everyAreaCounts13001);
+//		int[] everyAreaCounts02102 = { 0, 2, 1, 0, 2 };
+//		fiter5s.add(everyAreaCounts02102);
+//		int[] everyAreaCounts22010 = { 2, 2, 0, 1, 0 };
+//		fiter5s.add(everyAreaCounts22010);
+//		int[] everyAreaCounts30110 = { 3, 0, 1, 1, 0 };
+//		fiter5s.add(everyAreaCounts30110);
+//		int[] everyAreaCounts10121 = { 1, 0, 1, 2, 1 };
+//		fiter5s.add(everyAreaCounts10121);
+//		int[] everyAreaCounts11210 = { 1, 1, 2, 1, 0 };
+//		fiter5s.add(everyAreaCounts11210);
+//		int[] everyAreaCounts01301 = { 0, 1, 3, 0, 1 };
+//		fiter5s.add(everyAreaCounts01301);
+//		int[] everyAreaCounts10301 = { 1, 0, 3, 0, 1 };
+//		fiter5s.add(everyAreaCounts10301);
+//		int[] everyAreaCounts01130 = { 0, 1, 1, 3, 0 };
+//		fiter5s.add(everyAreaCounts01130);
+//		int[] everyAreaCounts11102 = { 1, 1, 1, 0, 2 };
+//		fiter5s.add(everyAreaCounts11102);
+//		int[] everyAreaCounts21101 = { 2, 1, 1, 0, 1 };
+//		fiter5s.add(everyAreaCounts21101);
+//		int[] everyAreaCounts12101 = { 1, 2, 1, 0, 1 };
+//		fiter5s.add(everyAreaCounts12101);
+//		int[] everyAreaCounts20201 = { 2, 0, 2, 0, 1 };
+//		fiter5s.add(everyAreaCounts20201);
+//		int[] everyAreaCounts22001 = { 2, 2, 0, 0, 1 };
+//		fiter5s.add(everyAreaCounts22001);
+//		int[] everyAreaCounts31100 = { 3, 1, 1, 0, 0 };
+//		fiter5s.add(everyAreaCounts31100);
+//		int[] everyAreaCounts12011 = { 1, 2, 0, 1, 1 };
+//		fiter5s.add(everyAreaCounts12011);
 		area5s.setFiterCounts(fiter5s);
 		frontLimit.setArea5(area5s);
 
@@ -304,7 +304,7 @@ public class Front75a0 {
 					// System.out.println(f1 + "," + f2 + "," + f3 + "," + f4 + "," + f5 + " + ");//
 				} else {
 					// TODO CZL
-					System.out.println(f1 + "," + f2 + "," + f3 + "," + f4 + "," + f5 + " +");
+//					System.out.println(f1 + "," + f2 + "," + f3 + "," + f4 + "," + f5 + " +");
 				}
 				yuce1 = f1;
 				yuce2 = f2;
