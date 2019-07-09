@@ -15,7 +15,7 @@ import com.example.dto.FrontLimit;
 import com.example.dto.FrontLimitArea5;
 import com.example.util.DaFrontHis;
 
-public class Front78a0 {
+public class Front78a1 {
 	private static boolean showLast = true;// false true
 
 	public static void main(String[] args) {
@@ -304,7 +304,7 @@ public class Front78a0 {
 					// System.out.println(f1 + "," + f2 + "," + f3 + "," + f4 + "," + f5 + " + ");//
 				} else {
 					// TODO CZL
-					 System.out.println(f1 + "," + f2 + "," + f3 + "," + f4 + "," + f5 + " +");
+//					 System.out.println(f1 + "," + f2 + "," + f3 + "," + f4 + "," + f5 + " +");
 				}
 				yuce1 = f1;
 				yuce2 = f2;
