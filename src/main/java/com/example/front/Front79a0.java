@@ -57,7 +57,7 @@ public class Front79a0 {
 		// 40-150=154（全）；80-110=82；80-90=31；90-100=29；80-100=60；
 		// frontLimit.setSumMinLimit(85);//
 		// frontLimit.setSumMaxLimit(94);//
-		frontLimit.setSumMinLimit(105);// 80
+		frontLimit.setSumMinLimit(102);// 80
 		frontLimit.setSumMaxLimit(105);
 
 		// int kuaduMin = 20;// 最小跨度
