@@ -15,7 +15,7 @@ import com.example.dto.FrontLimit;
 import com.example.dto.FrontLimitArea5;
 import com.example.util.DaFrontHis;
 
-public class Front79a0 {
+public class Front79a1 {
 	private static boolean showLast = true;// false true
 
 	public static void main(String[] args) {
@@ -47,16 +47,16 @@ public class Front79a0 {
 
 		int lastLimitCount = 1;// 上期相同个数限定
 		frontLimit.setCzlFiltersCount(2);// 我自己杀号限定个数
-		int kill360LimitCount = 2;
-		int[] killNoLimits = { 2 };
-		frontLimit.setKillLianLimit(3);// 连号数量限定：过滤掉
+		int kill360LimitCount = 1;
+		int[] killNoLimits = { 1 };
+		frontLimit.setKillLianLimit(2);// 连号数量限定：过滤掉
 
 		// 2018年前区和值：40以下-0；5X-8；6X-11；7X=12；8X=31；9X=29；10X=22；11X=20；12X=5；13X=4；14X=2；
 		// frontLimit.setSumMinLimit(80);//
 		// frontLimit.setSumMaxLimit(99);//
 		// 40-150=154（全）；80-110=82；80-90=31；90-100=29；80-100=60；
-		// frontLimit.setSumMinLimit(85);//
-		// frontLimit.setSumMaxLimit(94);//
+//		 frontLimit.setSumMinLimit(85);//
+//		 frontLimit.setSumMaxLimit(94);//
 		frontLimit.setSumMinLimit(102);// 80
 		frontLimit.setSumMaxLimit(105);
 
@@ -74,10 +74,10 @@ public class Front79a0 {
 		// 每个范围限定
 		frontLimit.setF1Min(1);
 		frontLimit.setF2Min(4);// 4
-		frontLimit.setF3Min(7);// 7 9
+		frontLimit.setF3Min(1);// 7 9
 		frontLimit.setF4Min(11);// 15 13
 		frontLimit.setF5Min(15);// 25 29 27
-		frontLimit.setF1Max(7);// 1-7百分比=1240/1819=68.17% 9 7
+		frontLimit.setF1Max(10);// 1-7百分比=1240/1819=68.17% 9 7
 		frontLimit.setF2Max(18);// 18
 		frontLimit.setF3Max(23);
 		frontLimit.setF4Max(32);// 32
@@ -639,22 +639,7 @@ public class Front79a0 {
 								continue;
 							}
 
-							boolean pipei4FilerFlag = checkHisLike(tempBall, filterHists, 4);// 模糊匹配4个过滤掉
-//							if (filterHists != null) {
-//								for (Iterator<FrontBall> iterator = filterHists.iterator(); iterator.hasNext();) {
-//									FrontBall exactObj = (FrontBall) iterator.next();
-//									int ex1 = exactObj.getFrontBall1();
-//									int ex2 = exactObj.getFrontBall2();
-//									int ex3 = exactObj.getFrontBall3();
-//									int ex4 = exactObj.getFrontBall4();
-//									int ex5 = exactObj.getFrontBall5();
-//									if ((ex1 == t1 && ex2 == t2 && ex3 == t3 && ex4 == t4)
-//											|| (ex2 == t2 && ex3 == t3 && ex4 == t4 && ex5 == t5)) {
-//										pipei4FilerFlag = true;
-//										break;
-//									}
-//								}
-//							}
+							boolean pipei4FilerFlag = KillUtil.checkHisLike(tempBall, filterHists, 4);// 模糊匹配4个过滤掉
 							if (pipei4FilerFlag) {
 								pipei4FilerCount++;
 								continue;
@@ -821,53 +806,6 @@ public class Front79a0 {
 
 		// System.out.println(" 剩余个数：" + balls.size());
 		return balls;
-	}
-
-	/**
-	 * 模糊匹配4个过滤掉
-	 * 
-	 * @param tempBall
-	 * @param filterHists
-	 * @param i
-	 * @return
-	 */
-	private static boolean checkHisLike(FrontBall tempBall, List<FrontBall> filterHists, int limitCount) {
-		boolean rs = false;
-		for (Iterator<FrontBall> iterator = filterHists.iterator(); iterator.hasNext();) {
-			FrontBall exactObj = (FrontBall) iterator.next();
-			int h1 = exactObj.getFrontBall1();
-			int h2 = exactObj.getFrontBall2();
-			int h3 = exactObj.getFrontBall3();
-			int h4 = exactObj.getFrontBall4();
-			int h5 = exactObj.getFrontBall5();
-			int t1 = tempBall.getFrontBall1();
-			int t2 = tempBall.getFrontBall2();
-			int t3 = tempBall.getFrontBall3();
-			int t4 = tempBall.getFrontBall4();
-			int t5 = tempBall.getFrontBall5();
-			int count = 0;
-			if (t1 == h1 || t1 == h2 || t1 == h3 || t1 == h4 || t1 == h5) {
-				count++;
-			}
-			if (t2 == h1 || t2 == h2 || t2 == h3 || t2 == h4 || t2 == h5) {
-				count++;
-			}
-			if (t3 == h1 || t3 == h2 || t3 == h3 || t3 == h4 || t3 == h5) {
-				count++;
-			}
-			if (t4 == h1 || t4 == h2 || t4 == h3 || t4 == h4 || t4 == h5) {
-				count++;
-			}
-			if (t5 == h1 || t5 == h2 || t5 == h3 || t5 == h4 || t5 == h5) {
-				count++;
-			}
-
-			if (count > limitCount) {
-				rs = true;
-				break;
-			}
-		}
-		return rs;
 	}
 
 	/**
@@ -1337,6 +1275,7 @@ public class Front79a0 {
 		}
 		return rs;
 	}
+
 	/**
 	 * * 190507:old:过滤上期，修改为：与上期相同的两个号码相同，过滤掉
 	 * 
