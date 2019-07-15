@@ -15,7 +15,7 @@ import com.example.dto.FrontLimit;
 import com.example.dto.FrontLimitArea5;
 import com.example.util.DaFrontHis;
 
-public class Front80a0 {
+public class Front80a1 {
 	private static boolean showLast = true;// false true
 
 	public static void main(String[] args) {
