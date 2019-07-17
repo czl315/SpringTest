@@ -15,7 +15,7 @@ import com.example.dto.FrontLimit;
 import com.example.dto.FrontLimitArea5;
 import com.example.util.DaFrontHis;
 
-public class Front81a0 {
+public class Front81a1 {
 	private static boolean showLast = true;// false true
 
 	public static void main(String[] args) {
@@ -32,18 +32,18 @@ public class Front81a0 {
 
 		int[] tempArea5 = { 3, 4, 5 };// 分区5-过滤3、4、5个3, 4, 5
 		int[] killWeiEveryCount = { 2, 2, 2, 2, 2, 2, 2, 2, 2, 2 };// 尾号每个区域过滤
-		int lastLimitCount = 0;// 上期相同个数限定
+//		int lastLimitCount = 1;// 上期相同个数限定
 		frontLimit.setCzlFiltersCount(1);// 我自己杀号限定个数
-		int kill360LimitCount = 1;
-		int[] killNoLimits = { 1 };
+//		int kill360LimitCount = 1;
+//		int[] killNoLimits = { 1 };
 		frontLimit.setKillLianLimit(2);// 连号数量限定：过滤掉
 		// 2018年前区和值：40以下-0；5X-8；6X-11；7X=12；8X=31；9X=29；10X=22；11X=20；12X=5；13X=4；14X=2；
-		frontLimit.setSumMinLimit(88);// 80
-		frontLimit.setSumMaxLimit(89);
+//		frontLimit.setSumMinLimit(88);// 80
+//		frontLimit.setSumMaxLimit(89);
 		int kuaduMin = 24;// 最小跨度
 		int kuaduMax = 30;// 最大跨度
 		int oddLimit = 3;// 奇数限定
-		int evenLimit = 3;// 偶数限定
+//		int evenLimit = 3;// 偶数限定
 		// 每个范围限定
 		frontLimit.setF1Min(1);
 		frontLimit.setF2Min(4);// 4
@@ -86,6 +86,15 @@ public class Front81a0 {
 		int[] everyAreaCounts12011 = { 1, 2, 0, 1, 1 };
 		fiter5s.add(everyAreaCounts12011);
 		area5s.setFiterCounts(fiter5s);
+		
+		int lastLimitCount = 1;// 上期相同个数限定
+		int kill360LimitCount = 2;
+		int[] killNoLimits = { 2 };
+		frontLimit.setSumMinLimit(80);// 80
+		frontLimit.setSumMaxLimit(119);
+		frontLimit.setF2Max(26);// 18
+		frontLimit.setF3Max(28);
+		int evenLimit = 4;// 偶数限定
 
 		// int[] tempArea5 = { 4, 5 };// 分区5-过滤3、4、5个3, 4, 5
 		// int lastLimitCount = 1;// 上期相同个数限定
