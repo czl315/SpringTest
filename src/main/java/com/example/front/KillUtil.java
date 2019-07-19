@@ -27,7 +27,7 @@ public class KillUtil {
 		int t4 = tempBall.getFrontBall4();
 		int t5 = tempBall.getFrontBall5();
 		int[] killWeiEveryCount = frontLimit.getKillWeiEveryCount();
-//		int count = 0;
+		// int count = 0;
 		int[] tmpWeiEveryCount = { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 };
 		for (int i = 0; i <= 9; i++) {
 			if (t1 % 10 == i) {
@@ -46,15 +46,19 @@ public class KillUtil {
 				tmpWeiEveryCount[i]++;
 			}
 		}
-		for (int i = 0; i < tmpWeiEveryCount.length; i++) {
-			if (tmpWeiEveryCount[i] > killWeiEveryCount[i]) {
-//				System.out.println("尾号每个区域过滤:" + t1 + "," + t2 + "," + t3 + "," + t4 + "," + t5);
-				return true;
+		if (killWeiEveryCount != null && killWeiEveryCount.length > 0) {
+			for (int i = 0; i < tmpWeiEveryCount.length; i++) {
+				if (tmpWeiEveryCount[i] > killWeiEveryCount[i]) {
+					// System.out.println("尾号每个区域过滤:" + t1 + "," + t2 + "," + t3 + "," + t4 + "," +
+					// t5);
+					return true;
+				}
 			}
 		}
+		
 		return false;
 	}
-	
+
 	/**
 	 * 模糊匹配4个过滤掉
 	 * 

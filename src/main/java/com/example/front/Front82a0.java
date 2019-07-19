@@ -15,30 +15,33 @@ import com.example.dto.FrontLimit;
 import com.example.dto.FrontLimitArea5;
 import com.example.util.DaFrontHis;
 
-public class Front81a0 {
+public class Front82a0 {
 	private static boolean showLast = true;// false true
 
 	public static void main(String[] args) {
 		FrontLimit frontLimit = new FrontLimit();// 限定过滤
-		FrontBall curBall = new FrontBall(6, 24, 26, 30, 33);// 6,24,26,30,33+2,7
-		int[] filtersLast = { 5, 13, 18, 19, 24 };// 过滤上期 TODO
+		FrontBall curBall = new FrontBall(6, 18, 20, 21, 31);// 6,18,20,21,31+3,4
+		int[] filtersLast = { 6, 24, 26, 30, 33 };// 过滤上期 TODO
 
-		int[] filtersAdjoin3 = {};// 过滤3adjoin-特殊形态;三邻号
-		int[] filtersRuleRepeat = { 2, 13 };// 过滤规律重复1, 27;上次重号，本次不再重号
+		int[] filtersAdjoin3 = { 7 };// 过滤3adjoin-特殊形态;三邻号
+		int[] filtersRuleRepeat = { 5, 11, 24 };// 过滤规律重复1, 27;上次重号，本次不再重号
 		int[] filtersMost = { 29, 33 };// 出现总次数：29=352；33=341；35=328；32=321；30=312；35遗漏39期处于历史峰值
-		int[] filtersCool = { 32, 12, 25 };// 遗漏次数：32=20;12=19;25=17
-		int[] kill360Array = { 10, 22, 23, 16, 26, 7, 16, 17, 28, 6 };// 360杀号定胆
-		int[] killcjw = { 27, 19, 19, 11, 30, 23, 7, 34, 26, 18 };// 杀号-彩经网
+		int[] filtersCool = { 32, 12 };// 遗漏次数：32=20;12=19;25=17
+		int[] kill360Array = { 28, 15, 28, 32, 11, 10, 28, 14, 10, 32 };// 360杀号定胆
+		int[] killcjw = { 2, 17, 33, 11, 26, 16, 28, 14, 33, 25 };// 杀号-彩经网
 
-		int[] tempArea5 = { 3, 4, 5 };// 分区5-过滤3、4、5个3, 4, 5
-		int[] killWeiEveryCount = { 2, 2, 2, 2, 2, 2, 2, 2, 2, 2 };// 尾号每个区域过滤
 		int lastLimitCount = 0;// 上期相同个数限定
+		List<Integer> tempArea5s = new ArrayList<Integer>();// 分区5-过滤3、4、5个3, 4, 5
+		tempArea5s.add(3);
+		tempArea5s.add(4);
+		tempArea5s.add(5);
+		int[] killWeiEveryCount = { 2, 2, 2, 2, 2, 2, 2, 2, 2, 2 };// 尾号每个区域过滤
 		frontLimit.setCzlFiltersCount(1);// 我自己杀号限定个数
 		int kill360LimitCount = 1;
-		int killcjwCount = 1;
+		int[] killNoLimits = { 1 };
 		frontLimit.setKillLianLimit(2);// 连号数量限定：过滤掉
 		// 2018年前区和值：40以下-0；5X-8；6X-11；7X=12；8X=31；9X=29；10X=22；11X=20；12X=5；13X=4；14X=2；
-		frontLimit.setSumMinLimit(88);// 80
+		frontLimit.setSumMinLimit(89);// 80
 		frontLimit.setSumMaxLimit(89);
 		int kuaduMin = 24;// 最小跨度
 		int kuaduMax = 30;// 最大跨度
@@ -87,17 +90,26 @@ public class Front81a0 {
 		fiter5s.add(everyAreaCounts12011);
 		area5s.setFiterCounts(fiter5s);
 
-		kill360LimitCount = 2;
-		killcjwCount = 2;
-		evenLimit = 4;// 偶数限定
-		lastLimitCount = 1;// 上期相同个数限定
-		// frontLimit.setSumMinLimit(80);//
-		 frontLimit.setSumMaxLimit(119);//
-			frontLimit.setF2Max(24);// 18
-			frontLimit.setF3Max(26);
+		// 错误修正
+//		lastLimitCount = 1;// 上期相同个数限定
+//		frontLimit.setKillLianLimit(3);// 连号数量限定：过滤掉
+//		frontLimit.setSumMinLimit(89);
+//		frontLimit.setSumMaxLimit(99);
+//		tempArea5s.remove(0);// 3
+		// int kill360LimitCount = 2;
+		// int[] killNoLimits = { 2 };
+		// frontLimit.setF2Max(26);// 18
+		// frontLimit.setF3Max(28);
+		// int evenLimit = 4;// 偶数限定
+
 		// int[] tempArea5 = { 4, 5 };// 分区5-过滤3、4、5个3, 4, 5
+		// int lastLimitCount = 1;// 上期相同个数限定
 		// frontLimit.setCzlFiltersCount(2);// 我自己杀号限定个数
+		// int kill360LimitCount = 1;
+		// int[] killNoLimits = { 1 };
 		// frontLimit.setKillLianLimit(2);// 连号数量限定：过滤掉
+		// frontLimit.setSumMinLimit(80);//
+		// frontLimit.setSumMaxLimit(99);//
 		// 40-150=154（全）；80-110=82；80-90=31；90-100=29；80-100=60；
 		// frontLimit.setSumMinLimit(85);//
 		// frontLimit.setSumMaxLimit(94);//
@@ -116,7 +128,6 @@ public class Front81a0 {
 
 		frontLimit.setKill360LimitCount(kill360LimitCount);// 360杀号限定n个
 
-		int[] killNoLimits = { killcjwCount };
 		frontLimit.setKillNosLimitCount(killNoLimits);
 
 		FrontLast frontLast = new FrontLast();
@@ -130,6 +141,10 @@ public class Front81a0 {
 		frontLast.setLast5(last5);
 		frontLimit.setLast(frontLast);// 前区上期
 
+		int[] tempArea5 = new int[tempArea5s.size()];
+		for (int i = 0; i < tempArea5s.size(); i++) {
+			tempArea5[i] = tempArea5s.get(i);
+		}
 		int[] area1 = tempArea5, area2 = tempArea5, area3 = tempArea5, area4 = tempArea5, area5 = tempArea5;
 		area5s.setArea1(area1);
 		area5s.setArea2(area2);
@@ -465,9 +480,7 @@ public class Front81a0 {
 		int pipei4FilerCount = 0;
 		// int pipei3FilerCount = 0;// 精确匹配n个过滤
 		int filterCount = 0;// 个数
-		@SuppressWarnings("unused")
 		int oddCount = 0;
-		@SuppressWarnings("unused")
 		int evenCount = 0;
 		@SuppressWarnings("unused")
 		int kuadu16MinCount = 0;// 最小跨度
