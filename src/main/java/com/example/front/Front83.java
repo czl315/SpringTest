@@ -20,7 +20,7 @@ public class Front83 {
 
 	public static void main(String[] args) {
 		FrontLimit frontLimit = new FrontLimit();// 限定过滤
-		FrontBall curBall = new FrontBall(6, 18, 20, 21, 31);// 6,18,20,21,31+3,4
+		FrontBall curBall = new FrontBall(12,23,25,34,35);// 12,23,25,34,35+1,7 
 		int[] filtersLast = { 6, 18, 20, 21, 31 };// 过滤上期 TODO
 
 		int[] filtersAdjoin3 = { 32 };// 过滤3adjoin-特殊形态;三邻号
