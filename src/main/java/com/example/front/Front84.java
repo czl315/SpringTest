@@ -17,6 +17,7 @@ import com.example.util.DaFrontHis;
 
 public class Front84 {
 	private static boolean showLast = true;// false true
+	private static boolean showYuce = false;// false true
 
 	public static void main(String[] args) {
 		FrontLimit frontLimit = new FrontLimit();// 限定过滤
@@ -310,10 +311,12 @@ public class Front84 {
 				if (f5 == yuce5) {
 					yuceCount++;
 				}
-				if (yuceCount >= 2) {
-					// System.out.println(f1 + "," + f2 + "," + f3 + "," + f4 + "," + f5 + " + ");//
-				} else {// TODO CZL
-					 System.out.println(f1 + "," + f2 + "," + f3 + "," + f4 + "," + f5 + " +");
+				if(showYuce) {
+					if (yuceCount >= 2) {
+						// System.out.println(f1 + "," + f2 + "," + f3 + "," + f4 + "," + f5 + " + ");//
+					} else {// TODO CZL
+						System.out.println(f1 + "," + f2 + "," + f3 + "," + f4 + "," + f5 + " +");
+					}
 				}
 				yuce1 = f1;
 				yuce2 = f2;
