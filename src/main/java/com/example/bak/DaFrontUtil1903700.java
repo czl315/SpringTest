@@ -29,7 +29,7 @@ public class DaFrontUtil1903700 {
 		FrontLimit frontAreaLimit = new FrontLimit();
 		frontAreaLimit = null;
 		frontAreaLimit = new FrontLimit();
-		frontAreaLimit.setLianLimit(3);// 连号数量限定：
+		frontAreaLimit.setKillLianLimit(3);// 连号数量限定：
 
 		frontAreaLimit.setF1Min(1);
 		frontAreaLimit.setF1Max(7);// 11
@@ -118,7 +118,7 @@ public class DaFrontUtil1903700 {
 		// sumMaxLimit, filterHists, filterBalls,
 		// kuaduMin, kuaduMax, oddLimit, evenLimit, frontAreaLimit);// 精确匹配多个
 
-		System.out.println("前区组合限定:" + "no" + frontAreaLimit.getLianLimit() + "连;和值最小" + sumMinLimit + ";最大"
+		System.out.println("前区组合限定:" + "no" + frontAreaLimit.getKillLianLimit() + "连;和值最小" + sumMinLimit + ";最大"
 				+ sumMaxLimit + ";匹配：" + combs.size());
 
 		int yes5 = 0;// 5球全中
@@ -603,7 +603,7 @@ public class DaFrontUtil1903700 {
 			FrontLimit frontAreaLimit) {
 		int front1limit = 35, front2limit = 35, front3limit = 35, front4limit = 35, front5limit = 35;
 		// int allCount = 0;// 个数
-		int lianLimit = frontAreaLimit.getLianLimit();// 默认连号限定
+		int lianLimit = frontAreaLimit.getKillLianLimit();// 默认连号限定
 		int lianCount2 = 0;// 连号个数
 		boolean lianCountIsYesShowed = false;
 		int lianCount3 = 0;// 连号个数

@@ -1,8 +1,11 @@
-package com.example.da;
+package com.example.bak;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.Iterator;
 import java.util.List;
+import java.util.Map;
+import java.util.Set;
 import java.util.SortedSet;
 import java.util.TreeSet;
 
@@ -15,59 +18,67 @@ import com.example.util.DaFrontHis;
 /**
  * 后区全部组合个数：324632
  * 
- * 190507:old:过滤上期，修改为：与上期相同的两个号码相同，过滤掉
- * 
- * 190524:360杀号定胆
- * 
- * 190531:规律杀号：上次重号，本次不再重号
- * 
  * @author admin
  */
-public class Front62a0 {
-	// private static boolean showLast = false;
-	private static boolean showLast = true;
+public class Front66a1 {
+	private static boolean showLast = true;// false true
 
-	/**
-	 * @param args
-	 */
 	public static void main(String[] args) {
-		// 当期2019
-		FrontBall curBall = new FrontBall(7, 8, 15, 27, 32);
-		int c1 = curBall.getFrontBall1(), c2 = curBall.getFrontBall2(), c3 = curBall.getFrontBall3(),
-				c4 = curBall.getFrontBall4(), c5 = curBall.getFrontBall5();
-		int[] filtersLast = { 1, 2, 13, 14, 26 };// 过滤上期
-		int last1 = filtersLast[0], last2 = filtersLast[1], last3 = filtersLast[2], last4 = filtersLast[3],
-				last5 = filtersLast[4];
-		int[] filtersAdjoin3 = {3,14};// 过滤3adjoin-特殊形态;三邻号
-		int[] filtersRuleRepeat = { 1,6,7,2 };// 过滤规律重复1, 27;上次重号，本次不再重号
-		int[] filtersMost = { 29 };// 出现总次数：29=349；33=338；35=324；32=321；30=312；35遗漏39期处于历史峰值
-		int[] filtersCool = { 17,25 };// 遗漏次数：17=28；25=27;9=18;21=18
-		int[] tempArea5 = { 3, 4, 5 };// 分区5-过滤3、4、5个
-		// 每个范围限定
 		FrontLimit frontLimit = new FrontLimit();
-		frontLimit.setLianLimit(2);// 连号数量限定：过滤掉
+		// 当期2019
+		FrontBall curBall = new FrontBall(4,10,11,18,31);
+		int[] filtersLast = { 3, 8, 10, 23, 27 };// 过滤上期
+		int lastLimitCount = 1;// 上期相同个数限定
+
+		int[] filtersAdjoin3 = { 9 };// 过滤3adjoin-特殊形态;三邻号
+		int[] filtersRuleRepeat = { 8, 18, 19, 21 };// 过滤规律重复1, 27;上次重号，本次不再重号
+		int[] filtersMost = { 29, 33 };// 出现总次数：29=349；33=338；35=324；32=321；30=312；35遗漏39期处于历史峰值
+		int[] filtersCool = { 17, 9 };// 遗漏次数：17=36；9=26;31=18
+		frontLimit.setCzlFiltersCount(1);// 我自己杀号限定个数
+
+		int[] tempArea5 = { 3, 4, 5 };// 分区5-过滤3、4、5个3, 4, 5
+
+		int kuaduMin = 25;// 最小跨度
+		int kuaduMax = 35;// 最大跨度
+		int oddLimit = 3;// 奇数限定
+		int evenLimit = 3;// 偶数限定
+
+		int[] kill360Array = { 31, 15, 31, 15, 1, 11, 31, 32, 13, 24 };// 360杀号定胆
+		int kill360LimitCount = 2;
+		// int[] killcjw = {};// 杀号-彩经网
+		int[] killcjw = { 4, 8, 8, 35, 27, 19, 4, 23, 7, 34 };// 杀号-彩经网
+		int[] killNoLimits = { 1 };
+
+		// 每个范围限定
+
+		frontLimit.setKillLianLimit(3);// 连号数量限定：过滤掉
+
 		// 2018年前区和值：40以下-0；5X-8；6X-11；7X=12；8X=31；9X=29；10X=22；11X=20；12X=5；13X=4；14X=2；
-		frontLimit.setSumMinLimit(93);//
-		frontLimit.setSumMaxLimit(93);// 40-150=154（全）；80-110=82；80-90=31；90-100=29；80-100=60；
+		frontLimit.setSumMinLimit(70);//
+		frontLimit.setSumMaxLimit(99);// 40-150=154（全）；80-110=82；80-90=31；90-100=29；80-100=60；
 		frontLimit.setF1Min(1);
 		frontLimit.setF2Min(4);// 4
-		frontLimit.setF3Min(7);
+		frontLimit.setF3Min(9);// 7
 		frontLimit.setF4Min(13);
 		frontLimit.setF5Min(25);
 		frontLimit.setF1Max(7);// 1-7百分比=1240/1819=68.17%
-		frontLimit.setF2Max(22);
-		frontLimit.setF3Max(30);
+		frontLimit.setF2Max(18);
+		frontLimit.setF3Max(25);
 		frontLimit.setF4Max(32);// 32
 		frontLimit.setF5Max(35);
-		int kuaduMin = 25;// 最小跨度
-		int kuaduMax = 33;// 最大跨度
-		int oddLimit = 4;// 奇数限定
-		int evenLimit = 3;// 偶数限定
-		int[] kill360Array = { 14,14,26,6,29,11,9,16,4,29 };// 360杀号定胆
-		frontLimit.setKill360LimitCount(1);// 360杀号限定n个
+		frontLimit.setKuaduMin(kuaduMin);
+		frontLimit.setKuaduMax(kuaduMax);
+		frontLimit.setOddLimit(oddLimit);
+		frontLimit.setEvenLimit(evenLimit);
+
+		frontLimit.setKill360LimitCount(kill360LimitCount);// 360杀号限定n个
+
+		frontLimit.setKillNosLimitCount(killNoLimits);
 
 		FrontLast frontLast = new FrontLast();
-		frontLast.setLimitCount(1);// 相同个数限定
+		frontLast.setLimitCount(lastLimitCount);// 相同个数限定
+		int last1 = filtersLast[0], last2 = filtersLast[1], last3 = filtersLast[2], last4 = filtersLast[3],
+				last5 = filtersLast[4];
 		frontLast.setLast1(last1);
 		frontLast.setLast2(last2);
 		frontLast.setLast3(last3);
@@ -87,42 +98,44 @@ public class Front62a0 {
 		// 过滤分区5-11111
 		int[] everyAreaCounts11111 = { 1, 1, 1, 1, 1 };
 		fiter5s.add(everyAreaCounts11111);
-		// 过滤分区5-最近n期-
-		 int[] everyAreaCounts12200 = { 1, 2, 2, 0, 0 };
-		 fiter5s.add(everyAreaCounts12200);
-		 int[] everyAreaCounts13001 = { 1, 3, 0, 0, 1 };
-		 fiter5s.add(everyAreaCounts13001);
-		 int[] everyAreaCounts02102 = { 0, 2, 1, 0, 2 };
-		 fiter5s.add(everyAreaCounts02102);
-		 int[] everyAreaCounts22010 = { 2, 2, 0, 1, 0 };
-		 fiter5s.add(everyAreaCounts22010);
-		 int[] everyAreaCounts30110 = { 3, 0, 1, 1, 0 };
-		 fiter5s.add(everyAreaCounts30110);
-		 int[] everyAreaCounts10121 = { 1, 0, 1, 2, 1 };
-		 fiter5s.add(everyAreaCounts10121);
-		 int[] everyAreaCounts11210 = { 1, 1, 2, 1, 0 };
-		 fiter5s.add(everyAreaCounts11210);
-		 int[] everyAreaCounts01301 = { 0, 1, 3, 0, 1 };
-		 fiter5s.add(everyAreaCounts01301);
-		 int[] everyAreaCounts10301 = { 1, 0, 3, 0, 1 };
-		 fiter5s.add(everyAreaCounts10301);
-		 int[] everyAreaCounts01130 = { 0, 1, 1, 3, 0 };
-		 fiter5s.add(everyAreaCounts01130);
-		 int[] everyAreaCounts11102 = { 1, 1, 1, 0, 2 };
-		 fiter5s.add(everyAreaCounts11102);
-		 int[] everyAreaCounts21101 = { 2, 1, 1, 0, 1 };
-		 fiter5s.add(everyAreaCounts21101);
-		 int[] everyAreaCounts12101 = { 1, 2, 1, 0, 1 };
-		 fiter5s.add(everyAreaCounts12101);
-		 int[] everyAreaCounts20201 = { 2, 0, 2, 0, 1 };
-		 fiter5s.add(everyAreaCounts20201);
-		 int[] everyAreaCounts22001 = { 2, 2, 0, 0, 1 };
-		 fiter5s.add(everyAreaCounts22001);
-		 int[] everyAreaCounts31100 = { 3, 1, 1, 0, 0 };
-		 fiter5s.add(everyAreaCounts31100);
-		 int[] everyAreaCounts12011 = { 1, 2, 0, 1, 1 };
-		 fiter5s.add(everyAreaCounts12011);
-		 area5.setFiterCounts(fiter5s);
+//		// 过滤分区5-最近n期-
+//		int[] everyAreaCounts11300 = { 1, 1, 3, 0, 0 };
+//		fiter5s.add(everyAreaCounts11300);
+//		int[] everyAreaCounts12200 = { 1, 2, 2, 0, 0 };
+//		fiter5s.add(everyAreaCounts12200);
+//		int[] everyAreaCounts13001 = { 1, 3, 0, 0, 1 };
+//		fiter5s.add(everyAreaCounts13001);
+//		int[] everyAreaCounts02102 = { 0, 2, 1, 0, 2 };
+//		fiter5s.add(everyAreaCounts02102);
+//		int[] everyAreaCounts22010 = { 2, 2, 0, 1, 0 };
+//		fiter5s.add(everyAreaCounts22010);
+//		int[] everyAreaCounts30110 = { 3, 0, 1, 1, 0 };
+//		fiter5s.add(everyAreaCounts30110);
+//		int[] everyAreaCounts10121 = { 1, 0, 1, 2, 1 };
+//		fiter5s.add(everyAreaCounts10121);
+//		int[] everyAreaCounts11210 = { 1, 1, 2, 1, 0 };
+//		fiter5s.add(everyAreaCounts11210);
+//		int[] everyAreaCounts01301 = { 0, 1, 3, 0, 1 };
+//		fiter5s.add(everyAreaCounts01301);
+//		int[] everyAreaCounts10301 = { 1, 0, 3, 0, 1 };
+//		fiter5s.add(everyAreaCounts10301);
+//		int[] everyAreaCounts01130 = { 0, 1, 1, 3, 0 };
+//		fiter5s.add(everyAreaCounts01130);
+//		int[] everyAreaCounts11102 = { 1, 1, 1, 0, 2 };
+//		fiter5s.add(everyAreaCounts11102);
+//		int[] everyAreaCounts21101 = { 2, 1, 1, 0, 1 };
+//		fiter5s.add(everyAreaCounts21101);
+//		int[] everyAreaCounts12101 = { 1, 2, 1, 0, 1 };
+//		fiter5s.add(everyAreaCounts12101);
+//		int[] everyAreaCounts20201 = { 2, 0, 2, 0, 1 };
+//		fiter5s.add(everyAreaCounts20201);
+//		int[] everyAreaCounts22001 = { 2, 2, 0, 0, 1 };
+//		fiter5s.add(everyAreaCounts22001);
+//		int[] everyAreaCounts31100 = { 3, 1, 1, 0, 0 };
+//		fiter5s.add(everyAreaCounts31100);
+//		int[] everyAreaCounts12011 = { 1, 2, 0, 1, 1 };
+//		fiter5s.add(everyAreaCounts12011);
+		area5.setFiterCounts(fiter5s);
 		frontLimit.setArea5(area5);
 
 		SortedSet<Integer> setFilters = new TreeSet<Integer>();// 过滤
@@ -171,38 +184,57 @@ public class Front62a0 {
 
 		// 360杀号定胆
 		List<Integer> kill360 = new ArrayList<Integer>();
+		SortedSet<Integer> kill360set = new TreeSet<Integer>();
+		System.out.print("[kill360set]filter。size():" + kill360Array.length + "=");
 		for (int i = 0; i < kill360Array.length; i++) {
-			if (i == 0) {
-				System.out.print("[kill360]filter。size():" + kill360Array.length + "=");
-			}
-			kill360.add(kill360Array[i]);
-			System.out.print("," + kill360Array[i]);
+			kill360set.add(kill360Array[i]);
+		}
+		for (Iterator<Integer> iterator = kill360set.iterator(); iterator.hasNext();) {
+			Integer integer = (Integer) iterator.next();
+			System.out.print("," + integer);
 		}
 		System.out.println("");
+		showIsYes(curBall, kill360set, "360杀号过滤号码：");
+		kill360.addAll(kill360set);
 		frontLimit.setKill360two(kill360);
 
-		// for (int i = 0; i < filtersLast.length; i++) {
-		// if (i == 0) {
-		// System.out.print("[last]filter。size()：" + filtersLast.length + "=");
-		// }
-		// System.out.print("," + filtersLast[i]);
-		// setFilters.add(filtersLast[i]);
-		// if ((i == filtersLast.length - 1)) {
-		// System.out.println("");
-		// }
-		// }
+		// 彩经网
+		SortedSet<Integer> killcjwsSet = new TreeSet<Integer>();
+		System.out.print("[killcjw]filter。size():" + killcjw.length + "=");
+		for (int i = 0; i < killcjw.length; i++) {
+			killcjwsSet.add(killcjw[i]);
+		}
+		for (Iterator<Integer> iterator = killcjwsSet.iterator(); iterator.hasNext();) {
+			Integer integer = (Integer) iterator.next();
+			System.out.print("," + integer);
+		}
+		System.out.println("");
+		Map<Integer, Set<Integer>> map = new HashMap<Integer, Set<Integer>>();
+		map.put(killNoLimits[0], killcjwsSet);
+		List<Map<Integer, Set<Integer>>> killNos = new ArrayList<Map<Integer, Set<Integer>>>();
+		killNos.add(map);
+		showIsYes(curBall, killcjwsSet,"彩经网杀号过滤号码：");
+		frontLimit.setKillNos(killNos);
 
 		List<FrontBall> filterHists = DaFrontHis.frontBall2007to2019(5000);// history全过滤4个以上；历史100过滤3个；历史10过滤2个
 		// System.out.println("历史过滤frontBalls个数：" + filterHists.size());
 
 		Object[] filtersObj = (Object[]) setFilters.toArray();
 		int[] filterBalls = new int[filtersObj.length];
-		System.out.print("过滤号码：【");
+		List<Integer> czlFilters = new ArrayList<Integer>();
+
+		System.out.print("czl过滤号码：【");
 		for (int i = 0; i < filtersObj.length; i++) {
 			filterBalls[i] = (int) filtersObj[i];
+			czlFilters.add(filterBalls[i]);
 			System.out.print("，" + filterBalls[i]);
 		}
 		System.out.println("】");
+		showIsYes(curBall, filterBalls);
+		frontLimit.setCzlFilters(czlFilters);
+
+		int c1 = curBall.getFrontBall1(), c2 = curBall.getFrontBall2(), c3 = curBall.getFrontBall3(),
+				c4 = curBall.getFrontBall4(), c5 = curBall.getFrontBall5();
 		if (showLast)
 			System.out.println("当期和值===" + (c1 + c2 + c3 + c4 + c5));
 		// 过滤号码与当期比较，是否错误
@@ -229,11 +261,10 @@ public class Front62a0 {
 		/**
 		 * 剩余组合
 		 */
-		List<FrontBall> combs = combNolian(curBall, filterHists, filterBalls, kuaduMin, kuaduMax, oddLimit, evenLimit,
-				frontLimit);// 精确匹配多个
+		List<FrontBall> combs = combNolian(curBall, filterHists, frontLimit);// 精确匹配多个
 
-		System.out.println("前区组合限定:" + "no" + frontLimit.getLianLimit() + "连;和值最小" + frontLimit.getSumMinLimit() + ";最大"
-				+ frontLimit.getSumMaxLimit() + ";剩余组合：" + combs.size());
+		System.out.println("前区组合限定:" + "no" + frontLimit.getKillLianLimit() + "连;和值最小" + frontLimit.getSumMinLimit()
+				+ ";最大" + frontLimit.getSumMaxLimit() + ";剩余组合：" + combs.size());
 
 		int yes5 = 0;// 5球全中
 		int yes4 = 0;// 4球中
@@ -250,7 +281,7 @@ public class Front62a0 {
 				if (f1 == c1 && f2 == c2 && f3 == c3 && f4 == c4 && f5 == c5) {
 					System.out.println("过滤后当期：：：" + f1 + "," + f2 + "," + f3 + "," + f4 + "," + f5);
 				}
-				 System.out.println(f1 + "," + f2 + "," + f3 + "," + f4 + "," + f5 + " + ");//
+				// System.out.println(f1 + "," + f2 + "," + f3 + "," + f4 + "," + f5 + " + ");//
 				// 前区出球
 				if (f1 == yuce1 && f2 == yuce2) {
 					// System.out.println(f1 + "," + f2 + "," + f3 + "," + f4 + "," + f5 + " + ");//
@@ -318,20 +349,89 @@ public class Front62a0 {
 	}
 
 	/**
+	 * 显示当期是否选中
+	 * @param curBall
+	 * @param kill360set
+	 */
+	private static void showIsYes(FrontBall curBall, SortedSet<Integer> kill360set,String methodDesc) {
+		int c1 = curBall.getFrontBall1(), c2 = curBall.getFrontBall2(), c3 = curBall.getFrontBall3(),
+				c4 = curBall.getFrontBall4(), c5 = curBall.getFrontBall5();
+		if (showLast) {
+			for (Iterator<Integer> iterator = kill360set.iterator(); iterator.hasNext();) {
+				Integer integer = (Integer) iterator.next();
+				if (c1 == integer) {
+					System.out.println(methodDesc + "当期号码c1错误：" + integer);
+					continue;
+				}
+				if (c2 == integer) {
+					System.out.println(methodDesc + "当期号码c2错误：" + integer);
+					continue;
+				}
+				if (c3 == integer) {
+					System.out.println(methodDesc + "当期号码c3错误：" + integer);
+					continue;
+				}
+				if (c4 == integer) {
+					System.out.println(methodDesc + "当期号码c4错误：" + integer);
+					continue;
+				}
+				if (c5 == integer) {
+					System.out.println(methodDesc + "当期号码c5错误：" + integer);
+					continue;
+				}
+			}
+		}
+	}
+
+	/**
+	 * 显示当期是否选中
+	 * 
+	 * @param curBall
+	 * @param filterBalls
+	 */
+	private static void showIsYes(FrontBall curBall, int[] filterBalls) {
+		int c1 = curBall.getFrontBall1(), c2 = curBall.getFrontBall2(), c3 = curBall.getFrontBall3(),
+				c4 = curBall.getFrontBall4(), c5 = curBall.getFrontBall5();
+		if (showLast) {
+			for (int i = 0; i < filterBalls.length; i++) {
+				if (c1 == filterBalls[i]) {
+					System.out.println("czl过滤号码：当期号码c1错误：" + filterBalls[i]);
+					continue;
+				}
+				if (c2 == filterBalls[i]) {
+					System.out.println("czl过滤号码：当期号码c2错误：" + filterBalls[i]);
+					continue;
+				}
+				if (c3 == filterBalls[i]) {
+					System.out.println("czl过滤号码：当期号码c3错误：" + filterBalls[i]);
+					continue;
+				}
+				if (c4 == filterBalls[i]) {
+					System.out.println("czl过滤号码：当期号码c4错误：" + filterBalls[i]);
+					continue;
+				}
+				if (c5 == filterBalls[i]) {
+					System.out.println("czl过滤号码：当期号码c5错误：" + filterBalls[i]);
+					continue;
+				}
+			}
+		}
+	}
+
+	/**
 	 * 组合 TODO
 	 * 
 	 * @param lianLimit
 	 * @param sumLimit
 	 * @return
 	 */
-	private static List<FrontBall> combNolian(FrontBall curBall, List<FrontBall> filterHists, int[] filter,
-			int kuaduMin, int kuaduMax, int oddLimit, int evenLimit, FrontLimit frontLimit) {
+	private static List<FrontBall> combNolian(FrontBall curBall, List<FrontBall> filterHists, FrontLimit frontLimit) {
 		int front1limit = 35, front2limit = 35, front3limit = 35, front4limit = 35, front5limit = 35;
 		int sumMinLimit = frontLimit.getSumMinLimit();
 		int sumMaxLimit = frontLimit.getSumMaxLimit();
 		FrontLast last = frontLimit.getLast();// 前区上期
 		// int allCount = 0;// 个数
-		int lianLimit = frontLimit.getLianLimit();// 默认连号限定
+		int lianLimit = frontLimit.getKillLianLimit();// 默认连号限定
 		int lianCount2 = 0;// 连号个数
 		// boolean lianCountIsYesShowed = false;
 		int lianCount3 = 0;// 连号个数
@@ -343,6 +443,12 @@ public class Front62a0 {
 		// 360杀号
 		List<Integer> Kill360twos = frontLimit.getKill360two();
 		int Kill360twoCount = 0;// 360杀号个数
+
+		// 彩经网杀号
+		// List<Map<Integer, Set<Integer>>> cjwKills = frontLimit.getKillNos();
+		int cjwKillsCount = 0;// 彩经网杀号个数
+
+		int killczlFiltersCount = 0;// 我自己过滤号码-个数统计
 
 		// int pipei5FilerCount = 0;// 精确匹配5个过滤
 		// int pipei5FilerCount = 0;
@@ -361,7 +467,7 @@ public class Front62a0 {
 		int fenqu1MinCount = 0;// 三分区，t1不能大于个数
 		@SuppressWarnings("unused")
 		int fenqu5MaxCount = 0;// 三分区，t5不能小于个数
-		int f1limtMinCount = 0;// 每个范围限定t1小于
+//		int f1limtMinCount = 0;// 每个范围限定t1小于
 		int f1limtMaxCount = 0;// 每个范围限定t1大于
 		int f2limtMinCount = 0;// 每个范围限定t2小于
 		int f2limtMaxCount = 0;// 每个范围限定t2大于
@@ -402,28 +508,62 @@ public class Front62a0 {
 								}
 							}
 
-							// 过滤号码
-							boolean filterFlag = false;
-							if (filter != null && filter.length > 0) {
-								for (int i = 0; i < filter.length; i++) {
-									// System.out.println("filter["+i+"]:"+filter[i]);
-									if (t1 == filter[i] || t2 == filter[i] || t3 == filter[i] || t4 == filter[i]
-											|| t5 == filter[i]) {
-										filterCount++;
-										filterFlag = true;
-										break;
-									}
-								}
-								if (filterFlag) {
-									continue;
-								}
+							// // 过滤号码
+							// boolean filterFlag = false;
+							// if (filter != null && filter.length > 0) {
+							// for (int i = 0; i < filter.length; i++) {
+							// // System.out.println("filter["+i+"]:"+filter[i]);
+							// if (t1 == filter[i] || t2 == filter[i] || t3 == filter[i] || t4 == filter[i]
+							// || t5 == filter[i]) {
+							// filterCount++;
+							// filterFlag = true;
+							// break;
+							// }
+							// }
+							// if (filterFlag) {
+							// continue;
+							// }
+							// }
+							// 我自己过滤号码
+							List<Integer> czlFilters = frontLimit.getCzlFilters();
+							int czlFiltersCount = frontLimit.getCzlFiltersCount();
+							boolean czlFiltersRs = checkKillLimit(tempBall, czlFilters, czlFiltersCount);
+							if (czlFiltersRs) {
+								killczlFiltersCount++;
+								continue;
 							}
 
 							// 360杀号-
 							int kill360LimitCount = frontLimit.getKill360LimitCount();
-							boolean Kill360twoRs = checkKill360twos(tempBall, Kill360twos, kill360LimitCount);
+							boolean Kill360twoRs = checkKillLimit(tempBall, Kill360twos, kill360LimitCount);
 							if (Kill360twoRs) {
 								Kill360twoCount++;
+								continue;
+							}
+
+							// 彩经网杀号-
+							boolean cjwRs = false;
+							List<Map<Integer, Set<Integer>>> list = frontLimit.getKillNos();
+							for (Iterator<Map<Integer, Set<Integer>>> iterator = list.iterator(); iterator.hasNext();) {
+								Map<Integer, Set<Integer>> map = (Map<Integer, Set<Integer>>) iterator.next();
+								Set<Integer> limits = map.keySet();
+								for (Iterator<Integer> iterator2 = limits.iterator(); iterator2.hasNext();) {
+									Integer integer = (Integer) iterator2.next();
+									Set<Integer> killSet = map.get(integer);
+									List<Integer> killList = new ArrayList<Integer>();
+									killList.addAll(killSet);
+									boolean KillCjwRs = checkKillLimit(tempBall, killList, integer);
+									if (KillCjwRs) {
+										cjwKillsCount++;
+										cjwRs = true;
+										break;
+									}
+								}
+								if (cjwRs) {
+									break;
+								}
+							}
+							if (cjwRs) {
 								continue;
 							}
 
@@ -498,7 +638,7 @@ public class Front62a0 {
 										pipei4FilerFlag = true;
 										// if ((1 == t1 && 3 == t2 && 5 == t3) || (3 == t2 && 5 == t3 && 7 == t4)
 										// || (5 == t3 && 7 == t4 && 18 == t5)) {
-										// System.out.println("精确匹配4个过滤-已出：" + ex1 + "," + ex2 + "," + ex3 + "," + ex4
+										// System.out.println("精确匹配4个过滤-已出：" + ex1 + "," + ex2 + "," + ex3 + "," +ex4
 										// + "," + ex5);
 										// System.out.println(
 										// "精确匹配4个过滤-当前：" + t1 + "," + t2 + "," + t3 + "," + t4 + "," + t5);
@@ -514,11 +654,13 @@ public class Front62a0 {
 							}
 							// 历史匹配过滤3个--此匹配过滤太多，慎用
 
+							int oddLimit = frontLimit.getOddLimit();
 							boolean checkOddRs = checkOddLimit(tempBall, oddLimit);
 							if (checkOddRs) {
 								oddCount++;
 								continue;
 							}
+							int evenLimit = frontLimit.getEvenLimit();
 							boolean checkEvenRs = checkEvenLimit(tempBall, evenLimit);
 							if (checkEvenRs) {
 								evenCount++;
@@ -526,13 +668,15 @@ public class Front62a0 {
 							}
 
 							// 最小跨度
-							if (t5 - t1 <= kuaduMin) {
+							int kuaduMin = frontLimit.getKuaduMin();
+							if (t5 - t1 < kuaduMin) {
 								kuadu16MinCount++;
 								// System.out.println("最小跨度：" + t1 + "," + t2 + "," + t3 + "," + t4 + "," + t5);
 								continue;
 							}
 							// 最大跨度
-							if (t5 - t1 >= kuaduMax) {
+							int kuaduMax = frontLimit.getKuaduMax();
+							if (t5 - t1 > kuaduMax) {
 								kuadu29MaxCount++;
 								// System.out.println("最大跨度：" + t1 + "," + t2 + "," + t3 + "," + t4 + "," + t5);
 								continue;
@@ -544,7 +688,7 @@ public class Front62a0 {
 									// System.out.println("每个范围限定t1小于" + frontAreaLimit.getF1Min() + ":" + t1 + ","
 									// + t2
 									// + "," + t3 + "," + t4 + "," + t5);
-									f1limtMinCount++;
+//									f1limtMinCount++;
 									continue;
 								}
 								if (t1 > frontLimit.getF1Max()) {
@@ -667,6 +811,8 @@ public class Front62a0 {
 		System.out.println("  限定号码过滤个数：" + filterCount);
 
 		System.out.println("360杀号-限定号码过滤个数：" + Kill360twoCount);
+		System.out.println("彩经网杀号-限定号码过滤个数：" + cjwKillsCount);
+		System.out.println("我自己杀号-限定号码过滤个数：" + killczlFiltersCount);
 
 		// System.out.println(" kuadu16MinCount：" + kuadu16MinCount);
 		// System.out.println(" kuadu29MaxCount：" + kuadu29MaxCount);
@@ -680,14 +826,14 @@ public class Front62a0 {
 
 		// System.out.println(" 每个范围限定t1小于：" + f1limtMinCount);
 		System.out.println("  每个范围限定t1大于：" + f1limtMaxCount);
-		// System.out.println(" 每个范围限定t2小于：" + f2limtMinCount);
-		// System.out.println(" 每个范围限定t2大于：" + f2limtMaxCount);
-		// System.out.println(" 每个范围限定t3小于：" + f3limtMinCount);
-		// System.out.println(" 每个范围限定t3大于：" + f3limtMaxCount);
-		// System.out.println(" 每个范围限定t4小于：" + f4limtMinCount);
-		// System.out.println(" 每个范围限定t4大于：" + f4limtMaxCount);
-		// System.out.println(" 每个范围限定t5小于：" + f5limtMinCount);
-		// System.out.println(" 每个范围限定t5大于：" + f5limtMaxCount);
+		 System.out.println(" 每个范围限定t2小于：" + f2limtMinCount);
+		 System.out.println(" 每个范围限定t2大于：" + f2limtMaxCount);
+		 System.out.println(" 每个范围限定t3小于：" + f3limtMinCount);
+		 System.out.println(" 每个范围限定t3大于：" + f3limtMaxCount);
+		 System.out.println(" 每个范围限定t4小于：" + f4limtMinCount);
+		 System.out.println(" 每个范围限定t4大于：" + f4limtMaxCount);
+		 System.out.println(" 每个范围限定t5小于：" + f5limtMinCount);
+		 System.out.println(" 每个范围限定t5大于：" + f5limtMaxCount);
 
 		System.out.println("  分区5每区集中45过滤个数：" + area5EveryCount);
 		System.out.println("  分区5-每区形态个数相同过滤：" + everyAreaCount);
@@ -702,10 +848,10 @@ public class Front62a0 {
 	 * 360杀号-
 	 * 
 	 * @param tempBall
-	 * @param kill360twos
+	 * @param killBalls
 	 * @param limitCount
 	 */
-	private static boolean checkKill360twos(FrontBall tempBall, List<Integer> kill360twos, int limitCount) {
+	private static boolean checkKillLimit(FrontBall tempBall, List<Integer> killBalls, int limitCount) {
 		int t1 = tempBall.getFrontBall1();
 		int t2 = tempBall.getFrontBall2();
 		int t3 = tempBall.getFrontBall3();
@@ -713,7 +859,7 @@ public class Front62a0 {
 		int t5 = tempBall.getFrontBall5();
 		int count = 0;
 
-		for (Iterator<Integer> iterator = kill360twos.iterator(); iterator.hasNext();) {
+		for (Iterator<Integer> iterator = killBalls.iterator(); iterator.hasNext();) {
 			Integer killOne = (Integer) iterator.next();
 			if (killOne == t1 || killOne == t2 || killOne == t3 || killOne == t4 || killOne == t5) {
 				count++;
@@ -1165,5 +1311,16 @@ public class Front62a0 {
 		}
 		return rs;
 	}
-
+	/**
+	 * * 190507:old:过滤上期，修改为：与上期相同的两个号码相同，过滤掉
+	 * 
+	 * 190524:360杀号定胆:最近频率2次；平均值
+	 * 
+	 * 190531:规律杀号：上次重号，本次不再重号
+	 * 
+	 * 190602:我自己杀号限定个数
+	 * 
+	 * 190605:彩经网杀号
+	 * 
+	 */
 }
