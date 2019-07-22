@@ -23,6 +23,21 @@ public class BackHis {
 	public static List<BackBall> backBallLast2019(int limitCount) {
 		List<BackBall> rs2019 = new ArrayList<BackBall>();
 		for (int i = 1; i <= limitCount; i++) {
+			
+			if (i == 68) rs2019.add(new BackBall(6, 11));
+			if (i == 67) rs2019.add(new BackBall(2, 10));
+			if (i == 66) rs2019.add(new BackBall(5, 8));
+			
+			if (i == 65) rs2019.add(new BackBall(2, 12));
+			if (i == 64) rs2019.add(new BackBall(11, 12));
+			if (i == 63) rs2019.add(new BackBall(4, 8));
+			if (i == 62) rs2019.add(new BackBall(1, 12));
+			if (i == 61) rs2019.add(new BackBall(5, 11));
+			
+			if (i == 60) rs2019.add(new BackBall(8, 10));
+			if (i == 59) rs2019.add(new BackBall(8, 12));
+			if (i == 58) rs2019.add(new BackBall(7, 11));
+			if (i == 57) rs2019.add(new BackBall(6, 12));
 			if (i == 56)
 				rs2019.add(new BackBall(6, 8));
 			if (i == 55)

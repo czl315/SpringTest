@@ -116,7 +116,36 @@ public class DaFrontHis {
 	public static List<FrontBall> frontBall2019(int limitCount) {
 		List<FrontBall> rs = new ArrayList<FrontBall>();
 		for (int i = 1; i <= limitCount; i++) {
-//			if (i == 53) rs.add(new FrontBall(1, 11, 19, 26, 35));
+			
+			if (i == 70) rs.add(new FrontBall(2,13,15,22,34));
+			if (i == 71) rs.add(new FrontBall(7,13,14,15,22));
+			if (i == 72) rs.add(new FrontBall(2,4,6,9,18));
+			if (i == 73) rs.add(new FrontBall(4,11,19,20,24));
+			if (i == 74) rs.add(new FrontBall(8, 9, 13, 14, 34));
+			if (i == 75) rs.add(new FrontBall(5,6,7,11,16));
+			if (i == 76) rs.add(new FrontBall(1,6,11,23,29));
+			if (i == 77) rs.add(new FrontBall(1,15,17,21,33));
+			if (i == 78) rs.add(new FrontBall(5,10,21,26,30));
+//			if (i == 79) rs.add(new FrontBall(10, 13, 16, 28, 35));
+			
+			if (i == 60) rs.add(new FrontBall(4, 15, 16, 20, 35));
+			if (i == 61) rs.add(new FrontBall(4,10,11,18,31));
+			if (i == 62) rs.add(new FrontBall(5,16,23,25,28));
+			if (i == 63) rs.add(new FrontBall(5,8,15,18,21));
+			if (i == 64) rs.add(new FrontBall(7, 8, 13, 19, 29));
+			if (i == 65) rs.add(new FrontBall(3,8,10,23,27));
+			if (i == 66) rs.add(new FrontBall(4,10,11,18,31));
+			if (i == 67) rs.add(new FrontBall(3,8,11,15,16));
+			if (i == 68) rs.add(new FrontBall(4,5,8,17,27));
+			if (i == 69) rs.add(new FrontBall(8,22,23,33,34));
+			
+			if (i == 59) rs.add(new FrontBall(7,8,15,27,32));
+			if (i == 58) rs.add(new FrontBall(3,10,13,14,32));
+			if (i == 57) rs.add(new FrontBall(8, 14, 16, 34, 35));
+			if (i == 56) rs.add(new FrontBall(1, 7, 10, 12, 23));
+			if (i == 55) rs.add(new FrontBall(2, 4, 6, 19, 22));
+			if (i == 54) rs.add(new FrontBall(2, 18, 23, 27, 30));
+			if (i == 53) rs.add(new FrontBall(1, 11, 19, 26, 35));
 			if (i == 52) rs.add(new FrontBall(4, 15, 16, 20, 35));
 			if (i == 51) rs.add(new FrontBall(11, 15, 16, 20, 29));
 			if (i == 50) rs.add(new FrontBall(4, 15, 16, 20, 35));
