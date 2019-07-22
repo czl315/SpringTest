@@ -1,6 +1,9 @@
 package com.example.dto;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
+import java.util.Set;
 
 /**
  * 每个范围限定
@@ -12,7 +15,7 @@ public class FrontLimit {
 	/**
 	 * 去除连号
 	 */
-	private int lianLimit;
+	private int killLianLimit;
 	/**
 	 * 和值最小
 	 */
@@ -81,11 +84,51 @@ public class FrontLimit {
 	 */
 	private int kill360LimitCount;
 	
-	public int getLianLimit() {
-		return lianLimit;
+	/**
+	 * 杀号数组
+	 */
+	private List<Map<Integer,Set<Integer>>> killNos;
+	/**
+	 * 杀号数组-限定个数
+	 */
+	private int[] killNosLimitCount;
+	
+	/**
+	 * 我自己过滤号码
+	 */
+	private List<Integer> czlFilters;
+	/**
+	 * 我自己过滤号码个数
+	 */
+	private int czlFiltersCount;
+	
+	/**
+	 * 最小跨度
+	 */
+	private int kuaduMin ;
+	/**
+	 * 最大跨度
+	 */
+	private int kuaduMax ;
+	/**
+	 * 奇数限定
+	 */
+	private int oddLimit ;
+	/**
+	 * 偶数限定
+	 */
+	private int evenLimit ;
+	
+	/**
+	 * 尾号每个区域过滤
+	 */
+	private int[] killWeiEveryCount;
+	
+	public int getKillLianLimit() {
+		return killLianLimit;
 	}
-	public void setLianLimit(int lianLimit) {
-		this.lianLimit = lianLimit;
+	public void setKillLianLimit(int lianLimit) {
+		this.killLianLimit = lianLimit;
 	}
 	public int getF1Min() {
 		return f1Min;
@@ -182,5 +225,59 @@ public class FrontLimit {
 	}
 	public void setKill360LimitCount(int kill360LimitCount) {
 		this.kill360LimitCount = kill360LimitCount;
+	}
+	public List<Integer> getCzlFilters() {
+		return czlFilters;
+	}
+	public void setCzlFilters(List<Integer> czlFilters) {
+		this.czlFilters = czlFilters;
+	}
+	public int getCzlFiltersCount() {
+		return czlFiltersCount;
+	}
+	public void setCzlFiltersCount(int czlFiltersCount) {
+		this.czlFiltersCount = czlFiltersCount;
+	}
+	public int[] getKillNosLimitCount() {
+		return killNosLimitCount;
+	}
+	public void setKillNosLimitCount(int[] killNosLimitCount) {
+		this.killNosLimitCount = killNosLimitCount;
+	}
+	public List<Map<Integer, Set<Integer>>> getKillNos() {
+		return killNos;
+	}
+	public void setKillNos(List<Map<Integer, Set<Integer>>> killNos) {
+		this.killNos = killNos;
+	}
+	public int getKuaduMin() {
+		return kuaduMin;
+	}
+	public void setKuaduMin(int kuaduMin) {
+		this.kuaduMin = kuaduMin;
+	}
+	public int getKuaduMax() {
+		return kuaduMax;
+	}
+	public void setKuaduMax(int kuaduMax) {
+		this.kuaduMax = kuaduMax;
+	}
+	public int getOddLimit() {
+		return oddLimit;
+	}
+	public void setOddLimit(int oddLimit) {
+		this.oddLimit = oddLimit;
+	}
+	public int getEvenLimit() {
+		return evenLimit;
+	}
+	public void setEvenLimit(int evenLimit) {
+		this.evenLimit = evenLimit;
+	}
+	public int[] getKillWeiEveryCount() {
+		return killWeiEveryCount;
+	}
+	public void setKillWeiEveryCount(int[] killWeiEveryCount) {
+		this.killWeiEveryCount = killWeiEveryCount;
 	}
 }
