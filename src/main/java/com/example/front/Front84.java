@@ -17,18 +17,19 @@ import com.example.util.DaFrontHis;
 
 public class Front84 {
 	private static boolean showLast = true;// false true
+	private static boolean showYuce = false;// false true
 
 	public static void main(String[] args) {
 		FrontLimit frontLimit = new FrontLimit();// 限定过滤
-		FrontBall curBall = new FrontBall(17, 24, 26, 28, 32);// 17,24,26,28,32+7,9
+		FrontBall curBall = new FrontBall(12, 23, 25, 34, 35);// 12,23,25,34,35+1,7
 		int[] filtersLast = { 17, 24, 26, 28, 32 };// 过滤上期 TODO
 
-		int[] filtersAdjoin3 = { 16,33 };// 过滤3adjoin-特殊形态;三邻号
-		int[] filtersRuleRepeat = { 18,24,30 };// 过滤规律重复1, 27;上次重号，本次不再重号
+		int[] filtersAdjoin3 = { 16, 33 };// 过滤3adjoin-特殊形态;三邻号
+		int[] filtersRuleRepeat = { 18, 24, 30 };// 过滤规律重复1, 27;上次重号，本次不再重号
 		int[] filtersMost = { 29, 33 };// 出现总次数：29=352；33=341；35=328；32=321；30=312；35遗漏39期处于历史峰值
-		int[] filtersCool = { 12,25,3 };// 遗漏次数：12=23;25=21;3=16;27=15
-		int[] kill360Array = {5,28,8,1,1,26,20,35,32,10 };// 360杀号定胆
-		int[] killcjw = { 35,3,3,30,22,7,34,18,2,2 };// 杀号-彩经网
+		int[] filtersCool = { 12, 25, 3 };// 遗漏次数：12=23;25=21;3=16;27=15
+		int[] kill360Array = { 5, 28, 8, 1, 1, 26, 20, 35, 32, 10 };// 360杀号定胆
+		int[] killcjw = { 35, 3, 3, 30, 22, 7, 34, 18, 2, 2 };// 杀号-彩经网
 
 		int lastLimitCount = 0;// 上期相同个数限定
 		List<Integer> tempArea5s = new ArrayList<Integer>();// 分区5-过滤3、4、5个3, 4, 5
@@ -89,26 +90,29 @@ public class Front84 {
 		int[] everyAreaCounts12011 = { 1, 2, 0, 1, 1 };
 		fiter5s.add(everyAreaCounts12011);
 		area5s.setFiterCounts(fiter5s);
-		// frontLimit.setCzlFiltersCount(2);// 我自己杀号限定个数
 
+		// frontLimit.setCzlFiltersCount(2);// 我自己杀号限定个数
 		lastLimitCount = 1;// 上期相同个数限定
-		
+
 		// 错误修正 TODO
-//		cjwKillCount = 2;
-//		frontLimit.setSumMinLimit(89);
-//		frontLimit.setSumMaxLimit(130);
-//		evenLimit = 4;// 偶数限定
-//		kuaduMin = 14;// 最小跨度
-//		frontLimit.setF1Max(17);// 1-7百分比=1240/1819=68.17% 9 7
-//		frontLimit.setF2Max(24);// 18
-//		frontLimit.setF3Max(26);// 23
-//		tempArea5s = new ArrayList<Integer>();// 分区5-过滤3、4、5个3, 4, 5
-//		// tempArea5s.add(3);
-//		tempArea5s.add(4);
-//		tempArea5s.add(5);
+		cjwKillCount = 2;
+		frontLimit.setCzlFiltersCount(2);// 我自己杀号限定个数
+		frontLimit.setKillLianLimit(3);// 连号数量限定：过滤掉
+		// frontLimit.setSumMinLimit(89);
+		frontLimit.setSumMaxLimit(130);
+		kuaduMin = 22;// 最小跨度
+		frontLimit.setF1Max(12);// 1-7百分比=1240/1819=68.17% 9 7
+		frontLimit.setF2Max(24);// 23
+		frontLimit.setF3Max(26);// 23
+		frontLimit.setF4Max(34);// 32
+
+		// evenLimit = 4;// 偶数限定
+		// tempArea5s = new ArrayList<Integer>();// 分区5-过滤3、4、5个3, 4, 5
+		// // tempArea5s.add(3);
+		// tempArea5s.add(4);
+		// tempArea5s.add(5);
 
 		// kill360LimitCount = 2;
-		// lastLimitCount = 1;// 上期相同个数限定
 		// frontLimit.setKillLianLimit(3);// 连号数量限定：过滤掉
 		// tempArea5s.remove(0);// 3
 		// frontLimit.setF2Max(26);// 18
@@ -310,10 +314,12 @@ public class Front84 {
 				if (f5 == yuce5) {
 					yuceCount++;
 				}
-				if (yuceCount >= 2) {
-					// System.out.println(f1 + "," + f2 + "," + f3 + "," + f4 + "," + f5 + " + ");//
-				} else {// TODO CZL
-					 System.out.println(f1 + "," + f2 + "," + f3 + "," + f4 + "," + f5 + " +");
+				if (showYuce) {
+					if (yuceCount >= 2) {
+						// System.out.println(f1 + "," + f2 + "," + f3 + "," + f4 + "," + f5 + " + ");//
+					} else {// TODO CZL
+						System.out.println(f1 + "," + f2 + "," + f3 + "," + f4 + "," + f5 + " +");
+					}
 				}
 				yuce1 = f1;
 				yuce2 = f2;
@@ -368,10 +374,9 @@ public class Front84 {
 			}
 
 		}
-		System.out.println("1ok===" + yes1 + "=====" + "，2ok===" + yes2 + "=====");
-		System.out.print("3ok===" + yes3 + "===" + yes3 * 5 + "，4ok===" + yes4 + "===" + yes4 * 100 + "，5ok===" + yes5
-				+ "===" + yes5 * 10000);
-		System.out.println("，合计：" + (yes3 * 5 + yes4 * 100 + yes5 * 10000));
+		System.out.println("1ok===" + yes1 + "=====" + "，2ok===" + yes2 + "=====" + "，3ok===" + yes3 + "===" + yes3 * 5
+				+ "，4ok===" + yes4 + "===" + yes4 * 100 + "，5ok===" + yes5 + "===" + yes5 * 10000);
+		System.out.println("剩余组合：" + combs.size()+"-" + (yes3 * 5 + yes4 * 100 + yes5 * 10000)+"(合计金额)");
 
 		// 当期2019033；验证通过：历史模糊4；奇数4；
 		// int[] curBalls = { 1, 2, 4, 16, 24 };// 当期2019033；4偶；上期1,4；最近20高频；和值85;2连号;
