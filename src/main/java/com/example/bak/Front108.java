@@ -1,4 +1,4 @@
-package com.example.front;
+package com.example.bak;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -13,33 +13,32 @@ import com.example.dto.FrontBall;
 import com.example.dto.FrontLast;
 import com.example.dto.FrontLimit;
 import com.example.dto.FrontLimitArea5;
+import com.example.front.KillUtil;
 import com.example.util.DaFrontHis;
 
-public class Front107 {
+public class Front108 {
 	private static boolean showLast = true;// false true
 	private static boolean showYuce = true;// false true
 
 	public static void main(String[] args) {
 		FrontLimit frontLimit = new FrontLimit();// 限定过滤
-		FrontBall curBall = new FrontBall(5, 9, 19, 27, 35);// 19107:::5,9,19,27,35+2,3
-		int[] filtersLast = { 5, 8, 10, 32, 35 };// 过滤上期 TODO
+		FrontBall curBall = new FrontBall(24, 27, 28, 31, 34);// 19108:::24,27,28,31,34+4,8
+		int[] filtersLast = { 5, 9, 19, 27, 35 };// 过滤上期 TODO
 
 		// 2018年前区和值：40以下-0；5X-8；6X-11；7X=12；8X=31；9X=29；10X=22；11X=20；12X=5；13X=4；14X=2；
-		frontLimit.setSumMinLimit(95);
-		frontLimit.setSumMaxLimit(99);
+		frontLimit.setSumMinLimit(80);
+		frontLimit.setSumMaxLimit(84);
 
 		// 必杀号码列表
 		List<Integer> mustKills = new ArrayList<Integer>();
 		mustKills.add(5);
-		mustKills.add(2);
-		mustKills.add(16);
 
-		int[] filtersAdjoin3 = { 6, 7, 11 };// 过滤3adjoin-特殊形态;三邻号
-		int[] filtersRuleRepeat = { 5, 10, 12, 17, 19, 27 };// 过滤规律重复1, 27;上次重号，本次不再重号
+		int[] filtersAdjoin3 = { 8, 10 };// 过滤3adjoin-特殊形态;三邻号
+		int[] filtersRuleRepeat = { 2, 5, 15, 19, 33, 35 };// 过滤规律重复1, 27;上次重号，本次不再重号
 		int[] filtersMost = { 29, 33, 35 };// 出现总次数：29=352；33=341；35=328；32=321；30=312；35遗漏39期处于历史峰值
 		int[] filtersCool = { 24, 25, 34 };// 遗漏次数：24=21;25=20;34=15
-		int[] kill360Array = { 8, 32, 7, 16, 11, 6, 11, 16, 2, 2 };// 360杀号定胆
-		int[] killcjw = { 15, 33, 7, 14, 2, 16, 20, 17, 30, 33 };// 杀号-彩经网
+		int[] kill360Array = { 22, 11, 19, 10, 4, 24, 29, 29, 29, 3 };// 360杀号定胆
+		int[] killcjw = { 21, 25, 34, 33, 24, 28, 1, 32, 2, 26 };// 杀号-彩经网
 
 		int lastLimitCount = 0;// 上期相同个数限定
 		List<Integer> tempArea5s = new ArrayList<Integer>();// 分区5-过滤3、4、5个3, 4, 5
@@ -101,36 +100,37 @@ public class Front107 {
 
 		// 修正
 		frontLimit.setCzlFiltersCount(2);// 我自己杀号限定个数
-		lastLimitCount = 1;// 上期相同个数限定
+		lastLimitCount = 0;// 上期相同个数限定
 		frontLimit.setKillLianLimit(3);// 连号数量限定：过滤掉
 
 		// 错误修正 TODO
 		// frontLimit.setSumMinLimit(45);
-		// // frontLimit.setSumMaxLimit(94);
-		frontLimit.setCzlFiltersCount(4);// 我自己杀号限定个数
-		mustKills = new ArrayList<Integer>();// 必杀号码列表
-		// mustKills.add(5);
-		mustKills.add(2);
-		mustKills.add(16);
-		lastLimitCount = 2;// 上期相同个数限定
-		oddLimit = 5;// 奇数限定
-		area5s.setFiterCounts(null);
+		frontLimit.setSumMaxLimit(145);
+		cjwKillCount = 3;
+		lastLimitCount = 1;// 上期相同个数限定
+		kuaduMin = 10;// 最小跨度
+		tempArea5s = new ArrayList<Integer>();// 分区5-过滤3、4、5个3, 4, 5
+		// tempArea5s.add(3);
+		tempArea5s.add(4);
+		tempArea5s.add(5);
+		frontLimit.setF1Max(24);
+		 frontLimit.setF2Max(28);// 23
+		 frontLimit.setF3Max(28);// 23
+		// frontLimit.setCzlFiltersCount(4);// 我自己杀号限定个数
+		// mustKills = new ArrayList<Integer>();// 必杀号码列表
+		// // mustKills.add(5);
+		// mustKills.add(2);
+		// mustKills.add(16);
+		// oddLimit = 5;// 奇数限定
+		// area5s.setFiterCounts(null);
 
-		// kuaduMin = 16;// 最小跨度
-		// cjwKillCount = 2;
 		// int[] killWeiEveryArrayNow = { 2, 2, 3, 2, 2, 2, 2, 2, 2, 2 };// 尾号每个区域过滤
 		// killWeiEveryArray = killWeiEveryArrayNow;// 尾号每个区域过滤
 		// kill360LimitCount = 3;
-		// tempArea5s = new ArrayList<Integer>();// 分区5-过滤3、4、5个3, 4, 5
-		// // tempArea5s.add(3);
-		// tempArea5s.add(4);
-		// tempArea5s.add(5);
 		// frontLimit.setF1Max(14);// 1-7百分比=1240/1819=68.17% 9 7
 		// // killWeiEveryArrayNow = killWeiEveryArrayOrg;
 		// frontLimit.setKillLianLimit(3);// 连号数量限定：过滤掉
 		// evenLimit = 4;// 偶数限定
-		// frontLimit.setF2Max(20);// 23
-		// frontLimit.setF3Max(28);// 23
 		// frontLimit.setF4Max(33);// 32
 		// area5s.setFiterCounts(null);
 		// kill360LimitCount = 2;
@@ -139,8 +139,6 @@ public class Front107 {
 
 		// frontLimit.setKillLianLimit(3);// 连号数量限定：过滤掉
 		// tempArea5s.remove(0);// 3
-		// frontLimit.setF2Max(26);// 18
-		// frontLimit.setF3Max(28);
 
 		// int[] tempArea5 = { 4, 5 };// 分区5-过滤3、4、5个3, 4, 5
 		// int[] killNoLimits = { 1 };
@@ -274,7 +272,7 @@ public class Front107 {
 		}
 		System.out.print("】");
 		System.out.println("[size():" + czlFilters.size() + "]");
-		showIsYes(curBall, filterBalls, "czl过滤号码：", showLast);
+		showIsYes(curBall, filterBalls, "czl过滤号码：", showLast, frontLimit);
 		frontLimit.setCzlFilters(czlFilters);
 
 		int c1 = curBall.getFrontBall1(), c2 = curBall.getFrontBall2(), c3 = curBall.getFrontBall3(),
@@ -282,7 +280,7 @@ public class Front107 {
 		if (showLast)
 			System.out.println("当期和值===" + (c1 + c2 + c3 + c4 + c5));
 		// 过滤号码与当期比较，是否错误
-		showIsYes(curBall, filtersLast, "上期号码：", showLast);
+		showIsYes(curBall, filtersLast, "上期号码：", showLast, frontLimit);
 
 		/**
 		 * 剩余组合
@@ -309,6 +307,7 @@ public class Front107 {
 				if (f1 == c1 && f2 == c2 && f3 == c3 && f4 == c4 && f5 == c5) {
 					System.out.println("过滤后当期：：：" + f1 + "," + f2 + "," + f3 + "," + f4 + "," + f5);
 				}
+				// List<Integer> hadSelected = new ArrayList<Integer>();
 				// System.out.println(f1 + "," + f2 + "," + f3 + "," + f4 + "," + f5 + " + ");//
 				// 前区出球
 				int yuceCount = 0;
@@ -450,7 +449,8 @@ public class Front107 {
 	 * @param curBall
 	 * @param filterBalls
 	 */
-	private static void showIsYes(FrontBall curBall, int[] filterBalls, String methodDesc, boolean showLast) {
+	private static void showIsYes(FrontBall curBall, int[] filterBalls, String methodDesc, boolean showLast,
+			FrontLimit frontLimit) {
 		if (showLast) {
 			int c1 = curBall.getFrontBall1(), c2 = curBall.getFrontBall2(), c3 = curBall.getFrontBall3(),
 					c4 = curBall.getFrontBall4(), c5 = curBall.getFrontBall5();
@@ -482,7 +482,8 @@ public class Front107 {
 					continue;
 				}
 			}
-			System.out.println(methodDesc + "当期号码错误个数：" + filterBalls.length + "_1_" + errCount);
+			System.out.println(methodDesc + "当期号码错误个数：" + filterBalls.length + "_"
+					+ frontLimit.getLast().getLimitCount() + "_" + errCount);
 		}
 	}
 
