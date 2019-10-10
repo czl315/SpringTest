@@ -1,21 +1,14 @@
 package com.example.front;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.Iterator;
-import java.util.List;
-import java.util.Map;
-import java.util.Set;
-import java.util.SortedSet;
-import java.util.TreeSet;
-
 import com.example.dto.FrontBall;
 import com.example.dto.FrontLast;
 import com.example.dto.FrontLimit;
 import com.example.dto.FrontLimitArea5;
 import com.example.util.DaFrontHis;
 
-public class Front115 {
+import java.util.*;
+
+public class Front116 {
 	private static boolean showLast = true;// false true
 	private static boolean showYuce = true;// false true
 

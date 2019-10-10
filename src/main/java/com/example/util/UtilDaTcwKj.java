@@ -3,7 +3,7 @@ package com.example.util;
 public class UtilDaTcwKj {
 
 	public static void main(String[] args) {
-		String backString = "19114 03 05 07 20 23 04 11 ";
+		String backString = "19115 01 18 21 28 32 05 12 ";
 
 		String[] str = backString.split(" ");
 		int curNum = 101;
